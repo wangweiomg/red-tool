@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#f6f1e7" />
+  <title>装修实验室</title>
+  <style>
+    html, body { margin: 0; padding: 0; background: #f6f1e7; color: #3f352b; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                   "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    h1, h2, p { margin: 0; }
+    [hidden] { display: none !important; }
+    .app { min-height: 100vh; padding: 0 16px 24px; }
+  </style>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22">
+            <path d="M4 12 12 4l8 8v8H4z" fill="#ffd166"></path>
+            <rect x="10" y="14" width="4" height="6" fill="#8a6a4b"></rect>
+          </svg>
+        </span>
+        <div>
+          <p class="eyebrow">ISOMETRIC DECOR</p>
+          <h1>装修实验室</h1>
+        </div>
+      </div>
+      <span class="tag-chip">2.5D 原型</span>
+    </header>
+
+    <section class="setup-screen" id="setup-screen">
+      <p class="subtitle">选一个户型，按硬装 → 软装的顺序，一步步搭出你的理想家。</p>
+
+      <div class="plan-list">
+        <button class="plan-card is-active" type="button" data-plan="studio">
+          <span class="plan-name">奶油一居室</span>
+          <span class="plan-meta">6×6 开间 · 一个人住刚刚好</span>
+          <span class="plan-preview" aria-hidden="true">
+            <span class="plan-room"></span>
+          </span>
+        </button>
+        <button class="plan-card is-locked" type="button" disabled>
+          <span class="plan-name">两居室</span>
+          <span class="plan-meta">下一版解锁</span>
+        </button>
+      </div>
+
+      <button class="btn btn-primary btn-block" type="button" id="start-btn">开始装修</button>
+      <button class="btn btn-ghost btn-block" type="button" id="market-btn">逛建材市场</button>
+      <p class="setup-hint">原型开放一居室：先完成地板、墙面和灯光，再摆放家具和挂饰。</p>
+    </section>
+
+    <section class="stage-screen" id="stage-screen" hidden>
+      <div class="stage-head">
+        <button class="link-btn" type="button" id="back-btn">‹ 返回</button>
+        <div class="steps" aria-label="装修进度">
+          <span class="step is-active" id="step-hard">1 硬装</span>
+          <span class="step" id="step-soft">2 软装</span>
+        </div>
+      </div>
+
+      <div class="canvas-wrap" id="canvas-wrap">
+        <canvas id="room" aria-label="等距装修预览"></canvas>
+        <div class="placement-tip" id="placement-tip" hidden></div>
+      </div>
+
+      <p class="message" id="message" role="status">先选地板、墙面和灯光。</p>
+
+      <div class="sound-bar" aria-label="声音设置">
+        <span class="sound-label">声音</span>
+        <button class="sound-toggle is-on" id="toggle-sfx" type="button" role="switch" aria-checked="true">音效</button>
+        <button class="sound-toggle" id="toggle-bgm" type="button" role="switch" aria-checked="false" title="萨蒂《裸体歌舞》改编">背景音乐</button>
+      </div>
+
+      <div class="panel" id="hard-panel">
+        <div class="material-row" data-kind="floor"></div>
+        <div class="material-row" data-kind="wall"></div>
+        <div class="material-row" data-kind="light"></div>
+        <button class="link-btn market-link" type="button" id="market-link">去建材市场解锁更多材质 →</button>
+        <button class="btn btn-primary btn-block" type="button" id="to-soft">下一步：软装</button>
+      </div>
+
+      <div class="panel" id="soft-panel" hidden>
+        <div class="tray" id="tray" role="group" aria-label="家具目录"></div>
+        <p class="tray-hint" id="tray-hint">点一件家具开始布置</p>
+        <div class="actions">
+          <button class="btn btn-ghost" type="button" id="auto-btn" disabled>放到空位</button>
+          <button class="btn btn-ghost" type="button" id="rotate-btn">旋转</button>
+          <button class="btn btn-ghost" type="button" id="remove-btn" disabled>移除</button>
+          <button class="btn btn-ghost" type="button" id="undo-btn" disabled>撤销</button>
+          <button class="btn btn-primary" type="button" id="finish-btn">完成装修</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="market-screen" id="market-screen" hidden>
+      <div class="stage-head">
+        <button class="link-btn" type="button" id="market-back">‹ 返回</button>
+        <div class="market-budget">预算 <strong id="market-budget">¥30,000</strong></div>
+      </div>
+      <p class="subtitle">点开任意材料，查看材质、环保等级和用途；购买后部分材质会解锁到硬装。</p>
+      <div class="market-cats" id="market-cats" role="tablist" aria-label="建材分类"></div>
+      <div class="market-list" id="market-list"></div>
+      <p class="market-note">原型使用虚拟预算，不涉及真实支付。</p>
+    </section>
+
+    <section class="result-screen" id="result-screen" hidden>
+      <p class="result-kicker">装修完成</p>
+      <p class="result-title" id="result-title">奶油一居室 · 我的理想家</p>
+      <p class="result-sub" id="result-sub">家具 0 件 · 挂饰 0 件</p>
+
+      <div class="card-wrap">
+        <img id="card-preview" alt="装修明信片预览" />
+      </div>
+
+      <div class="result-actions">
+        <button class="btn btn-primary" type="button" id="save-card">保存明信片</button>
+        <button class="btn btn-ghost" type="button" id="share-card">分享图片</button>
+        <button class="btn btn-ghost" type="button" id="post-note">发布笔记</button>
+        <button class="btn btn-ghost" type="button" id="again-btn">再装修一次</button>
+        <button class="btn btn-ghost" type="button" id="home-btn">换个户型</button>
+      </div>
+      <p class="share-status" id="share-status" role="status"></p>
+    </section>
+
+    <details class="rules">
+      <summary>怎么玩</summary>
+      <ul>
+        <li>原型只有一个 6×6 一居室，后续会扩两居室和更多户型。</li>
+        <li>硬装阶段先选地板、墙面和灯光；完成后才能进入软装。</li>
+        <li>软装阶段点家具再点地面放置；挂画和窗帘要点墙面。</li>
+        <li>点已放置的物件可以旋转或移除；支持撤销。</li>
+        <li>完成装修后会生成一张等距明信片，可保存或分享。</li>
+      </ul>
+    </details>
+
+    <p class="save-status" id="save-status" role="status">进度会自动保存在当前小工具。</p>
+
+    <div class="modal" id="market-modal" hidden>
+      <div class="modal-mask" id="modal-mask"></div>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-name">
+        <button class="modal-close" type="button" id="modal-close" aria-label="关闭">×</button>
+        <p class="modal-cat" id="modal-cat"></p>
+        <img class="modal-photo" id="modal-photo" alt="" />
+        <h2 class="modal-name" id="modal-name"></h2>
+        <p class="modal-price" id="modal-price"></p>
+        <p class="modal-disclaimer">示意图，非真实商品照片</p>
+        <dl class="modal-specs" id="modal-specs"></dl>
+        <p class="modal-tip" id="modal-tip"></p>
+        <button class="btn btn-primary btn-block" type="button" id="modal-buy">购买</button>
+      </div>
+    </div>
+  </main>
+  <script defer src="./data.js"></script>
+  <script defer src="./engine.js"></script>
+  <script defer src="./app.js"></script>
+</body>
+</html>

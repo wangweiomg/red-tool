@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#f7f3ea" />
+  <title>装修流程手册</title>
+  <style>
+    html, body { margin: 0; padding: 0; background: #f7f3ea; color: #3d352b; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                   "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    h1, h2, h3, p { margin: 0; }
+    [hidden] { display: none !important; }
+    .app { min-height: 100vh; padding: 0 16px 88px; }
+  </style>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22">
+            <path d="M4 11 12 4l8 7v9H4z" fill="#e0a94b"></path>
+            <rect x="9" y="14" width="6" height="6" fill="#8a6a4b"></rect>
+          </svg>
+        </span>
+        <div>
+          <p class="eyebrow">RENOVATION GUIDE</p>
+          <h1>装修流程手册</h1>
+        </div>
+      </div>
+      <span class="tag-chip">新一线参考</span>
+    </header>
+
+    <!-- 流程 -->
+    <section class="screen" id="flow-screen">
+      <p class="intro">按阶段推进装修：每一步做什么、验收看什么、常见坑在哪里。勾选已完成，形成自己的进度。</p>
+      <div class="house-toggle" id="house-toggle" role="group" aria-label="房屋类型">
+        <button class="house-btn is-active" type="button" data-house="new">新房</button>
+        <button class="house-btn" type="button" data-house="old">老房改造</button>
+      </div>
+      <div class="progress-row">
+        <span id="flow-progress-text">已完成 0 / 10</span>
+        <div class="progress-track"><span class="progress-fill" id="flow-progress-fill"></span></div>
+      </div>
+      <div class="stage-list" id="stage-list"></div>
+      <p class="disclaimer">通用经验，施工以当地规范和专业人员现场确认为准。</p>
+    </section>
+
+    <!-- 材料 -->
+    <section class="screen" id="materials-screen" hidden>
+      <p class="intro">按分类看材料：关键指标、环保等级、新一线参考价、选购要点和常见坑。</p>
+      <div class="chips" id="material-cats" role="tablist" aria-label="材料分类"></div>
+      <div class="material-list" id="material-list"></div>
+      <p class="disclaimer">价格为参考区间，随品牌、规格与施工方式波动；环保等级以检测报告为准。</p>
+    </section>
+
+    <!-- 空间 -->
+    <section class="screen" id="spaces-screen" hidden>
+      <p class="intro">按空间查关键处理，重点看容易被忽略的细节。</p>
+      <div class="space-list" id="space-list"></div>
+    </section>
+
+    <!-- 预算 -->
+    <section class="screen" id="budget-screen" hidden>
+      <p class="intro">按面积和档次估算总预算与分项占比。老房翻新会增加拆改与水电投入。</p>
+      <div class="budget-form">
+        <label class="field">
+          <span>建筑面积（㎡）</span>
+          <input type="number" id="budget-area" inputmode="decimal" min="10" max="1000" placeholder="例如 89" />
+        </label>
+        <p class="field-label">装修档次</p>
+        <div class="chips" id="budget-tiers"></div>
+        <label class="check-line">
+          <input type="checkbox" id="budget-old" />
+          <span>老房翻新（拆改、水电更多）</span>
+        </label>
+        <button class="btn btn-primary btn-block" type="button" id="budget-calc">估算预算</button>
+      </div>
+      <div class="budget-result" id="budget-result" hidden>
+        <p class="result-label">预估总价</p>
+        <p class="budget-total" id="budget-total">—</p>
+        <p class="budget-sub" id="budget-sub"></p>
+        <div class="budget-items" id="budget-items"></div>
+        <p class="disclaimer">估算不含地区差异、拆改大项、中央空调、地暖、定制家具与家电；仅作预算参考。</p>
+      </div>
+    </section>
+
+    <!-- 自测 -->
+    <section class="screen" id="quiz-screen" hidden>
+      <div class="quiz-start" id="quiz-start">
+        <p class="quiz-kicker">更专业的避坑自测</p>
+        <h2>12 道装修判断题</h2>
+        <p class="quiz-desc">覆盖防水、水电、泥瓦、板材、门窗与入住检测。每题答完给解析，最后生成成绩卡。</p>
+        <button class="btn btn-primary btn-block" type="button" id="quiz-begin">开始自测</button>
+        <p class="quiz-best" id="quiz-best"></p>
+      </div>
+      <div class="quiz-play" id="quiz-play" hidden>
+        <div class="quiz-meta">
+          <span id="quiz-progress">第 1 / 12 题</span>
+          <span id="quiz-score-live">答对 0 题</span>
+        </div>
+        <p class="quiz-question" id="quiz-question"></p>
+        <div class="quiz-options" id="quiz-options"></div>
+        <p class="quiz-explain" id="quiz-explain" hidden></p>
+        <button class="btn btn-primary btn-block" type="button" id="quiz-confirm" disabled>确认答案</button>
+        <button class="btn btn-primary btn-block" type="button" id="quiz-next" hidden>下一题</button>
+      </div>
+      <div class="quiz-result" id="quiz-result" hidden>
+        <p class="quiz-kicker">自测完成</p>
+        <p class="quiz-score"><strong id="quiz-result-score">0</strong><span>/ 12</span></p>
+        <p class="quiz-title" id="quiz-result-title"></p>
+        <p class="quiz-best-line" id="quiz-result-best"></p>
+        <div class="quiz-review" id="quiz-review"></div>
+        <div class="card-wrap">
+          <img id="quiz-card" alt="自测成绩卡预览" />
+        </div>
+        <div class="result-actions">
+          <button class="btn btn-primary" type="button" id="quiz-save">保存成绩卡</button>
+          <button class="btn btn-ghost" type="button" id="quiz-share">分享图片</button>
+          <button class="btn btn-ghost" type="button" id="quiz-post">发布笔记</button>
+          <button class="btn btn-ghost" type="button" id="quiz-again">再测一次</button>
+        </div>
+        <p class="share-status" id="quiz-share-status" role="status"></p>
+      </div>
+    </section>
+
+    <nav class="tabbar" aria-label="主导航">
+      <button class="tab is-active" type="button" data-tab="flow"><span>01</span>流程</button>
+      <button class="tab" type="button" data-tab="materials"><span>02</span>材料</button>
+      <button class="tab" type="button" data-tab="spaces"><span>03</span>空间</button>
+      <button class="tab" type="button" data-tab="budget"><span>04</span>预算</button>
+      <button class="tab" type="button" data-tab="quiz"><span>05</span>自测</button>
+    </nav>
+
+    <div class="modal" id="material-modal" hidden>
+      <div class="modal-mask" id="material-mask"></div>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="material-name">
+        <button class="modal-close" type="button" id="material-close" aria-label="关闭">×</button>
+        <p class="modal-cat" id="material-cat"></p>
+        <h2 class="modal-name" id="material-name"></h2>
+        <p class="modal-price" id="material-price"></p>
+        <dl class="modal-specs" id="material-specs"></dl>
+        <h3 class="modal-sub">选购要点</h3>
+        <ul class="modal-list" id="material-tips"></ul>
+        <h3 class="modal-sub">常见坑</h3>
+        <ul class="modal-list" id="material-pitfalls"></ul>
+        <p class="modal-note">价格为新一线参考区间；环保等级以检测报告为准。</p>
+      </div>
+    </div>
+  </main>
+  <script defer src="./data.js"></script>
+  <script defer src="./engine.js"></script>
+  <script defer src="./app.js"></script>
+</body>
+</html>

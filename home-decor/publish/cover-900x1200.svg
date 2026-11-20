@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#fdf9f0"/>
+      <stop offset="0.55" stop-color="#f8f0e2"/>
+      <stop offset="1" stop-color="#efe3d0"/>
+    </linearGradient>
+    <linearGradient id="btn" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6d79b"/>
+      <stop offset="1" stop-color="#e3b160"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1200" fill="url(#bg)"/>
+  <circle cx="780" cy="170" r="210" fill="#f0dfc2" opacity="0.55"/>
+  <circle cx="120" cy="1020" r="230" fill="#dfe8db" opacity="0.5"/>
+
+  <text x="450" y="104" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="600" letter-spacing="8" fill="#a08055">ISOMETRIC DECOR</text>
+  <text x="450" y="200" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="76" font-weight="800" letter-spacing="2" fill="#3a2f24">装修实验室</text>
+  <text x="450" y="258" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="30" fill="#8a7a68">选户型 → 硬装 → 软装，搭出理想家</text>
+
+  <g>
+    <!-- 地板 -->
+    <polygon points="170,640 450,500 730,640 450,780" fill="#d9bf98" stroke="#b9976c" stroke-width="4"/>
+    <g stroke="#c6a87f" stroke-width="2">
+      <line x1="216,663" x2="496,523"/>
+      <line x1="263,686" x2="543,546"/>
+      <line x1="310,709" x2="590,569"/>
+      <line x1="357,732" x2="637,592"/>
+      <line x1="404,755" x2="684,615"/>
+      <line x1="404,525" x2="404,755"/>
+      <line x1="497,570" x2="497,710"/>
+      <line x1="590,615" x2="590,665"/>
+    </g>
+    <!-- 墙 -->
+    <polygon points="170,640 450,500 450,260 170,400" fill="#f3ead9" stroke="#d6c8b0" stroke-width="4"/>
+    <polygon points="450,500 730,640 730,400 450,260" fill="#e9ddc9" stroke="#d6c8b0" stroke-width="4"/>
+    <polygon points="170,640 450,500 450,470 170,610" fill="#e3d7c3"/>
+    <polygon points="450,500 730,640 730,610 450,470" fill="#ded1bb"/>
+
+    <!-- 地毯 -->
+    <polygon points="450,600 580,662 450,724 320,662" fill="#e7dccb" stroke="#cdbba2" stroke-width="3"/>
+    <polygon points="450,618 552,668 450,718 348,668" fill="none" stroke="#cdbba2" stroke-width="2"/>
+
+    <!-- 床 -->
+    <g>
+      <polygon points="300,600 430,536 470,556 340,620" fill="#f1e8d9"/>
+      <polygon points="340,620 470,556 470,586 340,650" fill="#d8c3a6"/>
+      <polygon points="470,556 500,570 500,600 470,586" fill="#c9a87c"/>
+      <polygon points="300,600 340,620 340,650 300,630" fill="#c9a87c"/>
+      <polygon points="316,606 380,574 380,586 316,618" fill="#ffffff"/>
+      <polygon points="390,580 436,558 436,570 390,592" fill="#ffffff"/>
+    </g>
+
+    <!-- 沙发 -->
+    <g>
+      <polygon points="520,610 620,560 680,590 580,640" fill="#eee2cf"/>
+      <polygon points="520,610 580,640 580,690 520,660" fill="#dcc9ad"/>
+      <polygon points="580,640 680,590 680,640 580,690" fill="#cbb697"/>
+      <polygon points="540,606 620,566 620,584 540,624" fill="#d4c1a5"/>
+      <polygon points="556,616 604,592 604,604 556,628" fill="#f6efe2"/>
+      <polygon points="612,588 660,564 660,576 612,600" fill="#f6efe2"/>
+    </g>
+
+    <!-- 绿植 -->
+    <g>
+      <polygon points="700,610 724,598 724,626 700,638" fill="#b98b63"/>
+      <polygon points="724,598 748,610 748,638 724,626" fill="#a3774f"/>
+      <polygon points="700,610 724,598 748,610 724,622" fill="#c79a72"/>
+      <circle cx="724" cy="568" r="26" fill="#5f8f63"/>
+      <circle cx="700" cy="584" r="18" fill="#6f9f73"/>
+      <circle cx="748" cy="584" r="18" fill="#4f7a55"/>
+    </g>
+
+    <!-- 挂画 -->
+    <g>
+      <polygon points="300,400 380,362 380,430 300,468" fill="#ffffff" stroke="#b99a6a" stroke-width="4"/>
+      <polygon points="312,408 368,382 368,422 312,448" fill="#dfe8db" stroke="#b99a6a" stroke-width="3"/>
+      <circle cx="340" cy="416" r="9" fill="#e0a94b"/>
+    </g>
+
+    <!-- 落地灯 -->
+    <g>
+      <line x1="660" y1="520" x2="660" y2="600" stroke="#b99a6a" stroke-width="5"/>
+      <polygon points="638,500 682,500 674,528 646,528" fill="#f0d9a8" stroke="#c9ae7d" stroke-width="3"/>
+      <ellipse cx="660" cy="500" rx="34" ry="10" fill="#ffe6b8" opacity="0.7"/>
+    </g>
+  </g>
+
+  <g font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700">
+    <rect x="210" y="860" width="150" height="56" rx="28" fill="#f9ecd4" stroke="#d8bd91"/>
+    <text x="285" y="897" text-anchor="middle" fill="#8a5a1c">硬装</text>
+    <rect x="375" y="860" width="150" height="56" rx="28" fill="#f9ecd4" stroke="#d8bd91"/>
+    <text x="450" y="897" text-anchor="middle" fill="#8a5a1c">软装</text>
+    <rect x="540" y="860" width="150" height="56" rx="28" fill="#f9ecd4" stroke="#d8bd91"/>
+    <text x="615" y="897" text-anchor="middle" fill="#8a5a1c">明信片</text>
+  </g>
+
+  <text x="450" y="1010" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="26" fill="#8a7a68">6×6 一居室 · 12 件家具 · 即时等距预览</text>
+  <text x="450" y="1080" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="22" fill="#b08a5a">一步步搭出理想家</text>
+  <text x="450" y="1120" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="18" fill="#b6a68f">装修实验室 · 2.5D 原型</text>
+</svg>

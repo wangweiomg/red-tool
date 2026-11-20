@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="240" viewBox="0 0 320 240">
+  <rect width="320" height="240" rx="20" fill="#f8f1e4"/>
+  <ellipse cx="160" cy="202" rx="82" ry="11" fill="#e7d8c1" opacity="0.7"/>
+  
+  
+  <defs>
+    <pattern id="hb" width="56" height="56" patternUnits="userSpaceOnUse">
+      <rect width="56" height="56" fill="#d8bb92"/>
+      <g fill="#c6a57c" stroke="#b08c60" stroke-width="1">
+        <rect x="4" y="4" width="26" height="10" transform="rotate(45 17 9)"/>
+        <rect x="30" y="14" width="10" height="26" transform="rotate(45 35 27)"/>
+        <rect x="4" y="30" width="26" height="10" transform="rotate(45 17 35)"/>
+        <rect x="30" y="2" width="10" height="26" transform="rotate(-45 35 15)"/>
+      </g>
+    </pattern>
+  </defs>
+  <rect x="90" y="64" width="140" height="140" rx="6" fill="url(#hb)" stroke="#b08c60" stroke-width="2"/>
+</svg>

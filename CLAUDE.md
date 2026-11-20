@@ -57,11 +57,24 @@ red-tool/
     ├── tests/
     ├── game-christmas-tree.zip
     └── README.md
-└── english-shadowing/
+├── english-shadowing/
     ├── dist/
     ├── publish/
     ├── tests/
     ├── english-shadowing.zip
+    └── README.md
+├── home-decor/
+    ├── dist/
+    ├── publish/
+    ├── tests/
+    ├── home-decor.zip
+    └── README.md
+└── renovation-guide/
+    ├── dist/
+    ├── publish/
+    ├── tests/
+    ├── renovation-guide.zip
+    ├── CONTENT-OUTLINE.md
     └── README.md
 ```
 
@@ -170,13 +183,15 @@ node "$HOME/.claude/skills/redapp-cli/scripts/ensure-cli.mjs"
 - 目录：`game-huarongdao/`
 - appId：`6afeb9b33894b300155e8782`
 - 已发布版本：`1.0.0`（`status=2 已发布`，查询于 2026-11-20）
-- 本地版本：`1.1.0`（新增音效与《卡农》改编背景音乐，尚未上传预览）
+- 1.1.0 状态：已上传并生成预览，未送审（2026-11-20）
 - 类目：`casual_game`
 - 布局：经典「横刀立马」
 - 操作记录：`~/.local/state/redapp-cli/game-huarongdao/2026-11-19-upload-preview/session.json`
 - 已送审代码包 fileId（1.0.0）：`red_app/svRtBqjVCU4G5NeOstK_qQUxYyDSpRcxbid97K0ql5ZOJy0.zip`
 - 声音：音效默认开（选中、移动、撞墙、通关），背景音乐默认关（帕赫贝尔《卡农》D 大调和弦进行改编，Web Audio 合成）；开关保存在 `huarongdao.v1.state` 的 `sound` 字段
+- 1.1.0 已上传代码包 fileId：`red_app/oa5tjyyL_VhVyzkwxpuZuXGX0fFRRmvhJZ3cfne3i5iFh84.zip`
 - 本地 ZIP SHA-256（1.1.0）：`5ebc2c3da16208477916ec8fc67e9342f9cd5b506315763c3e525610489aa8ad`（12,025 B）
+- 1.1.0 操作记录：`~/.local/state/redapp-cli/game-huarongdao/2026-11-20-audio-preview/session.json`
 - 更新时必须使用同一 appId + 新版本号，并重新预览、送审。
 
 ### 成语解谜
@@ -266,6 +281,52 @@ node "$HOME/.claude/skills/redapp-cli/scripts/ensure-cli.mjs"
 - 已送审 ZIP SHA-256：`240afd395aedc14cb6ed4972aa1d152488ed0311d6198c93e316781c0bde9777`（15,879 B）
 - 历史验证版 0.1.x 的 fileId 与修复记录保留在 `~/.local/state/redapp-cli/english-shadowing/2026-11-19-upload/session.json`
 - 更新时必须使用同一 appId + 新版本号，并重新预览、送审
+
+### 装修实验室（2.5D 原型）
+
+- 目录：`home-decor/`
+- 版本：`0.1.5`（已上传并生成预览，未送审）
+- 0.1.2 修复：选中家具后可点地面放置；新增 canvas pointerup、选中文案、空位高亮和「放到空位」按钮
+- 0.1.0 已上传并生成预览（2026-11-20）
+- 0.1.5 已上传代码包 fileId：`red_app/Uesmwkv-x2tqTzieWVmVJqBam4e5OvvnlKI-6itAw3lvAws.zip`
+- 0.1.4 已上传代码包 fileId：`red_app/EzLswZ8_SZ7ehtMTZntlQDm2MgGaxCKZcOrpuPVT9plecWo.zip`
+- 0.1.2 已上传代码包 fileId：`red_app/WBkCxt1wtMdmW-TtF6x_tLhskJOpBCRZVOm8F4En0rIy8As.zip`
+- 0.1.0 已上传代码包 fileId：`red_app/lepCgjuJv5noTekU2CDXnEE8pvF33PdUUa5DJ31YRMtD13Y.zip`
+- 图标 fileId：`red_skill_tool_image/LtsXReOugaZveKrI_rF1Q-EJ-HYfSBU1o3QuzjK5ELJ_Wyk.png`
+- 封面 fileId：`red_skill_tool_image/S0G8ipA8ipEUXUuOJn-fvBmfFqWZAsCfvxq4yZdlFKjpb9o.png`
+- 操作记录：`~/.local/state/redapp-cli/home-decor/2026-11-20-prototype-preview/session.json`
+- 玩法：选户型 → 硬装（地板/墙面/灯光）→ 软装（12 件家具/挂饰）→ 完成生成 900×1200 明信片
+- 渲染：Canvas 2D 等距绘制，无外部图片；明信片复用同一套绘制逻辑
+- 交互：点家具再点地面/墙面放置；选中后可旋转 90°、移除、撤销
+- 存储：`homedecor.v1.state`，保存阶段、材质、家具与 UID
+- 已知限制：仅一个 6×6 户型；一套程序化简化家具；无评分/预算/风格包；无音频；未做连续拖拽
+- 声音：音效默认开（选家具、放置、旋转、移除、撤销、换材质、完工），背景音乐默认关（萨蒂《裸体歌舞》三拍子改编，Web Audio 合成，公有领域作品）；开关保存在 `homedecor.v1.state` 的 `sound` 字段
+- 建材市场：6 分类、22 件材料；详情含材质、环保等级、适用空间、选购提示；虚拟预算 ¥30,000；人字拼/微水泥/暖光氛围灯购买后解锁硬装；`dist/assets/market/*.svg` 为统一风格示意图（非真实商品照片）
+- 本地 ZIP SHA-256（0.1.5）：`cf492900899be08384a1b676946be3b60f5118abb03346daadc0041fb0d655f5`（37,244 B）
+- 单元测试：`node home-decor/tests/engine.test.js`
+- 待办：第二个户型、风格包、拖拽与贴墙、美术素材、真机验证
+
+### 装修流程手册
+
+- 目录：`renovation-guide/`
+- appId：`6affd24c261c1b0015ec0da1`
+- 版本：`0.1.0`
+- 状态：已送审，审核中（截至 2026-11-20）
+- 类目：`learning_education`
+- 权限：`photos`（保存自测成绩卡）
+- 定位：首次装修 + 老房改造的决策工具，内容驱动，弱交互
+- 内容：10 个装修阶段（含新房/老房切换）、30 条材料百科、5 个空间攻略、新一线预算评估器、12 道专业避坑自测
+- 预算：简装 1000–1400、中档 1800–2500、品质 3000–4000 元/㎡（新一线）；老房系数 1.15；分项占比水电 16%、泥瓦 17%、木作 22%、油漆 9%、主材 30%、其他 6%
+- 存储：`renovationguide.v1.state`，保存流程进度、房屋类型、预算输入与自测最好成绩
+- 分享：自测成绩卡支持保存相册 / 分享 / 发布笔记，均做能力检测
+- 内容边界：通用经验，不替代当地规范与专业人员；价格与环保等级为参考
+- 已上传代码包 fileId：`red_app/1jaRVKA-MKLRavy6BzkxkqtPd-1JDRqY3Ablm2lYBzus2xs.zip`
+- 图标 fileId：`red_skill_tool_image/i1l5Mfuup-skYATaZu7tt_dWN7aocY2Y_rqvt6KFIZn-Gxg.png`
+- 封面 fileId：`red_skill_tool_image/56ZyukMSxdnJ-QGcxaRoJOkJE1iUJIjoLRiUNvtJist0yYs.png`
+- 操作记录：`~/.local/state/redapp-cli/renovation-guide/2026-11-20-upload-preview/session.json`
+- 本地 ZIP SHA-256：`b7efe15df8cd8a7bc48f569f82ef36f04a045242b9bb65be6f4e68f1f9955738`（26,646 B）
+- 单元测试：`node renovation-guide/tests/engine.test.js`
+- 待办：平台模拟器、Android 真机、iOS 真机验证
 
 ## 操作记录
 
