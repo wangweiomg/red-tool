@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#f3e8d3" />
+  <title>华容道</title>
+  <style>
+    html, body { margin: 0; padding: 0; background: #f3e8d3; color: #5b4636; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                   "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    h1, h2, p { margin: 0; }
+  </style>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <div class="title-block">
+        <p class="eyebrow">经典滑块</p>
+        <h1>华容道</h1>
+      </div>
+      <div class="goal-chip">曹操 → 出口</div>
+    </header>
+    <p class="subtitle">移动方块，让曹操从底部出口出逃。</p>
+
+    <section class="stats-row" aria-label="步数统计">
+      <div class="stat-box">
+        <span class="stat-label">步数</span>
+        <strong class="stat-value" id="moves">0</strong>
+      </div>
+      <div class="stat-box">
+        <span class="stat-label">最少步数</span>
+        <strong class="stat-value" id="best">—</strong>
+      </div>
+    </section>
+
+    <section class="board-wrap">
+      <div class="board" id="board" aria-label="华容道棋盘">
+        <div class="board-inner">
+          <div class="grid" aria-hidden="true">
+            <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+            <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+            <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+            <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+            <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+          </div>
+          <div class="blocks" id="blocks">
+            <p class="board-loading">正在准备棋盘…若长时间未就绪，请退出后重新打开。</p>
+          </div>
+        </div>
+        <div class="board-overlay" id="overlay" hidden>
+          <p class="overlay-kicker">通关</p>
+          <p class="overlay-title" id="overlay-title">曹操出逃成功！</p>
+          <p class="overlay-desc" id="overlay-desc"></p>
+          <div class="overlay-actions">
+            <button class="btn btn-primary" id="overlay-primary" type="button">再来一局</button>
+            <button class="btn btn-ghost" id="overlay-secondary" type="button">撤销一步</button>
+          </div>
+        </div>
+      </div>
+      <p class="exit-label"><span class="exit-arrow">↓</span> 出口</p>
+    </section>
+
+    <div class="controls">
+      <button class="btn btn-ghost" id="undo" type="button" disabled>撤销一步</button>
+      <button class="btn btn-ghost" id="restart" type="button">重新开始</button>
+    </div>
+    <p class="hint">拖动方块，或点选方块后用方向键 / WASD 移动。</p>
+
+    <div class="sound-bar" aria-label="声音设置">
+      <span class="sound-label">声音</span>
+      <button class="sound-toggle is-on" id="toggle-sfx" type="button" role="switch" aria-checked="true">音效</button>
+      <button class="sound-toggle" id="toggle-bgm" type="button" role="switch" aria-checked="false" title="帕赫贝尔《卡农》改编">背景音乐</button>
+    </div>
+
+    <p class="save-status" id="save-status" role="status">进度会自动保存在当前小工具。</p>
+
+    <details class="rules">
+      <summary>怎么玩</summary>
+      <ul>
+        <li>方块只能上下左右移动，不能重叠或越过其他方块。</li>
+        <li>把 2×2 的“曹操”移动到棋盘底部中间的出口。</li>
+        <li>可以拖动方块，也可以先点选，再使用方向键 / WASD。</li>
+        <li>步数越少越好；撤销一步只回退最近一次有效移动。</li>
+      </ul>
+    </details>
+  </main>
+  <script defer src="./engine.js"></script>
+  <script defer src="./app.js"></script>
+</body>
+</html>

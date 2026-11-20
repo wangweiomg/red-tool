@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#1b3564"/>
+      <stop offset="0.5" stop-color="#0f1e3b"/>
+      <stop offset="1" stop-color="#070f1c"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.36" r="0.6">
+      <stop offset="0" stop-color="#6fb1ff" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#6fb1ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="tree1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1f7a52"/>
+      <stop offset="1" stop-color="#155c3c"/>
+    </linearGradient>
+    <linearGradient id="tree2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a6c47"/>
+      <stop offset="1" stop-color="#12482f"/>
+    </linearGradient>
+    <linearGradient id="tree3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#155c3c"/>
+      <stop offset="1" stop-color="#0f3f2a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="1200" fill="url(#bg)"/>
+  <rect width="900" height="900" fill="url(#glow)"/>
+
+  <g fill="#ffffff">
+    <circle cx="92" cy="120" r="3.2" opacity="0.6"/>
+    <circle cx="806" cy="96" r="2.8" opacity="0.5"/>
+    <circle cx="150" cy="246" r="2.2" opacity="0.4"/>
+    <circle cx="756" cy="228" r="3" opacity="0.45"/>
+    <circle cx="86" cy="520" r="2.6" opacity="0.35"/>
+    <circle cx="824" cy="560" r="2.4" opacity="0.4"/>
+    <circle cx="120" cy="760" r="2.2" opacity="0.3"/>
+    <circle cx="790" cy="800" r="2.6" opacity="0.35"/>
+    <circle cx="60" cy="980" r="2.2" opacity="0.3"/>
+    <circle cx="856" cy="1010" r="2.4" opacity="0.32"/>
+    <circle cx="300" cy="180" r="2" opacity="0.4"/>
+    <circle cx="610" cy="150" r="2.4" opacity="0.4"/>
+    <circle cx="700" cy="330" r="2" opacity="0.3"/>
+    <circle cx="200" cy="420" r="2" opacity="0.32"/>
+  </g>
+
+  <text x="450" y="104" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="600" letter-spacing="8" fill="#8fe3c0">MERRY CHRISTMAS</text>
+  <text x="450" y="196" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="78" font-weight="800" letter-spacing="4" fill="#ffffff">圣诞装饰树</text>
+  <text x="450" y="252" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="30" fill="#a9b8d6">拖动挂饰，把这棵冷杉挂成你的样子</text>
+
+  <ellipse cx="450" cy="1105" rx="360" ry="34" fill="#0a1c2e" opacity="0.7"/>
+
+  <polygon points="450,330 120,1000 780,1000" fill="url(#tree3)"/>
+  <polygon points="450,430 180,820 720,820" fill="url(#tree2)"/>
+  <polygon points="450,520 250,680 650,680" fill="url(#tree1)"/>
+  <path d="M120 1000 Q450 940 780 1000" fill="none" stroke="#e9f4ff" stroke-width="6" opacity="0.28"/>
+  <path d="M180 820 Q450 770 720 820" fill="none" stroke="#e9f4ff" stroke-width="5" opacity="0.25"/>
+  <path d="M250 680 Q450 640 650 680" fill="none" stroke="#e9f4ff" stroke-width="4" opacity="0.22"/>
+
+  <rect x="414" y="992" width="72" height="92" rx="8" fill="#7a4a26"/>
+  <rect x="414" y="992" width="22" height="92" fill="#8d582e"/>
+
+  <polygon points="450,296 464,326 496,330 472,352 478,384 450,368 422,384 428,352 404,330 436,326"
+           fill="#ffd166"/>
+  <polygon points="450,316 457,332 474,334 461,346 465,363 450,354 435,363 439,346 426,334 443,332"
+           fill="#fff4c9" opacity="0.85"/>
+
+  <g stroke="#c9d6ea" stroke-width="5">
+    <line x1="400" y1="556" x2="400" y2="580"/>
+    <line x1="500" y1="556" x2="500" y2="580"/>
+    <line x1="450" y1="612" x2="450" y2="636"/>
+    <line x1="340" y1="700" x2="340" y2="724"/>
+    <line x1="560" y1="700" x2="560" y2="724"/>
+    <line x1="450" y1="760" x2="450" y2="784"/>
+    <line x1="250" y1="850" x2="250" y2="874"/>
+    <line x1="650" y1="850" x2="650" y2="874"/>
+    <line x1="450" y1="862" x2="450" y2="886"/>
+    <line x1="350" y1="922" x2="350" y2="946"/>
+    <line x1="550" y1="922" x2="550" y2="946"/>
+  </g>
+
+  <circle cx="400" cy="604" r="28" fill="#d8354b"/>
+  <ellipse cx="391" cy="594" rx="9" ry="11" fill="#ffffff" opacity="0.35"/>
+  <circle cx="500" cy="604" r="28" fill="#4f8ef7"/>
+  <ellipse cx="491" cy="594" rx="9" ry="11" fill="#ffffff" opacity="0.35"/>
+  <circle cx="450" cy="660" r="29" fill="#e8b04b"/>
+  <ellipse cx="441" cy="649" rx="9" ry="11" fill="#ffffff" opacity="0.35"/>
+
+  <circle cx="340" cy="748" r="27" fill="#c2cede"/>
+  <ellipse cx="332" cy="738" rx="8" ry="10" fill="#ffffff" opacity="0.4"/>
+  <circle cx="560" cy="748" r="27" fill="#d8354b"/>
+  <ellipse cx="552" cy="738" rx="8" ry="10" fill="#ffffff" opacity="0.35"/>
+  <circle cx="450" cy="808" r="28" fill="#4f8ef7"/>
+  <ellipse cx="441" cy="798" rx="9" ry="11" fill="#ffffff" opacity="0.35"/>
+
+  <circle cx="250" cy="898" r="26" fill="#d8354b"/>
+  <ellipse cx="242" cy="888" rx="8" ry="10" fill="#ffffff" opacity="0.35"/>
+  <circle cx="650" cy="898" r="26" fill="#c2cede"/>
+  <ellipse cx="642" cy="888" rx="8" ry="10" fill="#ffffff" opacity="0.4"/>
+  <circle cx="450" cy="910" r="27" fill="#e8b04b"/>
+  <ellipse cx="441" cy="900" rx="8" ry="10" fill="#ffffff" opacity="0.35"/>
+  <circle cx="350" cy="970" r="24" fill="#4f8ef7"/>
+  <ellipse cx="343" cy="961" rx="7" ry="9" fill="#ffffff" opacity="0.35"/>
+  <circle cx="550" cy="970" r="24" fill="#f08bb0"/>
+  <ellipse cx="543" cy="961" rx="7" ry="9" fill="#ffffff" opacity="0.35"/>
+
+  <rect x="150" y="1132" width="600" height="52" rx="26" fill="#ffffff" opacity="0.06"/>
+  <rect x="150" y="1132" width="600" height="52" rx="26" fill="none" stroke="#ffffff" stroke-opacity="0.16"/>
+  <text x="450" y="1166" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="24" fill="#cfdcf5">3 个主题订单 · 自由装饰 · 生成圣诞明信片</text>
+</svg>

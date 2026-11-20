@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#faf8ef" />
+  <title>2048</title>
+  <style>
+    html, body { margin: 0; padding: 0; background: #faf8ef; color: #776e65; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                   "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    h1, h2, p { margin: 0; }
+  </style>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <div class="title-block">
+        <p class="eyebrow">滑动合成</p>
+        <h1>2048</h1>
+      </div>
+      <button class="btn btn-primary" id="new-game" type="button">新游戏</button>
+    </header>
+    <p class="subtitle">滑动方块，让相同数字合并，挑战 2048。</p>
+
+    <section class="score-row" aria-label="分数">
+      <div class="score-box">
+        <span class="score-label">分数</span>
+        <strong class="score-value" id="score">0</strong>
+      </div>
+      <div class="score-box">
+        <span class="score-label">最高分</span>
+        <strong class="score-value" id="best">0</strong>
+      </div>
+    </section>
+
+    <section class="board-wrap">
+      <div class="board" id="board" aria-label="2048 游戏棋盘">
+        <div class="board-inner">
+          <div class="grid" aria-hidden="true">
+            <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+            <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+            <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+            <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+          </div>
+          <div class="tiles" id="tiles">
+            <p class="board-loading">正在准备棋盘…若长时间未就绪，请退出后重新打开。</p>
+          </div>
+        </div>
+        <div class="board-overlay" id="overlay" hidden>
+          <p class="overlay-title" id="overlay-title">游戏结束</p>
+          <p class="overlay-desc" id="overlay-desc"></p>
+          <div class="overlay-actions">
+            <button class="btn btn-primary" id="overlay-primary" type="button">继续</button>
+            <button class="btn btn-ghost" id="overlay-secondary" type="button">新游戏</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="controls">
+      <button class="btn btn-ghost" id="undo" type="button" disabled>撤销一步</button>
+      <p class="hint">在棋盘上滑动，或使用方向键 / WASD</p>
+    </div>
+
+    <div class="sound-bar" aria-label="声音设置">
+      <span class="sound-label">声音</span>
+      <button class="sound-toggle is-on" id="toggle-sfx" type="button" role="switch" aria-checked="true">音效</button>
+      <button class="sound-toggle" id="toggle-bgm" type="button" role="switch" aria-checked="false">背景音乐</button>
+    </div>
+
+    <p class="save-status" id="save-status" role="status">进度会自动保存在当前小工具。</p>
+
+    <details class="rules">
+      <summary>怎么玩</summary>
+      <ul>
+        <li>在棋盘上上下左右滑动，所有方块朝同一方向移动。</li>
+        <li>两个相同数字相撞会合并成它们的和，并获得分数。</li>
+        <li>每次有效移动后，空格中会随机出现 2 或 4。</li>
+        <li>合成 2048 后可以继续挑战更高数字；棋盘填满且无法移动时本局结束。</li>
+      </ul>
+    </details>
+  </main>
+  <script defer src="./engine.js"></script>
+  <script defer src="./app.js"></script>
+</body>
+</html>

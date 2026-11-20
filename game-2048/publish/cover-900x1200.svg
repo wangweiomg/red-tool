@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.7" y2="1">
+      <stop offset="0" stop-color="#fffdf8"/>
+      <stop offset="1" stop-color="#f3eadc"/>
+    </linearGradient>
+    <radialGradient id="soft" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#d9c7ae" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#d9c7ae" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="boardShadow" x="-15%" y="-15%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#6d5a45" flood-opacity="0.20"/>
+    </filter>
+  </defs>
+  <rect width="900" height="1200" fill="url(#bg)"/>
+  <circle cx="820" cy="120" r="360" fill="url(#soft)"/>
+  <circle cx="60" cy="1130" r="320" fill="url(#soft)"/>
+
+  <text x="70" y="126" font-family="Noto Sans CJK SC" font-size="26" letter-spacing="6" fill="#a39485">经典数字合并</text>
+  <text x="70" y="310" font-family="Noto Sans CJK SC" font-size="190" font-weight="700" fill="#5c5248">2048</text>
+  <text x="74" y="372" font-family="Noto Sans CJK SC" font-size="36" fill="#8f8478">滑动合成，挑战更高数字</text>
+
+  <rect x="596" y="86" width="238" height="72" rx="36" fill="#8f7a66"/>
+  <text x="620" y="116" font-family="Noto Sans CJK SC" font-size="20" fill="#eee4da">最高分</text>
+  <text x="620" y="142" font-family="Noto Sans CJK SC" font-size="30" font-weight="700" fill="#ffffff">23,456</text>
+
+  <rect x="140" y="440" width="620" height="620" rx="30" fill="#bbada0" filter="url(#boardShadow)"/>
+  <rect x="154" y="454" width="592" height="592" rx="16" fill="#b3a294"/>
+  <rect x="154" y="470" width="140" height="140" rx="12" fill="#eee4da"/><text x="224.0" y="554.4" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="40" font-weight="700" fill="#776e65">2</text><rect x="304" y="470" width="140" height="140" rx="12" fill="#ede0c8"/><text x="374.0" y="554.4" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="40" font-weight="700" fill="#776e65">4</text><rect x="454" y="470" width="140" height="140" rx="12" fill="#f2b179"/><text x="524.0" y="554.4" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="40" font-weight="700" fill="#f9f6f2">8</text><rect x="604" y="470" width="140" height="140" rx="12" fill="#f59563"/><text x="674.0" y="554.4" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="40" font-weight="700" fill="#f9f6f2">16</text><rect x="154" y="620" width="140" height="140" rx="12" fill="#f67c5f"/><text x="224.0" y="704.4" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="40" font-weight="700" fill="#f9f6f2">32</text><rect x="304" y="620" width="140" height="140" rx="12" fill="#f65e3b"/><text x="374.0" y="704.4" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="40" font-weight="700" fill="#f9f6f2">64</text><rect x="454" y="620" width="140" height="140" rx="12" fill="#edcf72"/><text x="524.0" y="702.24" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="34" font-weight="700" fill="#5a4a1a">128</text><rect x="604" y="620" width="140" height="140" rx="12" fill="#edcc61"/><text x="674.0" y="702.24" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="34" font-weight="700" fill="#5a4a1a">256</text><rect x="154" y="770" width="140" height="140" rx="12" fill="#edc850"/><text x="224.0" y="852.24" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="34" font-weight="700" fill="#5a4a1a">512</text><rect x="304" y="770" width="140" height="140" rx="12" fill="#edc53f"/><text x="374.0" y="850.08" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="28" font-weight="700" fill="#5a4a1a">1024</text><rect x="454" y="770" width="140" height="140" rx="12" fill="#edc22e"/><text x="524.0" y="850.08" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="28" font-weight="700" fill="#5a4a1a">2048</text><rect x="154" y="920" width="140" height="140" rx="12" fill="#eee4da"/><text x="224.0" y="1004.4" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="40" font-weight="700" fill="#776e65">2</text><rect x="454" y="920" width="140" height="140" rx="12" fill="#ede0c8"/><text x="524.0" y="1004.4" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="40" font-weight="700" fill="#776e65">4</text><rect x="604" y="920" width="140" height="140" rx="12" fill="#f2b179"/><text x="674.0" y="1004.4" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="40" font-weight="700" fill="#f9f6f2">8</text>
+
+  <text x="70" y="1128" font-family="Noto Sans CJK SC" font-size="28" fill="#a39485">滑动 · 合并 · 挑战更高数字</text>
+  <text x="70" y="1168" font-family="Noto Sans CJK SC" font-size="24" fill="#b3a89c">离线可玩 · 自动保存进度</text>
+</svg>

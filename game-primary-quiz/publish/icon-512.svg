@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4f8ef7"/>
+      <stop offset="0.55" stop-color="#6f85f5"/>
+      <stop offset="1" stop-color="#8b7cf6"/>
+    </linearGradient>
+    <filter id="paperShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#2b3f86" flood-opacity="0.28"/>
+    </filter>
+    <filter id="starShadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#a87500" flood-opacity="0.28"/>
+    </filter>
+    <filter id="letterShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#8a2a2a" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <circle cx="445" cy="58" r="130" fill="#ffffff" opacity="0.08"/>
+  <circle cx="55" cy="470" r="145" fill="#ffffff" opacity="0.07"/>
+  <circle cx="66" cy="70" r="6" fill="#ffffff" opacity="0.25"/><circle cx="450" cy="70" r="7" fill="#ffffff" opacity="0.22"/><circle cx="460" cy="260" r="5" fill="#ff8a8a" opacity="0.85"/><circle cx="52" cy="260" r="5" fill="#2ec4b6" opacity="0.8"/><circle cx="90" cy="480" r="6" fill="#ffffff" opacity="0.16"/><circle cx="430" cy="478" r="5" fill="#ffffff" opacity="0.18"/><circle cx="360" cy="52" r="5" fill="#ffc53d" opacity="0.95"/><circle cx="150" cy="470" r="4" fill="#8b7cf6" opacity="0.8"/>
+  <circle cx="82" cy="120" r="31" fill="#4f8ef7" stroke="#ffffff" stroke-width="5"/><text x="82" y="128" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="800" fill="#ffffff">A</text><circle cx="430" cy="118" r="29" fill="#2ec4b6" stroke="#ffffff" stroke-width="5"/><text x="430" y="126" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="800" fill="#ffffff">B</text><circle cx="80" cy="414" r="28" fill="#ffc53d" stroke="#ffffff" stroke-width="5"/><text x="80" y="422" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="800" fill="#1f2c44">C</text><circle cx="432" cy="412" r="30" fill="#8b7cf6" stroke="#ffffff" stroke-width="5"/><text x="432" y="420" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="800" fill="#ffffff">D</text>
+
+  <g transform="rotate(-5 256 256)">
+    <rect x="112" y="58" width="288" height="376" rx="28" fill="#ffffff" filter="url(#paperShadow)"/>
+    <rect x="140" y="88" width="44" height="16" rx="8" fill="#ff6b6b" opacity="0.85"/>
+    <rect x="140" y="128" width="232" height="7" rx="3.5" fill="#e8f0ff"/>
+    <rect x="140" y="154" width="178" height="7" rx="3.5" fill="#e8f0ff"/>
+    <text x="256" y="273" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="132" font-weight="800" fill="#ff5f6d" filter="url(#letterShadow)">A+</text>
+    <circle cx="347" cy="326" r="28" fill="#22b573" stroke="#ffffff" stroke-width="4"/>
+    <path d="M333 326 l10 10 l20 -23" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <rect x="140" y="360" width="232" height="7" rx="3.5" fill="#e8f0ff"/>
+    <rect x="140" y="386" width="150" height="7" rx="3.5" fill="#e8f0ff"/>
+    <text x="256" y="416" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="22" letter-spacing="2" fill="#8b9ab3">小学回忆杀</text>
+  </g>
+
+  <polygon points="374.00,72.00 382.82,93.86 406.34,95.49 388.27,110.64 393.98,133.51 374.00,121.00 354.02,133.51 359.73,110.64 341.66,95.49 365.18,93.86" fill="#ffc53d" stroke="#ffffff" stroke-width="5" stroke-linejoin="round" filter="url(#starShadow)"/>
+</svg>

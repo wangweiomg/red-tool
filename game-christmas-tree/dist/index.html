@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#0c1630" />
+  <title>圣诞装饰树</title>
+  <style>
+    html, body { margin: 0; padding: 0; background: #0c1630; color: #f4f7ff; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                   "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    h1, h2, p { margin: 0; }
+    [hidden] { display: none !important; }
+    .app { min-height: 100vh; padding: 0 16px; }
+    .app-header { display: flex; align-items: center; justify-content: space-between; padding-top: 18px; }
+    .brand { display: flex; align-items: center; }
+    .seal {
+      width: 42px; height: 42px; border-radius: 12px; margin-right: 10px;
+      background: linear-gradient(135deg, #1f7a52, #0f3a28);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .brand h1 { font-size: 22px; line-height: 1.1; letter-spacing: 1px; }
+    .eyebrow { font-size: 11px; color: #8fe3c0; letter-spacing: 3px; margin-bottom: 3px; }
+    .subtitle { margin-top: 10px; font-size: 13px; color: #a9b8d6; }
+  </style>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <div class="brand">
+        <span class="seal" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22">
+            <path d="M12 2.4 17 10h-2.6l4 5.6h-3l3.6 5H5l3.6-5h-3l4-5.6H7z" fill="#ffd166"></path>
+            <rect x="10.8" y="20.6" width="2.4" height="2.2" rx="0.6" fill="#b07b3c"></rect>
+          </svg>
+        </span>
+        <div>
+          <p class="eyebrow">CHRISTMAS</p>
+          <h1>圣诞装饰树</h1>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="best-chip">
+          <span>最佳</span>
+          <strong id="best-score">—</strong>
+        </div>
+        <button class="icon-btn" type="button" id="toggle-sound" aria-pressed="true" aria-label="关闭音效">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path d="M4 9h3.2L12 5.2v13.6L7.2 15H4z" fill="currentColor"></path>
+            <path class="sound-wave" d="M15.2 8.6a5 5 0 0 1 0 6.8M17.6 6.2a8.2 8.2 0 0 1 0 11.6"
+                  fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path>
+            <path class="sound-off" d="M15.4 9.4l4.4 5.2M19.8 9.4l-4.4 5.2"
+                  fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <p class="subtitle">选一个主题，把这棵冷杉挂成你的样子。</p>
+
+    <section class="setup-screen" id="setup-screen">
+      <div class="theme-list" id="theme-list" role="radiogroup" aria-label="选择装饰主题">
+        <button class="theme-card is-active" type="button" data-theme="blue" role="radio" aria-checked="true">
+          <span class="theme-dot dot-blue" aria-hidden="true"></span>
+          <span class="theme-name">雪夜蓝调</span>
+          <span class="theme-tagline">蓝银交错，像一场安静的雪</span>
+          <span class="theme-req">蓝球 ×3 · 银球 ×3 · 金球 ×1 · 树顶星</span>
+        </button>
+        <button class="theme-card" type="button" data-theme="ginger" role="radio" aria-checked="false">
+          <span class="theme-dot dot-ginger" aria-hidden="true"></span>
+          <span class="theme-name">姜饼暖棕</span>
+          <span class="theme-tagline">铃铛和礼物，烤箱味儿的圣诞</span>
+          <span class="theme-req">金球 ×3 · 铃铛 ×2 · 礼物 ×2 · 树顶星</span>
+        </button>
+        <button class="theme-card" type="button" data-theme="berry" role="radio" aria-checked="false">
+          <span class="theme-dot dot-berry" aria-hidden="true"></span>
+          <span class="theme-name">莓果红绿</span>
+          <span class="theme-tagline">红绿撞色，最经典的热闹</span>
+          <span class="theme-req">红球 ×4 · 拐杖糖 ×2 · 粉球 ×2 · 树顶星</span>
+        </button>
+        <button class="theme-card" type="button" data-theme="free" role="radio" aria-checked="false">
+          <span class="theme-dot dot-free" aria-hidden="true"></span>
+          <span class="theme-name">自由装饰</span>
+          <span class="theme-tagline">没有订单，按自己的审美来</span>
+          <span class="theme-req">随意挂 8 件以上，左右对称更好看</span>
+        </button>
+      </div>
+
+      <button class="btn btn-primary btn-block" type="button" id="start-btn">开始装饰</button>
+      <button class="btn btn-ghost btn-block" type="button" id="resume-btn" hidden>继续上次的装饰</button>
+      <p class="setup-hint" id="setup-hint">拖动挂饰到树上；也可以先点挂饰，再点树上的位置。</p>
+
+      <div class="stats-strip">
+        <div class="stat-cell">
+          <strong id="stat-completed">0</strong>
+          <span>完成作品</span>
+        </div>
+        <div class="stat-cell">
+          <strong id="stat-best">0</strong>
+          <span>最高分</span>
+        </div>
+        <div class="stat-cell">
+          <strong id="stat-favorite">—</strong>
+          <span>常选主题</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="stage-screen" id="stage-screen" hidden>
+      <div class="stage-head">
+        <button class="link-btn" type="button" id="stage-back">‹ 返回</button>
+        <div class="stage-title">
+          <strong id="stage-theme">雪夜蓝调</strong>
+          <span id="stage-progress">0 / 0 项</span>
+        </div>
+      </div>
+      <div class="checklist" id="checklist" aria-live="polite"></div>
+
+      <div class="board-wrap" id="board-wrap">
+        <div class="board" id="board">
+          <svg class="tree-svg" viewBox="0 0 300 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <ellipse cx="150" cy="382" rx="132" ry="15" fill="#0a1c2e" opacity="0.75"></ellipse>
+            <polygon points="150,176 27,348 273,348" fill="#12482f"></polygon>
+            <polygon points="150,176 27,348 273,348" fill="none" stroke="#196142" stroke-width="2"></polygon>
+            <polygon points="150,104 63,260 237,260" fill="#155237"></polygon>
+            <polygon points="150,104 63,260 237,260" fill="none" stroke="#1c6d49" stroke-width="2"></polygon>
+            <polygon points="150,40 99,176 201,176" fill="#175b3f"></polygon>
+            <polygon points="150,40 99,176 201,176" fill="none" stroke="#1f7a52" stroke-width="2"></polygon>
+            <path d="M63 260 Q150 236 237 260" fill="none" stroke="#e9f4ff" stroke-width="3" opacity="0.35"></path>
+            <path d="M27 348 Q150 318 273 348" fill="none" stroke="#e9f4ff" stroke-width="3" opacity="0.32"></path>
+            <path d="M99 176 Q150 158 201 176" fill="none" stroke="#e9f4ff" stroke-width="2.5" opacity="0.3"></path>
+            <rect x="132" y="344" width="36" height="42" rx="4" fill="#7a4a26"></rect>
+            <rect x="132" y="344" width="12" height="42" fill="#8d582e"></rect>
+            <circle cx="72" cy="70" r="2" fill="#ffffff" opacity="0.7"></circle>
+            <circle cx="228" cy="110" r="1.6" fill="#ffffff" opacity="0.55"></circle>
+            <circle cx="44" cy="150" r="1.4" fill="#ffffff" opacity="0.5"></circle>
+            <circle cx="262" cy="196" r="2" fill="#ffffff" opacity="0.55"></circle>
+            <circle cx="86" cy="230" r="1.3" fill="#ffffff" opacity="0.45"></circle>
+            <circle cx="214" cy="58" r="1.4" fill="#ffffff" opacity="0.5"></circle>
+          </svg>
+          <div class="placed-layer" id="placed-layer"></div>
+        </div>
+      </div>
+
+      <p class="stage-message" id="stage-message" role="status">把下面的挂饰拖到树上，或者先点挂饰再点树。</p>
+
+      <div class="tray" id="tray" role="group" aria-label="挂饰托盘"></div>
+
+      <div class="stage-actions">
+        <button class="btn btn-ghost" type="button" id="undo-btn">撤销</button>
+        <button class="btn btn-ghost" type="button" id="clear-btn">清空</button>
+        <button class="btn btn-primary" type="button" id="done-btn">完成装饰</button>
+      </div>
+    </section>
+
+    <section class="result-screen" id="result-screen" hidden>
+      <p class="result-kicker" id="result-kicker">雪夜蓝调 · 完成</p>
+      <div class="result-hero">
+        <p class="result-score"><strong id="result-score">0</strong><span>分</span></p>
+        <p class="result-title" id="result-title">圣诞大师</p>
+      </div>
+      <p class="result-note" id="result-note"></p>
+      <div class="result-parts" id="result-parts"></div>
+
+      <div class="card-wrap">
+        <img id="card-preview" alt="圣诞明信片预览" />
+      </div>
+
+      <div class="result-actions">
+        <button class="btn btn-primary" type="button" id="save-card">保存明信片</button>
+        <button class="btn btn-ghost" type="button" id="share-card">分享图片</button>
+        <button class="btn btn-ghost" type="button" id="post-note">发布笔记</button>
+        <button class="btn btn-ghost" type="button" id="again-btn">再装饰一棵</button>
+        <button class="btn btn-ghost" type="button" id="result-home">换个主题</button>
+      </div>
+      <p class="share-status" id="share-status" role="status"></p>
+    </section>
+
+    <details class="rules">
+      <summary>怎么玩</summary>
+      <ul>
+        <li>选一个主题订单，按清单把挂饰挂到树上；自由装饰没有清单。</li>
+        <li>拖动托盘里的挂饰到树上，或者先点挂饰、再点树上的位置。</li>
+        <li>点树上已挂好的挂饰可以取下；「撤销」可以退回上一步。</li>
+        <li>评分看主题完成度、左右平衡、装饰丰富度和树顶星星。</li>
+        <li>完成后可以保存明信片、分享图片或发布笔记。</li>
+      </ul>
+    </details>
+
+    <p class="save-status" id="save-status" role="status">进度会自动保存在当前小工具。</p>
+  </main>
+  <script defer src="./data.js"></script>
+  <script defer src="./engine.js"></script>
+  <script defer src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#fffdf6"/>
+      <stop offset="1" stop-color="#efe2c8"/>
+    </linearGradient>
+    <radialGradient id="soft" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#d8bd96" stop-opacity="0.40"/>
+      <stop offset="1" stop-color="#d8bd96" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="cardShadow" x="-15%" y="-15%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#6b5138" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="900" height="1200" fill="url(#bg)"/>
+  <circle cx="820" cy="110" r="340" fill="url(#soft)"/>
+  <circle cx="60" cy="1140" r="300" fill="url(#soft)"/>
+
+  <rect x="70" y="70" width="74" height="74" rx="10" fill="#a53a2f"/>
+  <text x="107" y="124" text-anchor="middle" font-family="Noto Serif CJK SC, Songti SC, serif" font-size="44" font-weight="700" fill="#f8ead2">成</text>
+  <text x="168" y="128" font-family="Noto Serif CJK SC, Songti SC, serif" font-size="58" font-weight="700" fill="#2f2a24">成语解谜</text>
+  <text x="170" y="178" font-family="Noto Sans CJK SC, sans-serif" font-size="28" fill="#8a7a63">每日一关，拼出成语</text>
+
+  <rect x="660" y="86" width="170" height="58" rx="29" fill="#a53a2f"/>
+  <text x="745" y="124" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="24" letter-spacing="2" fill="#f8ead2">每日 5 题</text>
+
+  <rect x="90" y="280" width="720" height="740" rx="28" fill="#fffaf0" stroke="#e6dac3" stroke-width="2" filter="url(#cardShadow)"/>
+  <text x="130" y="338" font-family="Noto Sans CJK SC, sans-serif" font-size="22" letter-spacing="2" fill="#a53a2f">根据释义拼出成语</text>
+  <text x="130" y="410" font-family="Noto Serif CJK SC, Songti SC, serif" font-size="36" fill="#3a3329">反复命令告诫。</text>
+  <text x="130" y="452" font-family="Noto Sans CJK SC, sans-serif" font-size="20" fill="#8a7a63">第 1 / 5 题 · 点击字块填入空格</text>
+
+  <rect x="140" y="470" width="110" height="110" rx="14" fill="#fbf5e8" stroke="#c9b894" stroke-width="2" stroke-dasharray="8 6"/><rect x="270" y="470" width="110" height="110" rx="14" fill="#fbf5e8" stroke="#c9b894" stroke-width="2" stroke-dasharray="8 6"/><rect x="400" y="470" width="110" height="110" rx="14" fill="#fbf5e8" stroke="#c9b894" stroke-width="2" stroke-dasharray="8 6"/><rect x="530" y="470" width="110" height="110" rx="14" fill="#fbf5e8" stroke="#c9b894" stroke-width="2" stroke-dasharray="8 6"/>
+  <rect x="140" y="650" width="110" height="110" rx="14" fill="#fffaf0" stroke="#d8c8ac" stroke-width="2"/><text x="195" y="720" text-anchor="middle" font-family="Noto Serif CJK SC, Songti SC, serif" font-size="46" font-weight="700" fill="#2f2a24">令</text><rect x="270" y="650" width="110" height="110" rx="14" fill="#fffaf0" stroke="#d8c8ac" stroke-width="2"/><text x="325" y="720" text-anchor="middle" font-family="Noto Serif CJK SC, Songti SC, serif" font-size="46" font-weight="700" fill="#2f2a24">三</text><rect x="400" y="650" width="110" height="110" rx="14" fill="#fffaf0" stroke="#d8c8ac" stroke-width="2"/><text x="455" y="720" text-anchor="middle" font-family="Noto Serif CJK SC, Songti SC, serif" font-size="46" font-weight="700" fill="#2f2a24">五</text><rect x="140" y="780" width="110" height="110" rx="14" fill="#fffaf0" stroke="#d8c8ac" stroke-width="2"/><text x="195" y="850" text-anchor="middle" font-family="Noto Serif CJK SC, Songti SC, serif" font-size="46" font-weight="700" fill="#2f2a24">口</text><rect x="270" y="780" width="110" height="110" rx="14" fill="#fffaf0" stroke="#d8c8ac" stroke-width="2"/><text x="325" y="850" text-anchor="middle" font-family="Noto Serif CJK SC, Songti SC, serif" font-size="46" font-weight="700" fill="#2f2a24">申</text><rect x="400" y="780" width="110" height="110" rx="14" fill="#fffaf0" stroke="#d8c8ac" stroke-width="2"/><text x="455" y="850" text-anchor="middle" font-family="Noto Serif CJK SC, Songti SC, serif" font-size="46" font-weight="700" fill="#2f2a24">风</text>
+
+  <rect x="130" y="930" width="640" height="70" rx="12" fill="#a53a2f"/>
+  <text x="450" y="975" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700" fill="#fff4df">提交答案</text>
+
+  <text x="70" y="1128" font-family="Noto Sans CJK SC, sans-serif" font-size="25" fill="#a99a82">每日 5 题 · 自动保存 · 分享结果卡</text>
+</svg>

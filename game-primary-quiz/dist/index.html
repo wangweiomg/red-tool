@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#f6f1e7" />
+  <title>小学回忆杀</title>
+  <style>
+    html, body { margin: 0; padding: 0; background: #f6f1e7; color: #2d2a24; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                   "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    h1, h2, p { margin: 0; }
+    [hidden] { display: none !important; }
+  </style>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <div class="brand">
+        <div class="seal" aria-hidden="true">小</div>
+        <div class="brand-text">
+          <p class="eyebrow">综合卷</p>
+          <h1>小学回忆杀</h1>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="best-chip">
+          <span>已解锁</span>
+          <strong id="best-grade">一年级</strong>
+        </div>
+        <button class="profile-entry" type="button" id="open-profile" aria-label="打开个人中心">
+          <span class="profile-entry-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16">
+              <circle cx="12" cy="8" r="4" fill="currentColor"></circle>
+              <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" fill="currentColor"></path>
+            </svg>
+          </span>
+          <span>个人中心</span>
+        </button>
+      </div>
+    </header>
+    <p class="subtitle">先练习，再考试，一关一关往上解锁。</p>
+
+    <section class="setup-screen" id="setup-screen">
+      <div class="setup-card">
+        <p class="setup-kicker">选择模式</p>
+        <h2 id="setup-title">今天想练哪一科？</h2>
+
+        <button class="profile-banner" type="button" id="open-profile-banner">
+          <span class="profile-avatar" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22">
+              <circle cx="12" cy="8" r="4" fill="#ffffff"></circle>
+              <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" fill="#ffffff"></path>
+            </svg>
+          </span>
+          <span class="profile-banner-text">
+            <strong>个人中心</strong>
+            <small>错题本 · 练习统计 · 解锁进度</small>
+          </span>
+          <span class="profile-chevron" aria-hidden="true">›</span>
+        </button>
+
+        <div class="mode-tabs" id="mode-tabs" role="group" aria-label="选择模式">
+          <button class="mode-tab is-active" type="button" data-mode="practice">练习模式</button>
+          <button class="mode-tab" type="button" data-mode="exam">升级考试</button>
+        </div>
+
+        <div id="practice-options">
+          <p class="setup-label">科目</p>
+          <div class="chips" id="subject-chips" role="group" aria-label="选择科目">
+            <button class="chip chip-all is-active" type="button" data-subject="综合">综合</button>
+            <button class="chip chip-cn" type="button" data-subject="语文">语文</button>
+            <button class="chip chip-math" type="button" data-subject="数学">数学</button>
+            <button class="chip chip-en" type="button" data-subject="英语">英语</button>
+            <button class="chip chip-sci" type="button" data-subject="科学">科学</button>
+          </div>
+          <p class="setup-label">年级</p>
+          <div class="chips" id="grade-chips" role="group" aria-label="选择年级">
+            <button class="chip" type="button" data-grade="1">一年级</button>
+            <button class="chip" type="button" data-grade="2">二年级</button>
+            <button class="chip" type="button" data-grade="3">三年级</button>
+            <button class="chip" type="button" data-grade="4">四年级</button>
+            <button class="chip" type="button" data-grade="5">五年级</button>
+            <button class="chip" type="button" data-grade="6">六年级</button>
+          </div>
+          <p class="setup-label">题库范围</p>
+          <div class="chips" id="range-chips" role="group" aria-label="选择题库范围">
+            <button class="chip is-active" type="button" data-range="lower">本级及以下</button>
+            <button class="chip" type="button" data-range="same">仅本年级</button>
+            <button class="chip chip-olympiad" type="button" data-range="olympiad">奥赛</button>
+          </div>
+        </div>
+
+        <div class="exam-info" id="exam-info" hidden>
+          <p class="exam-title" id="exam-title">一年级升级考试</p>
+          <p class="exam-desc" id="exam-desc">综合卷：语文、数学、英语、科学各 1 题，答对 3 题即可升级。</p>
+          <p class="exam-level" id="exam-level">当前已解锁：一年级</p>
+        </div>
+
+        <p class="setup-hint" id="setup-hint">练习模式：选择题库范围后开始，练习不改变年级。</p>
+        <button class="btn btn-primary btn-block" type="button" id="start-btn" disabled>开始练习</button>
+      </div>
+    </section>
+
+    <section class="quiz-screen" id="quiz-screen" hidden>
+      <div class="progress-row">
+        <span class="grade-label" id="grade-label">一年级</span>
+        <span class="question-progress" id="question-progress">第 1 / 4 题</span>
+        <button class="restart-link" id="restart" type="button">换一套题</button>
+        <div class="dots" id="grade-dots" aria-hidden="true"></div>
+      </div>
+
+      <section class="question-card" id="question-card">
+        <div class="meta-row">
+          <span class="subject-tag" id="subject-tag">语文</span>
+          <span class="grade-tag" id="grade-tag">一年级</span>
+        </div>
+        <p class="prompt" id="prompt">正在准备综合卷…</p>
+        <div class="options" id="options">
+          <p class="options-loading">正在加载题目…</p>
+        </div>
+        <p class="feedback" id="feedback" role="status"></p>
+        <div class="explain-box" id="explain-box" hidden>
+          <p id="explanation"></p>
+        </div>
+        <button class="btn btn-primary btn-block" type="button" id="confirm" disabled>确认答案</button>
+        <button class="btn btn-primary btn-block" type="button" id="next" hidden>下一题</button>
+      </section>
+
+      <section class="summary-card" id="summary-card" hidden>
+        <p class="summary-kicker">本年级完成</p>
+        <p class="summary-grade" id="summary-grade">一年级</p>
+        <p class="summary-result" id="summary-result">3 / 4 答对</p>
+        <p class="summary-text" id="summary-text"></p>
+        <button class="btn btn-primary btn-block" type="button" id="summary-btn">进入二年级</button>
+      </section>
+    </section>
+
+    <section class="result-screen" id="result-screen" hidden>
+      <p class="result-kicker" id="result-kicker">练习完成</p>
+      <p class="result-grade" id="result-grade">—</p>
+      <p class="result-title" id="result-title">完成一组题目后查看结果</p>
+      <p class="result-sub" id="result-sub"></p>
+
+      <div class="grade-ladder" id="grade-ladder"></div>
+      <div class="result-breakdown" id="result-breakdown"></div>
+
+      <details class="review" id="review">
+        <summary>错题回顾</summary>
+        <div class="review-list" id="review-list"></div>
+      </details>
+
+      <div class="share-preview-wrap">
+        <img class="share-preview" id="share-preview" alt="分享结果卡预览" />
+      </div>
+
+      <div class="result-actions">
+        <button class="btn btn-primary" type="button" id="save-card">保存分享卡</button>
+        <button class="btn btn-ghost" type="button" id="share-card">分享图片</button>
+        <button class="btn btn-ghost" type="button" id="post-note">发布笔记</button>
+        <button class="btn btn-ghost" type="button" id="retry">再测一次</button>
+        <button class="btn btn-ghost" type="button" id="change-setup">换一套题</button>
+      </div>
+      <p class="share-status" id="share-status" role="status"></p>
+    </section>
+
+    <section class="profile-screen" id="profile-screen" hidden>
+      <div class="profile-card">
+        <div class="profile-top">
+          <button class="back-link" type="button" id="profile-back">‹ 返回</button>
+          <p class="profile-kicker">个人中心</p>
+          <h2>我的小学档案</h2>
+        </div>
+
+        <div class="level-card">
+          <p class="level-label">当前解锁</p>
+          <p class="profile-level" id="profile-level">一年级</p>
+          <div class="level-progress">
+            <span class="level-progress-bar" id="level-progress-bar"></span>
+          </div>
+          <p class="level-hint" id="level-hint">通过一年级升级考试解锁二年级</p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-cell">
+            <strong id="stat-answers">0</strong>
+            <span>累计答题</span>
+          </div>
+          <div class="stat-cell">
+            <strong id="stat-practice-answers">0</strong>
+            <span>练习答题</span>
+          </div>
+          <div class="stat-cell">
+            <strong id="stat-accuracy">0%</strong>
+            <span>正确率</span>
+          </div>
+          <div class="stat-cell">
+            <strong id="stat-practice">0</strong>
+            <span>练习组数</span>
+          </div>
+          <div class="stat-cell">
+            <strong id="stat-exam">0 / 0</strong>
+            <span>考试通过 / 次数</span>
+          </div>
+        </div>
+
+        <div class="sound-settings">
+          <div class="sound-head">
+            <h3>声音</h3>
+            <span class="sound-note" id="sound-note">背景音乐默认关闭</span>
+          </div>
+          <div class="setting-row">
+            <span>答题音效</span>
+            <button class="switch is-on" type="button" id="toggle-sfx" role="switch" aria-checked="true" aria-label="答题音效">
+              <span class="switch-knob"></span>
+            </button>
+          </div>
+          <div class="setting-row">
+            <span>背景音乐</span>
+            <button class="switch" type="button" id="toggle-bgm" role="switch" aria-checked="false" aria-label="背景音乐">
+              <span class="switch-knob"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="wrong-head">
+          <h3>错题本</h3>
+          <span class="wrong-count" id="wrong-count">0 题</span>
+        </div>
+        <div class="wrong-list" id="wrong-list"></div>
+      </div>
+    </section>
+
+    <p class="save-status" id="save-status" role="status">进度会自动保存在当前小工具。</p>
+
+    <details class="rules">
+      <summary>怎么玩</summary>
+      <ul>
+        <li>默认练习模式：选择科目、已解锁年级和题库范围，练习不改变年级。</li>
+        <li>练习题库可选“仅本年级”或“本级及以下”，本级及以下会混合低年级题目。</li>
+        <li>升级考试为当前年级综合卷：语文、数学、英语、科学各 1 题，答对 3 题解锁下一年级。</li>
+        <li>不能直接选择高于已解锁年级的题库；先去通过当前年级升级考试。</li>
+        <li>完成后可查看错题解析、保存分享卡、分享图片或发布笔记。</li>
+      </ul>
+    </details>
+  </main>
+  <script defer src="./data.js"></script>
+  <script defer src="./engine.js"></script>
+  <script defer src="./app.js"></script>
+</body>
+</html>

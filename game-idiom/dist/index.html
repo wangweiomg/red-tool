@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#f7f1e3" />
+  <title>成语解谜</title>
+  <style>
+    html, body { margin: 0; padding: 0; background: #f7f1e3; color: #2f2a24; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                   "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    h1, h2, p { margin: 0; }
+    [hidden] { display: none !important; }
+  </style>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <div class="brand">
+        <div class="seal" aria-hidden="true">成</div>
+        <div class="brand-text">
+          <p class="eyebrow">每日成语</p>
+          <h1>成语解谜</h1>
+        </div>
+      </div>
+      <div class="day-info">
+        <span class="date-label" id="date-label">今天</span>
+        <span class="streak" id="streak">连续 0 天</span>
+      </div>
+    </header>
+    <p class="subtitle">根据释义，把字块拼成四字成语。</p>
+
+    <section class="game-screen" id="game-screen">
+      <div class="progress-row">
+        <span class="progress-text" id="progress-text">第 1 / 5 题</span>
+        <div class="progress-dots" id="progress-dots" aria-hidden="true">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+      </div>
+
+      <section class="quiz-card" aria-labelledby="clue-label">
+        <div class="play-area" id="play-area">
+          <p class="clue-label" id="clue-label">根据释义拼出成语</p>
+          <p class="clue" id="clue">正在准备今日题目…</p>
+
+          <div class="slots" id="slots" role="group" aria-label="答案槽">
+            <button class="slot" type="button" data-slot="0" aria-label="第 1 个字"></button>
+            <button class="slot" type="button" data-slot="1" aria-label="第 2 个字"></button>
+            <button class="slot" type="button" data-slot="2" aria-label="第 3 个字"></button>
+            <button class="slot" type="button" data-slot="3" aria-label="第 4 个字"></button>
+          </div>
+
+          <div class="tiles" id="tiles" role="group" aria-label="可选字块">
+            <p class="tiles-loading">正在准备字块…</p>
+          </div>
+
+          <div class="actions">
+            <button class="btn btn-primary" type="button" id="submit" disabled>提交答案</button>
+            <button class="btn btn-ghost" type="button" id="clear">清空</button>
+          </div>
+          <p class="feedback" id="feedback" role="status"></p>
+        </div>
+
+        <div class="explain" id="explain" hidden>
+          <p class="explain-kicker" id="explain-kicker">答对了</p>
+          <p class="explain-word" id="explain-word"></p>
+          <p class="explain-clue" id="explain-clue"></p>
+          <p class="explain-note" id="explain-note"></p>
+          <p class="explain-points" id="explain-points"></p>
+          <button class="btn btn-primary" type="button" id="next">下一题</button>
+        </div>
+      </section>
+
+      <p class="hint">点击字块填入空格；再次点击可撤回。首次答对得 1 分，第二次答对得 0.5 分。</p>
+    </section>
+
+    <section class="result-screen" id="result-screen" hidden>
+      <p class="result-kicker">今日完成</p>
+      <h2>成语挑战</h2>
+      <div class="result-score">
+        <strong id="result-score">0</strong>
+        <span>/ 5</span>
+      </div>
+      <p class="result-label">今日得分</p>
+      <div class="result-rows" id="result-rows"></div>
+      <p class="result-streak" id="result-streak"></p>
+
+      <div class="share-preview-wrap">
+        <img class="share-preview" id="share-preview" alt="分享结果卡预览" />
+      </div>
+
+      <div class="result-actions">
+        <button class="btn btn-primary" type="button" id="save-card">保存分享卡</button>
+        <button class="btn btn-ghost" type="button" id="share-card">分享图片</button>
+        <button class="btn btn-ghost" type="button" id="post-note">发布笔记</button>
+      </div>
+      <p class="share-status" id="share-status" role="status"></p>
+      <p class="result-note">发布笔记会打开平台发布页；明天再来挑战新题。</p>
+    </section>
+
+    <p class="save-status" id="save-status" role="status">进度会自动保存在当前小工具。</p>
+
+    <details class="rules">
+      <summary>怎么玩</summary>
+      <ul>
+        <li>每天 5 道题，根据释义把 6 个字块拼成 4 字成语。</li>
+        <li>首次答对得 1 分，第二次答对得 0.5 分，两次未答对得 0 分。</li>
+        <li>完成后会生成一张结果卡，可以保存到相册或分享图片。</li>
+        <li>每天的题目由日期决定，同一天所有人看到相同题目。</li>
+      </ul>
+    </details>
+  </main>
+  <script defer src="./data.js"></script>
+  <script defer src="./engine.js"></script>
+  <script defer src="./app.js"></script>
+</body>
+</html>

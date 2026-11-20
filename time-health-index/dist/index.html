@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#f5f6fa" />
+  <title>时间健康指数</title>
+  <style>
+    html, body { margin: 0; padding: 0; background: #f5f6fa; color: #1f2430; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                   "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    h1, h2, p { margin: 0; }
+  </style>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <p class="eyebrow">每日时间健康</p>
+      <h1>时间健康指数</h1>
+      <p class="subtitle">把 24 小时涂成你的样子，看看今天过得健不健康。</p>
+    </header>
+
+    <section class="score-card" aria-labelledby="score-title">
+      <div class="score-ring-wrap">
+        <svg class="score-ring" viewBox="0 0 120 120" width="112" height="112" aria-hidden="true">
+          <circle class="ring-track" cx="60" cy="60" r="52"></circle>
+          <circle class="ring-progress" id="ring-progress" cx="60" cy="60" r="52"></circle>
+        </svg>
+        <div class="score-ring-text">
+          <span class="score-number" id="score-number">--</span>
+          <span class="score-unit">/ 100</span>
+        </div>
+      </div>
+      <div class="score-copy">
+        <h2 class="score-title" id="score-title">等待记录</h2>
+        <p class="score-desc" id="score-desc">把 24 小时涂满后生成健康指数。</p>
+        <p class="score-note" id="score-note">当前已记录 0 小时</p>
+      </div>
+    </section>
+
+    <nav class="date-bar" aria-label="日期切换">
+      <button class="date-btn" id="prev-day" type="button" aria-label="前一天">‹</button>
+      <div class="date-center">
+        <span class="date-label" id="date-label">今天</span>
+        <button class="today-btn" id="today-btn" type="button" hidden>回到今天</button>
+      </div>
+      <button class="date-btn" id="next-day" type="button" aria-label="后一天" disabled>›</button>
+    </nav>
+
+    <section class="card timeline-card" aria-labelledby="timeline-title">
+      <div class="section-head">
+        <h2 id="timeline-title">24 小时时间轴</h2>
+        <span class="coverage" id="coverage">0 / 24 小时</span>
+      </div>
+      <div class="palette" id="palette" role="group" aria-label="选择时间分类">
+        <button class="chip cat-sleep is-active" type="button" data-cat="sleep" aria-pressed="true"><span class="chip-dot"></span>睡眠</button>
+        <button class="chip cat-work" type="button" data-cat="work" aria-pressed="false"><span class="chip-dot"></span>工作/学习</button>
+        <button class="chip cat-exercise" type="button" data-cat="exercise" aria-pressed="false"><span class="chip-dot"></span>锻炼</button>
+        <button class="chip cat-leisure" type="button" data-cat="leisure" aria-pressed="false"><span class="chip-dot"></span>线下休闲</button>
+        <button class="chip cat-video" type="button" data-cat="video" aria-pressed="false"><span class="chip-dot"></span>看视频</button>
+        <button class="chip cat-game" type="button" data-cat="game" aria-pressed="false"><span class="chip-dot"></span>打游戏</button>
+        <button class="chip cat-other" type="button" data-cat="other" aria-pressed="false"><span class="chip-dot"></span>其他/通勤</button>
+      </div>
+      <div class="timeline-grid" id="timeline" role="group" aria-label="24 小时时间轴，每格 30 分钟" aria-busy="true">
+        <p class="timeline-loading">正在准备时间轴…若长时间未就绪，请退出后重新打开。</p>
+      </div>
+      <p class="timeline-hint">先选一个分类，再在格子上点按或滑动涂色。每格 30 分钟。</p>
+    </section>
+
+    <section class="card templates-card" aria-labelledby="templates-title">
+      <div class="section-head">
+        <h2 id="templates-title">快捷模板</h2>
+        <span class="section-sub">一键填入典型一天</span>
+      </div>
+      <div class="template-list" id="template-list">
+        <button class="template-btn" type="button" data-template="office">上班族</button>
+        <button class="template-btn" type="button" data-template="student">学生</button>
+        <button class="template-btn" type="button" data-template="freelance">自由职业</button>
+        <button class="template-btn template-btn-ghost" type="button" id="clear-btn">清空</button>
+      </div>
+    </section>
+
+    <section class="card stats-card" aria-labelledby="stats-title">
+      <div class="section-head">
+        <h2 id="stats-title">今日时间分配</h2>
+        <span class="section-sub" id="assigned-total">已记录 0h</span>
+      </div>
+      <div class="stats-list" id="stats-list">
+        <p class="empty-note">涂色或套用模板后，这里会显示每个分类的时长占比。</p>
+      </div>
+    </section>
+
+    <section class="card factors-card" aria-labelledby="factors-title">
+      <div class="section-head">
+        <h2 id="factors-title">评分构成</h2>
+        <span class="section-sub">满分 100</span>
+      </div>
+      <div class="factors-list" id="factors-list">
+        <p class="empty-note">记录满 24 小时后显示各项得分。</p>
+      </div>
+    </section>
+
+    <section class="card tips-card" aria-labelledby="tips-title">
+      <div class="section-head">
+        <h2 id="tips-title">改善建议</h2>
+      </div>
+      <div class="tips-list" id="tips-list">
+        <div class="tip tip-info">
+          <p class="tip-title">先记录，再分析</p>
+          <p class="tip-body">把 24 小时涂满，就能看到睡眠、运动、屏幕娱乐和工作负荷的平衡情况。</p>
+        </div>
+      </div>
+    </section>
+
+    <details class="card method-card">
+      <summary>健康分怎么算？</summary>
+      <ul class="method-list">
+        <li><strong>睡眠 30 分</strong>：7–9 小时为佳，过少或过多都会扣分。</li>
+        <li><strong>运动 20 分</strong>：每天 1 小时以上满分，30 分钟起步。</li>
+        <li><strong>屏幕娱乐 25 分</strong>：看视频 + 打游戏合计，2 小时以内最佳。</li>
+        <li><strong>工作负荷 15 分</strong>：6–10 小时较均衡，过载会扣分。</li>
+        <li><strong>作息规律 10 分</strong>：入睡时间，以及 23 点后是否还在看视频或打游戏。</li>
+      </ul>
+    </details>
+
+    <p class="save-status" id="save-status" role="status">记录会自动保存在当前小工具。</p>
+    <p class="disclaimer">健康分仅供日常参考，不构成医疗建议。</p>
+  </main>
+  <script defer src="./app.js"></script>
+</body>
+</html>

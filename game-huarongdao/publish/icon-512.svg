@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f2e21"/>
+      <stop offset="1" stop-color="#6d5440"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.2" r="0.7">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#1d140d" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <rect width="512" height="512" fill="url(#glow)"/>
+  <text x="256" y="48" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="30" letter-spacing="6" fill="#f3e8d3">华容道</text>
+  <rect x="88" y="68" width="336" height="416" rx="16" fill="#5b4636" filter="url(#shadow)"/>
+  <rect x="96" y="76" width="320" height="400" rx="8" fill="#d8c5a4"/>
+  <rect x="98.0" y="78.0" width="76" height="156" rx="8" fill="#47627d" stroke="none" stroke-width="4"/><text x="136.0" y="162.12" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="17" font-weight="700" fill="#fff6e5">张飞</text><rect x="178.0" y="78.0" width="156" height="156" rx="8" fill="#a5372a" stroke="#d9a441" stroke-width="4"/><text x="256.0" y="166.8" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="30" font-weight="700" fill="#fff6e5">曹操</text><rect x="338.0" y="78.0" width="76" height="156" rx="8" fill="#5d7a45" stroke="none" stroke-width="4"/><text x="376.0" y="162.12" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="17" font-weight="700" fill="#fff6e5">赵云</text><rect x="98.0" y="238.0" width="76" height="156" rx="8" fill="#7d5a42" stroke="none" stroke-width="4"/><text x="136.0" y="322.12" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="17" font-weight="700" fill="#fff6e5">马超</text><rect x="178.0" y="238.0" width="156" height="76" rx="8" fill="#2f6f5e" stroke="none" stroke-width="4"/><text x="256.0" y="283.2" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="20" font-weight="700" fill="#fff6e5">关羽</text><rect x="338.0" y="238.0" width="76" height="156" rx="8" fill="#8a6d2f" stroke="none" stroke-width="4"/><text x="376.0" y="322.12" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="17" font-weight="700" fill="#fff6e5">黄忠</text><rect x="178.0" y="318.0" width="76" height="76" rx="8" fill="#c2b195" stroke="none" stroke-width="4"/><text x="216.0" y="363.2" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="20" font-weight="700" fill="#fff6e5">卒</text><rect x="258.0" y="318.0" width="76" height="76" rx="8" fill="#c2b195" stroke="none" stroke-width="4"/><text x="296.0" y="363.2" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="20" font-weight="700" fill="#fff6e5">卒</text><rect x="98.0" y="398.0" width="76" height="76" rx="8" fill="#c2b195" stroke="none" stroke-width="4"/><text x="136.0" y="443.2" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="20" font-weight="700" fill="#fff6e5">卒</text><rect x="338.0" y="398.0" width="76" height="76" rx="8" fill="#c2b195" stroke="none" stroke-width="4"/><text x="376.0" y="443.2" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="20" font-weight="700" fill="#fff6e5">卒</text>
+  <path d="M256 480 l-14 -18 h28 z" fill="#d9a441"/>
+  <text x="256" y="506" text-anchor="middle" font-family="Noto Sans CJK SC" font-size="15" letter-spacing="3" fill="#f3e8d3">出口</text>
+</svg>

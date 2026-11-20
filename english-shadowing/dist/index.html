@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#f6fbf8" />
+  <title>英语跟读实验室</title>
+  <style>
+    html, body { margin: 0; padding: 0; background: #f6fbf8; color: #14332d; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                   "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    h1, h2, p { margin: 0; }
+    [hidden] { display: none !important; }
+    .app { min-height: 100vh; padding: 0 16px 24px; }
+  </style>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22">
+            <rect x="9" y="2" width="6" height="12" rx="3" fill="#ffd166"></rect>
+            <path d="M5 11a7 7 0 0 0 14 0" fill="none" stroke="#8fe3c0" stroke-width="2" stroke-linecap="round"></path>
+            <line x1="12" y1="18" x2="12" y2="22" stroke="#8fe3c0" stroke-width="2" stroke-linecap="round"></line>
+          </svg>
+        </span>
+        <div>
+          <p class="eyebrow">SHADOWING LAB</p>
+          <h1>英语跟读实验室</h1>
+        </div>
+      </div>
+      <span class="tag-chip">旅行口语</span>
+    </header>
+
+    <p class="subtitle">听一遍示范 → 自己读一遍 → 听自己的录音。</p>
+
+    <div class="mode-tabs" id="mode-tabs" role="tablist" aria-label="选择练习模式">
+      <button class="mode-tab is-active" type="button" data-mode="scene" role="tab" aria-selected="true">场景对话</button>
+      <button class="mode-tab" type="button" data-mode="vocab" role="tab" aria-selected="false">背单词</button>
+    </div>
+
+    <div class="scene-strip" id="scene-strip" role="tablist" aria-label="选择场景">
+      <button class="scene-chip is-active" type="button" data-scene="customs" role="tab" aria-selected="true">海关</button>
+      <button class="scene-chip" type="button" data-scene="hotel" role="tab" aria-selected="false">酒店入住</button>
+    </div>
+
+    <section class="practice">
+      <div class="word-head">
+        <span class="word-index" id="word-index">1 / 8</span>
+        <span class="word-ipa" id="word-ipa">/wʌts ðə ˈpɜːrpəs əv jʊr ˈvɪzɪt/</span>
+      </div>
+      <p class="speaker-tag" id="speaker-tag">海关关员</p>
+      <p class="word is-sentence" id="word">What's the purpose of your visit?</p>
+      <p class="word-tip" id="word-tip">purpose 重音在前，of 轻读</p>
+      <p class="word-zh" id="word-zh">您此行的目的是什么？</p>
+
+      <div class="wave-wrap">
+        <canvas class="wave" id="wave" width="600" height="120" aria-hidden="true"></canvas>
+        <p class="wave-hint" id="wave-hint">点「开始录音」后对着麦克风朗读</p>
+        <span class="timer" id="timer">0.0s</span>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-ghost" type="button" id="demo-btn">听示范</button>
+        <button class="btn btn-primary" type="button" id="record-btn">开始录音</button>
+        <button class="btn btn-ghost" type="button" id="play-btn" disabled>听我的</button>
+      </div>
+      <button class="btn btn-ghost btn-block" type="button" id="compare-btn" disabled>对比播放（示范 → 我的）</button>
+
+      <p class="status" id="status" role="status">准备就绪。录音只在本机处理，不会上传。</p>
+    </section>
+
+    <div class="word-nav">
+      <button class="link-btn" type="button" id="prev-btn">‹ 上一个</button>
+      <div class="dots" id="dots" aria-hidden="true"></div>
+      <button class="link-btn" type="button" id="next-btn">下一个 ›</button>
+    </div>
+
+    <div class="stats-strip">
+      <div class="stat-cell">
+        <strong id="stat-today">0</strong>
+        <span>今日练习</span>
+      </div>
+      <div class="stat-cell">
+        <strong id="stat-total">0</strong>
+        <span>累计练习</span>
+      </div>
+      <div class="stat-cell">
+        <strong>3</strong>
+        <span>练习主题</span>
+      </div>
+    </div>
+
+    <details class="rules">
+      <summary>怎么练</summary>
+      <ul>
+        <li>「听示范」用系统语音朗读当前句子；设备没有英文音色时可直接录音对比。</li>
+        <li>点「开始录音」读一遍，再点一次停止，然后「听我的」回放。</li>
+        <li>「对比播放」会先读示范，再播放你的录音，方便对照重音和结尾。</li>
+        <li>场景对话包含问与答，切换角色轮流读，更接近真实对话。</li>
+      </ul>
+      <p class="rules-note">录音只在本机内存中处理，不会上传、不会保存音频；练习次数记录在本地。</p>
+    </details>
+
+    <details class="rules">
+      <summary>录音没反应？</summary>
+      <ul>
+        <li>首次录音需要在系统弹窗里允许麦克风；拒绝后请到小红书或系统设置里重新开启。</li>
+        <li>iOS 上如果刚播放过音频，等一秒再录音；页面会自动重置音频会话。</li>
+        <li>仍然失败时，退出小工具重新进入即可。</li>
+      </ul>
+    </details>
+
+    <p class="storage-note" id="storage-note">练习记录保存在本机。</p>
+  </main>
+  <script defer src="./data.js"></script>
+  <script defer src="./app.js"></script>
+</body>
+</html>
