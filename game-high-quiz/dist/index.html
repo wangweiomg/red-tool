@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#f4efe6" />
+  <title>高中回忆杀</title>
+  <style>
+    html, body { margin: 0; padding: 0; background: #f4efe6; color: #2f3a4a; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                   "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    h1, h2, h3, p { margin: 0; }
+    [hidden] { display: none !important; }
+    .app { min-height: 100vh; padding: 0 16px 24px; }
+  </style>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22">
+            <rect x="4" y="3" width="14" height="18" rx="2" fill="#3f6ea8"></rect>
+            <rect x="6.5" y="6" width="9" height="1.6" rx="0.8" fill="#dfe8f4"></rect>
+            <rect x="6.5" y="9" width="7" height="1.6" rx="0.8" fill="#dfe8f4"></rect>
+            <rect x="6.5" y="12" width="9" height="1.6" rx="0.8" fill="#dfe8f4"></rect>
+            <rect x="6.5" y="15" width="5" height="1.6" rx="0.8" fill="#dfe8f4"></rect>
+            <rect x="18" y="6" width="2.4" height="12" rx="1" fill="#e0a93f"></rect>
+          </svg>
+        </span>
+        <div>
+          <p class="eyebrow">HIGH SCHOOL MEMORY</p>
+          <h1>高中回忆杀</h1>
+        </div>
+      </div>
+      <button class="profile-entry" type="button" id="open-profile" aria-label="打开个人中心">
+        <span class="profile-entry-icon" aria-hidden="true">◎</span>
+        <span>个人中心</span>
+      </button>
+    </header>
+
+    <section class="screen" id="setup-screen">
+      <p class="subtitle">高中三年课程编成三册：先练习，再考试，通过考试解锁下一册；高三通过高考。</p>
+
+      <div class="mode-tabs" role="tablist">
+        <button class="mode-tab is-active" type="button" id="mode-practice" role="tab" aria-selected="true">练习</button>
+        <button class="mode-tab" type="button" id="mode-exam" role="tab" aria-selected="false">考试</button>
+      </div>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>选择年级</h2>
+          <span class="exam-badge" id="level-badge">高一已解锁</span>
+        </div>
+        <div class="chip-row" id="grade-chips"></div>
+      </section>
+
+      <section class="panel" id="subject-section">
+        <div class="panel-head"><h2>选择科目</h2></div>
+        <div class="chip-row chip-wrap" id="subject-chips"></div>
+      </section>
+
+      <p class="setup-hint" id="setup-hint"></p>
+      <button class="btn btn-primary btn-block" type="button" id="start-btn">开始练习</button>
+
+      <details class="book">
+        <summary>三册目录</summary>
+        <div id="book-outline"></div>
+      </details>
+    </section>
+
+    <section class="screen" id="quiz-screen" hidden>
+      <div class="quiz-top">
+        <button class="back-link" type="button" id="quit-quiz">‹ 退出</button>
+        <span class="quiz-progress" id="quiz-progress">第 1 / 6 题</span>
+      </div>
+      <div class="quiz-tags">
+        <span class="tag tag-grade" id="quiz-grade">高一</span>
+        <span class="tag tag-subject" id="quiz-subject">语文</span>
+      </div>
+      <div class="question-card">
+        <p class="question-prompt" id="question-prompt"></p>
+        <div class="options" id="options"></div>
+        <div class="feedback" id="feedback" hidden>
+          <p class="feedback-result" id="feedback-result"></p>
+          <p class="feedback-explain" id="feedback-explain"></p>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-block" type="button" id="next-btn" hidden>下一题</button>
+    </section>
+
+    <section class="screen" id="result-screen" hidden>
+      <div class="result-card">
+        <p class="result-kicker" id="result-kicker">练习完成</p>
+        <p class="result-score"><strong id="result-score">0</strong><span id="result-total">/ 5</span></p>
+        <p class="result-title" id="result-title"></p>
+        <p class="result-summary" id="result-summary"></p>
+        <div class="result-actions">
+          <button class="btn btn-primary" type="button" id="again-btn">再来一组</button>
+          <button class="btn btn-ghost" type="button" id="home-btn">回到首页</button>
+          <button class="btn btn-ghost" type="button" id="save-card">保存成绩卡</button>
+          <button class="btn btn-ghost" type="button" id="share-card">分享图片</button>
+          <button class="btn btn-ghost" type="button" id="post-note">发布笔记</button>
+        </div>
+        <p class="share-status" id="share-status" role="status"></p>
+      </div>
+    </section>
+
+    <section class="screen" id="profile-screen" hidden>
+      <button class="back-link" type="button" id="profile-back">‹ 返回</button>
+      <h2 class="profile-title">我的高中档案</h2>
+      <div class="level-card">
+        <p class="level-label">当前解锁</p>
+        <p class="level-value" id="profile-level">高一</p>
+        <p class="level-hint" id="profile-level-hint"></p>
+      </div>
+      <div class="stats">
+        <div class="stat-cell"><strong id="stat-answers">0</strong><span>累计答题</span></div>
+        <div class="stat-cell"><strong id="stat-accuracy">0%</strong><span>正确率</span></div>
+        <div class="stat-cell"><strong id="stat-practice">0</strong><span>练习组数</span></div>
+        <div class="stat-cell"><strong id="stat-exam">0 / 0</strong><span>考试通过 / 次数</span></div>
+      </div>
+
+      <div class="sound-settings">
+        <div class="sound-head">
+          <h3>声音</h3>
+          <span class="sound-note" id="sound-note">背景音乐默认开启</span>
+        </div>
+        <div class="setting-row">
+          <span>答题音效</span>
+          <button class="switch is-on" type="button" id="toggle-sfx" role="switch" aria-checked="true" aria-label="答题音效"><span class="switch-knob"></span></button>
+        </div>
+        <div class="setting-row">
+          <span>背景音乐</span>
+          <button class="switch is-on" type="button" id="toggle-bgm" role="switch" aria-checked="true" aria-label="背景音乐"><span class="switch-knob"></span></button>
+        </div>
+      </div>
+
+      <div class="wrong-head">
+        <h3>错题本</h3>
+        <span id="wrong-count">0 题</span>
+      </div>
+      <div class="wrong-list" id="wrong-list"></div>
+    </section>
+
+    <details class="rules">
+      <summary>怎么玩</summary>
+      <ul>
+        <li>三册对应高一、高二、高三，先解锁高一，考试通过后解锁下一册。</li>
+        <li>练习：单科 6 题，综合 12 题；答完立即看解析。</li>
+        <li>考试：高一/高二综合卷 12 题、答对 10 题通过；高三为高考，15 题答对 12 题通关。</li>
+        <li>答对的错题会自动移出错题本，统计和进度保存在本机。</li>
+        <li>音效与背景音乐可以在个人中心开关。</li>
+      </ul>
+    </details>
+  </main>
+  <script defer src="./data.js"></script>
+  <script defer src="./engine.js"></script>
+  <script defer src="./app.js"></script>
+</body>
+</html>

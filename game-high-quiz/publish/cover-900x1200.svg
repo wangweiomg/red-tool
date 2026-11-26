@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7f2e8"/>
+      <stop offset="1" stop-color="#ece5d9"/>
+    </linearGradient>
+    <linearGradient id="capTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#43557f"/>
+      <stop offset="1" stop-color="#33436a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#dde7f3" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#dde7f3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="warm" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#efe2c8" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#efe2c8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="900" height="1200" fill="url(#bg)"/>
+  <circle cx="790" cy="150" r="240" fill="url(#glow)"/>
+  <circle cx="90" cy="1110" r="260" fill="url(#warm)"/>
+
+  <text x="450" y="98" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="24" font-weight="500" letter-spacing="8" fill="#a08a6a">HIGH SCHOOL MEMORY</text>
+  <text x="450" y="204" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="96" font-weight="900" fill="#2f3a4a">高中回忆杀</text>
+  <text x="450" y="262" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="30" font-weight="400" fill="#7d8798">高中三年，一册一册通关</text>
+
+  <!-- frame -->
+  <rect x="64" y="306" width="772" height="476" rx="32" fill="#faf6ee"
+        stroke="#ded4c2" stroke-width="3"/>
+  <rect x="96" y="334" width="214" height="52" rx="26" fill="#ffffff"
+        stroke="#e6ddcb" stroke-width="1.5"/>
+  <text x="203" y="369" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="24" font-weight="700" fill="#4a5aa8">三册 · 108 题</text>
+
+  <!-- shadow under books -->
+  <ellipse cx="450" cy="724" rx="344" ry="16" fill="#e2d7c2" opacity="0.8"/>
+
+  <!-- 高一 book -->
+  <rect x="132" y="424" width="176" height="292" rx="14" fill="#4a5aa8"/>
+  <rect x="132" y="424" width="22" height="292" rx="11" fill="#3b4a90"/>
+  <rect x="156" y="466" width="128" height="70" rx="12" fill="#ffffff"/>
+  <text x="220" y="515" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="30" font-weight="900" fill="#2f3a4a">高一</text>
+  <rect x="156" y="578" width="128" height="8" rx="4" fill="#dfe8f4"/>
+  <rect x="156" y="598" width="96" height="8" rx="4" fill="#dfe8f4" opacity="0.85"/>
+
+  <!-- 高二 book -->
+  <rect x="362" y="400" width="176" height="316" rx="14" fill="#3f7d5f"/>
+  <rect x="362" y="400" width="22" height="316" rx="11" fill="#33684e"/>
+  <rect x="386" y="444" width="128" height="70" rx="12" fill="#ffffff"/>
+  <text x="450" y="493" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="30" font-weight="900" fill="#2f3a4a">高二</text>
+  <rect x="386" y="558" width="128" height="8" rx="4" fill="#cfe3d9"/>
+  <rect x="386" y="578" width="96" height="8" rx="4" fill="#cfe3d9" opacity="0.85"/>
+
+  <!-- 高三 book -->
+  <rect x="592" y="424" width="176" height="292" rx="14" fill="#d9a13f"/>
+  <rect x="592" y="424" width="22" height="292" rx="11" fill="#bf8b2e"/>
+  <rect x="724" y="424" width="18" height="92" fill="#b4553f"/>
+  <rect x="616" y="466" width="128" height="70" rx="12" fill="#ffffff"/>
+  <text x="680" y="515" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="30" font-weight="900" fill="#2f3a4a">高三</text>
+  <rect x="616" y="578" width="128" height="8" rx="4" fill="#f3dfb8"/>
+  <rect x="616" y="598" width="96" height="8" rx="4" fill="#f3dfb8" opacity="0.85"/>
+
+  <!-- graduation cap on the 高三 book -->
+  <path d="M680 336 L776 374 L680 412 L584 374 Z" fill="url(#capTop)"/>
+  <path d="M680 336 L776 374 L680 412 Z" fill="#4b5f8d" opacity="0.55"/>
+  <path d="M646 394 L646 414 C646 426 661 434 680 434 C699 434 714 426 714 414 L714 394
+           L680 412 Z" fill="#2f3a4a"/>
+  <circle cx="680" cy="356" r="5" fill="#d9a13f"/>
+  <path d="M775 375 C780 391 781 405 779 419" fill="none" stroke="#d9a13f"
+        stroke-width="5" stroke-linecap="round"/>
+  <circle cx="779" cy="422" r="6" fill="#d9a13f"/>
+
+  <!-- pencil on the 高三 book -->
+  <g transform="rotate(45 730 690)">
+    <polygon points="670,690 676,686 676,694" fill="#2f3a4a"/>
+    <polygon points="674,690 690,681 690,699" fill="#f4dfb5"/>
+    <rect x="690" y="681" width="62" height="18" fill="#eab657"/>
+    <rect x="752" y="681" width="6" height="18" fill="#c9ccd2"/>
+    <rect x="758" y="681" width="14" height="18" rx="4" fill="#e78a9a"/>
+  </g>
+
+  <!-- feature chips -->
+  <rect x="129" y="838" width="190" height="54" rx="27" fill="#ffffff"
+        stroke="#e2d8c6" stroke-width="1.5"/>
+  <text x="224" y="874" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="24" font-weight="700" fill="#4a5aa8">三册题库</text>
+
+  <rect x="345" y="838" width="210" height="54" rx="27" fill="#ffffff"
+        stroke="#e2d8c6" stroke-width="1.5"/>
+  <text x="450" y="874" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="24" font-weight="700" fill="#4a5aa8">练习 + 考试</text>
+
+  <rect x="581" y="838" width="190" height="54" rx="27" fill="#ffffff"
+        stroke="#e2d8c6" stroke-width="1.5"/>
+  <text x="676" y="874" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="24" font-weight="700" fill="#4a5aa8">高考通关</text>
+
+  <text x="450" y="962" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="28" font-weight="400" fill="#5b6578">108 道题，九科全覆盖</text>
+  <text x="450" y="1014" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="24" font-weight="400" fill="#8a8f99">高考卷 12 题，答对 9 题通关</text>
+  <text x="450" y="1142" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="20" font-weight="400" letter-spacing="2" fill="#a08a6a">高中回忆杀</text>
+</svg>

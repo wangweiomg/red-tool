@@ -1,0 +1,778 @@
+/* 西方神话与圣史 · 样式（Chrome 61 基线） */
+:root {
+  --paper: #f2eadc;
+  --paper-deep: #e7d9c0;
+  --card: #fffaf0;
+  --ink: #2d2a26;
+  --ink-soft: #574f45;
+  --muted: #7c7060;
+  --gold: #b8873f;
+  --gold-soft: #f0e0c4;
+  --cn: #9b3f2e;
+  --west: #3f5f8a;
+  --green: #4f7259;
+  --line: rgba(70, 55, 35, 0.16);
+  --line-strong: rgba(70, 55, 35, 0.28);
+  --shadow: 0 10px 28px rgba(70, 55, 35, 0.08);
+  --safe-top: 0px;
+  --safe-bottom: 0px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0) 42%),
+    radial-gradient(circle at 90% 14%, rgba(63, 95, 138, 0.08), rgba(63, 95, 138, 0) 38%),
+    repeating-linear-gradient(0deg, rgba(120, 90, 50, 0.022) 0px, rgba(120, 90, 50, 0.022) 1px, rgba(0, 0, 0, 0) 1px, rgba(0, 0, 0, 0) 4px);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* ---------- 顶部 ---------- */
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  padding: var(--safe-top) 16px 0;
+  background: rgba(242, 234, 220, 0.97);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 14px 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  margin-right: 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  background: var(--card);
+  box-shadow: 0 3px 10px rgba(70, 55, 35, 0.08);
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.2px;
+  line-height: 1.4;
+}
+
+h1 {
+  margin-top: 1px;
+  font-family: "Songti SC", "STSong", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.tagline {
+  display: none;
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.view-tabs {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 4px 0 10px;
+  display: flex;
+}
+
+.view-tab {
+  flex: 1;
+  margin-right: 8px;
+  padding: 10px 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 250, 240, 0.6);
+  color: var(--ink-soft);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.view-tab:last-child {
+  margin-right: 0;
+}
+
+.view-tab.is-active {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fffaf0;
+  box-shadow: 0 4px 12px rgba(45, 42, 38, 0.2);
+}
+
+/* ---------- 主体 ---------- */
+
+.app-main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 18px 16px 36px;
+}
+
+.intro-card {
+  padding: 18px 18px 16px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--gold);
+  border-radius: 10px;
+  background: rgba(255, 250, 240, 0.72);
+  box-shadow: var(--shadow);
+}
+
+.intro-kicker {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.intro-text {
+  margin-top: 8px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.toolbar {
+  margin-top: 18px;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -4px 6px;
+}
+
+.chip {
+  margin: 0 4px 8px;
+  padding: 7px 13px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(255, 250, 240, 0.6);
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.chip.is-active {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: #fffaf0;
+}
+
+.chip-kind.is-active {
+  border-color: var(--ink);
+  background: var(--ink);
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 2px;
+  padding: 0 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(255, 250, 240, 0.75);
+}
+
+.search-icon {
+  margin-right: 8px;
+  color: var(--muted);
+  font-size: 19px;
+  line-height: 1;
+}
+
+.search-box input {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.search-box input::placeholder {
+  color: #a29583;
+}
+
+.event-count {
+  margin: 14px 0 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* ---------- 大事长卷 ---------- */
+
+.era-section {
+  margin-top: 22px;
+}
+
+.era-head {
+  padding: 8px 0 8px 14px;
+  border-left: 3px solid var(--gold);
+}
+
+.era-kicker {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+
+.era-title {
+  margin-top: 2px;
+  font-family: "Songti SC", "STSong", "Noto Serif CJK SC", serif;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.era-summary {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.7;
+}
+
+.event-grid {
+  margin-top: 10px;
+}
+
+.event-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 14px 15px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(255, 250, 240, 0.78);
+  color: var(--ink);
+  text-align: left;
+  box-shadow: 0 4px 14px rgba(70, 55, 35, 0.05);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.event-card:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(70, 55, 35, 0.08);
+}
+
+.event-date {
+  display: flex;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+.event-date-text {
+  color: var(--gold);
+  font-family: "Songti SC", "STSong", "Noto Serif CJK SC", serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.event-approx {
+  margin-left: 6px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: var(--gold-soft);
+  color: #8a6428;
+  font-size: 9px;
+}
+
+.event-body {
+  display: block;
+}
+
+.event-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.event-kind {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 4px;
+  color: #fffaf0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.event-kind.is-myth {
+  background: var(--gold);
+}
+
+.event-kind.is-scripture {
+  background: var(--west);
+}
+
+.event-kind.is-history {
+  background: var(--green);
+}
+
+.event-tradition {
+  margin-left: 7px;
+  color: var(--muted);
+  font-size: 10.5px;
+}
+
+.event-title {
+  display: block;
+  font-family: "Songti SC", "STSong", "Noto Serif CJK SC", serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.event-subtitle {
+  display: block;
+  margin-top: 2px;
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 0.4px;
+}
+
+.event-summary {
+  display: block;
+  margin-top: 7px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.event-open {
+  display: block;
+  margin-top: 9px;
+  color: var(--muted);
+  font-size: 10.5px;
+}
+
+/* ---------- 详情 ---------- */
+
+.detail-view {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.back-link {
+  padding: 4px 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 14px;
+}
+
+.detail-era {
+  margin-right: 9px;
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.detail-kind {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 4px;
+  color: #fffaf0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.detail-kind.is-myth {
+  background: var(--gold);
+}
+
+.detail-kind.is-scripture {
+  background: var(--west);
+}
+
+.detail-kind.is-history {
+  background: var(--green);
+}
+
+.detail-tradition {
+  margin-left: 8px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.detail-date {
+  margin-left: 8px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.detail-title {
+  margin-top: 14px;
+  font-family: "Songti SC", "STSong", "Noto Serif CJK SC", serif;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.detail-subtitle {
+  margin-top: 6px;
+  color: var(--gold);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.detail-summary {
+  margin-top: 16px;
+  padding: 14px 15px;
+  border-left: 3px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  background: rgba(255, 250, 240, 0.7);
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.detail-body {
+  margin-top: 18px;
+}
+
+.detail-paragraph {
+  margin-bottom: 14px;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.detail-section {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.detail-section h3 {
+  margin-bottom: 10px;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.detail-points {
+  list-style: none;
+}
+
+.detail-points li {
+  position: relative;
+  margin-bottom: 8px;
+  padding-left: 18px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.detail-points li::before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: 2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.detail-sources {
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.detail-section.is-caution {
+  padding: 12px 14px;
+  border: 1px solid rgba(184, 135, 63, 0.35);
+  border-radius: 8px;
+  background: rgba(240, 224, 196, 0.45);
+}
+
+.detail-caution {
+  color: #6f5326;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.detail-pager {
+  margin-top: 26px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.detail-position {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.pager-buttons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.pager-btn {
+  margin-bottom: 8px;
+  padding: 11px 13px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 250, 240, 0.72);
+  color: var(--ink-soft);
+  font-size: 12.5px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.pager-btn.is-next {
+  text-align: right;
+}
+
+/* ---------- 说明 ---------- */
+
+.about-block {
+  margin-top: 18px;
+  padding: 16px 17px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: rgba(255, 250, 240, 0.62);
+}
+
+.about-block h2 {
+  margin-bottom: 8px;
+  font-family: "Songti SC", "STSong", "Noto Serif CJK SC", serif;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.about-block p {
+  margin-bottom: 8px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.about-block p:last-child {
+  margin-bottom: 0;
+}
+
+.about-block strong {
+  color: var(--ink);
+}
+
+.about-note {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 11.5px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.empty-state {
+  padding: 34px 16px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.app-footer {
+  padding: 18px 16px calc(24px + var(--safe-bottom));
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* ---------- 平板与桌面 ---------- */
+
+@media (min-width: 721px) {
+  .app-header {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .header-inner {
+    padding-top: 18px;
+  }
+
+  .tagline {
+    display: block;
+  }
+
+  h1 {
+    font-size: 29px;
+  }
+
+  .view-tabs {
+    padding-bottom: 12px;
+  }
+
+  .view-tab {
+    flex: 0 0 auto;
+    min-width: 128px;
+    margin-right: 10px;
+    padding: 9px 18px;
+  }
+
+  .app-main {
+    padding: 26px 24px 48px;
+  }
+
+  .intro-card {
+    padding: 22px 24px 20px;
+  }
+
+  .intro-text {
+    font-size: 14.5px;
+  }
+
+  .event-card {
+    flex-direction: row;
+    padding: 18px 20px;
+  }
+
+  .event-date {
+    flex: 0 0 132px;
+    display: block;
+    margin: 2px 20px 0 0;
+  }
+
+  .event-date-text {
+    display: block;
+    font-size: 15px;
+  }
+
+  .event-approx {
+    display: inline-block;
+    margin: 6px 0 0;
+  }
+
+  .event-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .event-title {
+    font-size: 22px;
+  }
+
+  .event-summary {
+    font-size: 13.5px;
+  }
+
+  .detail-title {
+    font-size: 36px;
+  }
+
+  .pager-buttons {
+    flex-direction: row;
+  }
+
+  .pager-btn {
+    flex: 1;
+    margin: 0 5px 0 0;
+  }
+
+  .pager-btn.is-next {
+    margin-right: 0;
+    margin-left: 5px;
+  }
+}
+
+@media (max-width: 380px) {
+  h1 {
+    font-size: 22px;
+  }
+
+  .brand-mark {
+    width: 40px;
+    height: 40px;
+    margin-right: 9px;
+  }
+
+  .event-title {
+    font-size: 19px;
+  }
+
+  .detail-title {
+    font-size: 26px;
+  }
+}

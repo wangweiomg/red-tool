@@ -35,6 +35,8 @@
   var postNoteBtn = document.getElementById('post-note');
   var shareStatus = document.getElementById('share-status');
   var saveStatus = document.getElementById('save-status');
+  var sfxBtn = document.getElementById('toggle-sfx');
+  var bgmBtn = document.getElementById('toggle-bgm');
 
   var todayKey = Engine ? Engine.dateKeyOf(new Date()) : '';
   var state = null;
@@ -48,6 +50,183 @@
   var loadToken = 0;
   var pendingSave = null;
   var saving = false;
+
+  var sound = { sfx: true, bgm: false };
+  var audio = {
+    ctx: null,
+    master: null,
+    bgmTimer: null,
+    bgmStep: 0,
+    bgmRunning: false,
+    bgmToken: 0
+  };
+
+  /* ---------- 声音 ---------- */
+
+  function audioSupported() {
+    return !!(window.AudioContext || window.webkitAudioContext);
+  }
+
+  function ensureAudio() {
+    if (!audioSupported()) return null;
+    if (!audio.ctx) {
+      var Ctor = window.AudioContext || window.webkitAudioContext;
+      try {
+        audio.ctx = new Ctor();
+        audio.master = audio.ctx.createGain();
+        audio.master.gain.value = 0.7;
+        audio.master.connect(audio.ctx.destination);
+      } catch (error) {
+        audio.ctx = null;
+        return null;
+      }
+    }
+    if (audio.ctx.state === 'suspended' && typeof audio.ctx.resume === 'function') {
+      try {
+        var ret = audio.ctx.resume();
+        if (ret && typeof ret.catch === 'function') {
+          ret.catch(function () { /* 等下一次手势 */ });
+        }
+      } catch (error) {
+        /* 等下一次手势 */
+      }
+    }
+    return audio.ctx;
+  }
+
+  function midiFreq(note) {
+    return 440 * Math.pow(2, (note - 69) / 12);
+  }
+
+  function tone(freq, start, duration, type, volume) {
+    var ctx = ensureAudio();
+    if (!ctx || !audio.master) return;
+    try {
+      var osc = ctx.createOscillator();
+      var gain = ctx.createGain();
+      osc.type = type || 'sine';
+      osc.frequency.value = freq;
+      var t0 = ctx.currentTime + (start || 0);
+      gain.gain.setValueAtTime(0.0001, t0);
+      gain.gain.exponentialRampToValueAtTime(Math.max(0.0002, volume || 0.05), t0 + 0.012);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t0 + (duration || 0.12));
+      osc.connect(gain);
+      gain.connect(audio.master);
+      osc.start(t0);
+      osc.stop(t0 + (duration || 0.12) + 0.03);
+    } catch (error) {
+      /* 音频失败不影响解谜 */
+    }
+  }
+
+  function playSfx(kind) {
+    if (!sound.sfx) return;
+    if (kind === 'select') {
+      tone(620, 0, 0.05, 'sine', 0.032);
+    } else if (kind === 'deselect') {
+      tone(420, 0, 0.05, 'sine', 0.028);
+    } else if (kind === 'correct') {
+      tone(midiFreq(72), 0, 0.18, 'triangle', 0.07);
+      tone(midiFreq(76), 0.07, 0.24, 'triangle', 0.06);
+    } else if (kind === 'wrong') {
+      tone(220, 0, 0.1, 'sine', 0.045);
+      tone(196, 0.08, 0.12, 'sine', 0.035);
+    } else if (kind === 'reveal') {
+      tone(midiFreq(67), 0, 0.16, 'sine', 0.045);
+      tone(midiFreq(63), 0.12, 0.2, 'sine', 0.04);
+    } else if (kind === 'next') {
+      tone(520, 0, 0.06, 'sine', 0.03);
+    } else if (kind === 'complete') {
+      var notes = [62, 66, 69, 74];
+      for (var i = 0; i < notes.length; i += 1) {
+        tone(midiFreq(notes[i]), i * 0.13, 0.4, 'triangle', 0.07);
+      }
+    } else if (kind === 'toggle') {
+      tone(660, 0, 0.08, 'sine', 0.04);
+    }
+  }
+
+  // 贝多芬《月光奏鸣曲》第一乐章的三连音改编（公有领域作品）
+  var BGM_BARS = [
+    { bass: 37, tones: [44, 49, 52], melody: 68 },
+    { bass: 37, tones: [44, 49, 52], melody: 68 },
+    { bass: 33, tones: [45, 49, 52], melody: 69 },
+    { bass: 33, tones: [45, 49, 52], melody: 69 },
+    { bass: 40, tones: [44, 47, 52], melody: 71 },
+    { bass: 40, tones: [44, 47, 52], melody: 71 },
+    { bass: 35, tones: [42, 47, 51], melody: 66 },
+    { bass: 35, tones: [42, 47, 51], melody: 66 }
+  ];
+  var BGM_PATTERN = [0, 1, 2, 0, 1, 2];
+  var BGM_STEP_MS = 420;
+
+  function startBgm() {
+    if (!sound.bgm || audio.bgmRunning || !audioSupported()) return;
+    var ctx = ensureAudio();
+    if (!ctx) return;
+    audio.bgmRunning = true;
+    audio.bgmStep = 0;
+    audio.bgmToken += 1;
+    var token = audio.bgmToken;
+
+    function step() {
+      if (!audio.bgmRunning || token !== audio.bgmToken) return;
+      var stepIndex = audio.bgmStep;
+      var barIndex = Math.floor(stepIndex / 6) % BGM_BARS.length;
+      var inBar = stepIndex % 6;
+      var bar = BGM_BARS[barIndex];
+      tone(midiFreq(bar.tones[BGM_PATTERN[inBar]]), 0, 0.55, 'triangle', 0.016);
+      if (inBar === 0) {
+        tone(midiFreq(bar.bass), 0, 2.4, 'sine', 0.024);
+        tone(midiFreq(bar.melody), 0.1, 2.2, 'sine', 0.025);
+      }
+      audio.bgmStep += 1;
+      audio.bgmTimer = window.setTimeout(step, BGM_STEP_MS);
+    }
+    step();
+  }
+
+  function stopBgm() {
+    audio.bgmRunning = false;
+    audio.bgmToken += 1;
+    if (audio.bgmTimer) {
+      window.clearTimeout(audio.bgmTimer);
+      audio.bgmTimer = null;
+    }
+  }
+
+  function warmAudio() {
+    ensureAudio();
+    if (sound.bgm && !audio.bgmRunning) startBgm();
+  }
+
+  function renderSoundUi() {
+    if (sfxBtn) {
+      sfxBtn.className = sound.sfx ? 'sound-toggle is-on' : 'sound-toggle';
+      sfxBtn.setAttribute('aria-checked', sound.sfx ? 'true' : 'false');
+    }
+    if (bgmBtn) {
+      bgmBtn.className = sound.bgm ? 'sound-toggle is-on' : 'sound-toggle';
+      bgmBtn.setAttribute('aria-checked', sound.bgm ? 'true' : 'false');
+    }
+  }
+
+  function updateSoundButtons() {
+    var disabled = !audioSupported();
+    if (sfxBtn) sfxBtn.disabled = disabled;
+    if (bgmBtn) bgmBtn.disabled = disabled;
+    if (!audioSupported()) {
+      if (sfxBtn) sfxBtn.title = '当前设备不支持声音';
+      if (bgmBtn) bgmBtn.title = '当前设备不支持声音';
+    }
+  }
+
+  function applySound(saved) {
+    if (!saved || typeof saved !== 'object') return;
+    sound.sfx = saved.sfx !== false;
+    sound.bgm = !!saved.bgm;
+    renderSoundUi();
+  }
 
   function getMiniTool() {
     return window.xhs && window.xhs.miniTool;
@@ -279,8 +458,10 @@
     var position = selection.indexOf(index);
     if (position !== -1) {
       selection.splice(position, 1);
+      playSfx('deselect');
     } else if (selection.length < 4) {
       selection.push(index);
+      playSfx('select');
     }
     clearFeedback();
     renderSlots();
@@ -296,6 +477,7 @@
       return;
     }
     selection.splice(slotIndex, 1);
+    playSfx('deselect');
     renderSlots();
     renderTiles();
     updateSubmit();
@@ -313,6 +495,7 @@
     });
     state.attempts = 0;
     settled = true;
+    playSfx(correct ? 'correct' : 'reveal');
     renderProgress();
     showExplain(correct, points, attempts);
     saveNow();
@@ -358,6 +541,7 @@
       return;
     }
 
+    playSfx('wrong');
     feedback.textContent = '还差一点，再试一次。';
     feedback.className = 'feedback is-error';
     selection = [];
@@ -373,6 +557,7 @@
       completeChallenge();
       return;
     }
+    playSfx('next');
     explanationReset();
     renderQuestion();
     saveNow();
@@ -392,6 +577,7 @@
       return;
     }
     state.completed = true;
+    playSfx('complete');
     var score = totalScore();
     state.history[state.date] = score;
     pruneHistory(state.history);
@@ -701,7 +887,8 @@
       results: results,
       attempts: state.attempts,
       history: state.history,
-      completed: state.completed
+      completed: state.completed,
+      sound: { sfx: sound.sfx, bgm: sound.bgm }
     };
   }
 
@@ -781,16 +968,25 @@
         }
       }
     }
+    var soundState = null;
+    if (data.sound && typeof data.sound === 'object') {
+      soundState = {
+        sfx: data.sound.sfx !== false,
+        bgm: !!data.sound.bgm
+      };
+    }
     return {
       date: data.date,
       results: results,
       attempts: Math.floor(attempts),
       history: history,
-      completed: results.length >= QUESTION_COUNT
+      completed: results.length >= QUESTION_COUNT,
+      sound: soundState
     };
   }
 
   function restoreToday(saved) {
+    applySound(saved.sound);
     var daily = Engine.buildDaily(Data, todayKey, QUESTION_COUNT);
     var valid = true;
     for (var i = 0; i < saved.results.length; i += 1) {
@@ -869,6 +1065,7 @@
       window.clearTimeout(timeout);
       loading = false;
       var saved = parseSavedState(result && result.data);
+      if (saved) applySound(saved.sound);
       if (saved && saved.date === todayKey) {
         restoreToday(saved);
         setSaveStatus('saved');
@@ -912,6 +1109,26 @@
       }
     });
 
+    if (sfxBtn) {
+      sfxBtn.addEventListener('click', function () {
+        sound.sfx = !sound.sfx;
+        renderSoundUi();
+        if (sound.sfx) playSfx('toggle');
+        if (state) saveNow();
+      });
+    }
+    if (bgmBtn) {
+      bgmBtn.addEventListener('click', function () {
+        sound.bgm = !sound.bgm;
+        renderSoundUi();
+        if (sound.bgm) startBgm();
+        else stopBgm();
+        if (state) saveNow();
+      });
+    }
+    document.addEventListener('pointerdown', warmAudio, true);
+    document.addEventListener('keydown', warmAudio, true);
+
     submitBtn.addEventListener('click', submitAnswer);
     clearBtn.addEventListener('click', function () {
       if (settled || loading) {
@@ -929,12 +1146,16 @@
     postNoteBtn.addEventListener('click', publishNote);
 
     window.addEventListener('pagehide', function () {
+      stopBgm();
       if (canStorage() && !loading) {
         pendingSave = buildState();
         flushSave();
       }
     });
     document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState === 'hidden') {
+        stopBgm();
+      }
       if (document.visibilityState === 'hidden' && canStorage() && !loading) {
         pendingSave = buildState();
         flushSave();
@@ -950,6 +1171,8 @@
       return;
     }
     bindEvents();
+    renderSoundUi();
+    updateSoundButtons();
     dateLabel.textContent = formatDateCN(todayKey);
     streakEl.textContent = '正在准备今日题目';
     loadState();

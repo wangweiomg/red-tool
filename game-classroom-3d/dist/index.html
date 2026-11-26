@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#efe3cf" />
+  <title>课堂偷吃大作战 3D</title>
+  <style>
+    html, body { margin: 0; padding: 0; background: #efe3cf; color: #3f352b; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                   "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    h1, h2, p { margin: 0; }
+    [hidden] { display: none !important; }
+    .app { min-height: 100vh; padding: 0 16px 22px; }
+  </style>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22">
+            <rect x="3" y="4" width="18" height="12" rx="2" fill="#2f4a3a"></rect>
+            <rect x="5" y="6" width="10" height="2" rx="1" fill="#cfe6d6"></rect>
+            <rect x="5" y="10" width="14" height="2" rx="1" fill="#cfe6d6"></rect>
+            <rect x="7" y="18" width="2" height="3" fill="#8a6a4b"></rect>
+            <rect x="15" y="18" width="2" height="3" fill="#8a6a4b"></rect>
+          </svg>
+        </span>
+        <div>
+          <p class="eyebrow">CLASSROOM SNACK 3D</p>
+          <h1>课堂偷吃大作战 3D</h1>
+        </div>
+      </div>
+      <span class="tag-chip">3D 教室</span>
+    </header>
+
+    <p class="subtitle">老师转身前，把嘴里的零食咽下去。固定机位的 3D 教室，一局只要几分钟。</p>
+
+    <div class="stage">
+      <canvas id="scene" width="800" height="600" aria-label="课堂场景"></canvas>
+      <div class="hud">
+        <span class="hud-item" id="hud-snacks">零食 0 / 10</span>
+        <span class="hud-item" id="hud-lives">♥♥♥</span>
+        <span class="hud-item hud-phase" id="hud-phase">老师写字中</span>
+      </div>
+
+      <div class="overlay" id="start-overlay">
+        <p class="overlay-kicker">今天的课表</p>
+        <h2>选一节课偷吃</h2>
+        <ul class="level-list" id="level-list"></ul>
+        <p class="overlay-best" id="best-label"></p>
+      </div>
+
+      <div class="overlay" id="result-overlay" hidden>
+        <p class="overlay-kicker" id="result-kicker">下课了</p>
+        <p class="level-stars-big" id="result-stars">☆☆☆</p>
+        <p class="result-score"><strong id="result-snacks">0</strong><span>个零食</span></p>
+        <p class="result-title" id="result-title"></p>
+        <p class="overlay-best" id="result-best"></p>
+        <div class="result-actions">
+          <button class="btn btn-primary" type="button" id="next-btn">下一节</button>
+          <button class="btn btn-ghost" type="button" id="menu-btn">回到课表</button>
+          <button class="btn btn-ghost" type="button" id="save-card">保存成绩卡</button>
+          <button class="btn btn-ghost" type="button" id="share-card">分享图片</button>
+          <button class="btn btn-ghost" type="button" id="post-note">发布笔记</button>
+        </div>
+        <p class="share-status" id="share-status" role="status"></p>
+      </div>
+    </div>
+
+    <div class="eat-area">
+      <button class="eat-btn" type="button" id="eat-btn" disabled>按住吃</button>
+      <div class="eat-progress"><span id="eat-fill"></span></div>
+      <p class="status" id="status" role="status">选一节课开始，粉笔一停就松手。</p>
+      <div class="sound-bar" aria-label="声音设置">
+        <span class="sound-label">声音</span>
+        <button class="sound-toggle is-on" id="toggle-sfx" type="button" role="switch" aria-checked="true">音效</button>
+        <button class="sound-toggle is-on" id="toggle-bgm" type="button" role="switch" aria-checked="true">背景音乐</button>
+      </div>
+    </div>
+
+    <details class="rules">
+      <summary>怎么玩</summary>
+      <ul>
+        <li>课表共六节：语文、数学、英语、物理、化学、期末，每节课的老师外形、板书和节奏都不同；拿到 1 星解锁下一节。</li>
+        <li>老师背对黑板写字时，按住「吃」积累进度；吃满本关目标就下课。</li>
+        <li>老师停笔后可能是真转身，也可能是假的：物理课会停笔又写起来，化学和期末还会假装转身。</li>
+        <li>转身完成时，如果正在吃、在咀嚼，或刚吃了一半，就会被抓。</li>
+        <li>被抓扣一条命；按剩余生命比例评星：满血 3 星，掉一半 2 星，残血 1 星。</li>
+        <li>假动作会转一部分就回去，幅度每次不同；只有完整转过来才会抓人。</li>
+        <li>音效与背景音乐可以在下方开关，选择会自动保存。</li>
+      </ul>
+    </details>
+  </main>
+  <script defer src="./vendor/three.min.js"></script>
+  <script defer src="./engine.js"></script>
+  <script defer src="./app.js"></script>
+</body>
+</html>

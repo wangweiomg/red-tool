@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#efe3cf" />
+  <title>课间十分钟 · 贪吃蛇</title>
+  <style>
+    html, body { margin: 0; padding: 0; background: #efe3cf; color: #3f352b; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                   "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    h1, h2, p { margin: 0; }
+    [hidden] { display: none !important; }
+    .app { min-height: 100vh; padding: 0 16px 22px; }
+  </style>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22">
+            <rect x="3" y="4" width="18" height="12" rx="2" fill="#2f4a3a"></rect>
+            <circle cx="8" cy="10" r="2.2" fill="#e8890c"></circle>
+            <circle cx="14" cy="10" r="1.6" fill="#cfe6d6"></circle>
+            <rect x="7" y="18" width="2" height="3" fill="#8a6a4b"></rect>
+            <rect x="15" y="18" width="2" height="3" fill="#8a6a4b"></rect>
+          </svg>
+        </span>
+        <div>
+          <p class="eyebrow">BREAK TIME SNAKE</p>
+          <h1>课间十分钟 · 贪吃蛇</h1>
+        </div>
+      </div>
+      <span class="tag-chip">课间小游戏</span>
+    </header>
+
+    <p class="subtitle">60 秒课间，在课桌上吃零食。滑动或点方向键转向，别被老师发现。</p>
+
+    <div class="hud">
+      <span class="hud-item hud-time" id="hud-time">60s</span>
+      <span class="hud-item" id="hud-eaten">零食 0</span>
+      <span class="hud-item" id="hud-score">得分 0</span>
+      <span class="hud-item" id="hud-best">最佳 0</span>
+    </div>
+
+    <div class="stage">
+      <canvas id="scene" width="360" height="468" aria-label="课桌贪吃蛇"></canvas>
+
+      <div class="overlay" id="start-overlay">
+        <p class="overlay-kicker">课间十分钟</p>
+        <h2>下课铃响前，多吃点</h2>
+        <p class="overlay-desc">吃零食会变长，撞墙或撞到自己会被老师发现。60 秒铃响就下课，尽量多吃。</p>
+        <p class="overlay-best" id="best-label"></p>
+        <button class="btn btn-primary" type="button" id="start-btn">开始课间</button>
+      </div>
+
+      <div class="overlay" id="result-overlay" hidden>
+        <p class="overlay-kicker" id="result-kicker">下课了</p>
+        <p class="result-score"><strong id="result-score">0</strong><span>分</span></p>
+        <p class="result-title" id="result-title"></p>
+        <p class="overlay-best" id="result-best"></p>
+        <div class="result-actions">
+          <button class="btn btn-primary" type="button" id="again-btn">再来一局</button>
+          <button class="btn btn-ghost" type="button" id="save-card">保存成绩卡</button>
+          <button class="btn btn-ghost" type="button" id="share-card">分享图片</button>
+          <button class="btn btn-ghost" type="button" id="post-note">发布笔记</button>
+        </div>
+        <p class="share-status" id="share-status" role="status"></p>
+      </div>
+    </div>
+
+    <div class="pad" aria-label="方向键">
+      <button class="pad-btn pad-up" type="button" data-dx="0" data-dy="-1" aria-label="上">↑</button>
+      <button class="pad-btn pad-left" type="button" data-dx="-1" data-dy="0" aria-label="左">←</button>
+      <button class="pad-btn pad-down" type="button" data-dx="0" data-dy="1" aria-label="下">↓</button>
+      <button class="pad-btn pad-right" type="button" data-dx="1" data-dy="0" aria-label="右">→</button>
+    </div>
+    <p class="hint">也可以直接在画面上滑动转向</p>
+
+    <p class="status" id="status" role="status">点「开始课间」进入课间十分钟。</p>
+
+    <div class="sound-row">
+      <span class="sound-label">声音</span>
+      <button class="sound-toggle is-on" type="button" id="toggle-sfx" role="switch" aria-checked="true">音效</button>
+      <button class="sound-toggle is-on" type="button" id="toggle-bgm" role="switch" aria-checked="true">背景音乐</button>
+    </div>
+
+    <details class="rules">
+      <summary>怎么玩</summary>
+      <ul>
+        <li>滑动画面或点下方方向键转向，不能直接 180° 掉头。</li>
+        <li>辣条 +1 分，饼干 +2 分，水果糖 +1 分并补 2 秒。</li>
+        <li>撞墙或撞到自己会被老师发现，本局立即结束。</li>
+        <li>60 秒下课铃响，按得分结算；吃得越多蛇越快。</li>
+        <li>背景音乐是舒缓的音乐盒循环，默认开启；音效与音乐开关都会记住。</li>
+        <li>最佳成绩保存在本机，结算可生成成绩卡保存、分享或发布笔记。</li>
+      </ul>
+    </details>
+  </main>
+  <script defer src="./engine.js"></script>
+  <script defer src="./app.js"></script>
+</body>
+</html>

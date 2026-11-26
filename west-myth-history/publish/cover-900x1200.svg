@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8f1e2"/>
+      <stop offset="1" stop-color="#e8d9bf"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c99a45"/>
+      <stop offset="1" stop-color="#a97a2f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#dbe5f1" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#dbe5f1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="warm" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ecd9b8" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#ecd9b8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="900" height="1200" fill="url(#bg)"/>
+  <circle cx="802" cy="150" r="250" fill="url(#glow)"/>
+  <circle cx="80" cy="1110" r="270" fill="url(#warm)"/>
+
+  <text x="450" y="98" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="23" font-weight="500" letter-spacing="7" fill="#a07b3f">MYTH &amp; SACRED HISTORY</text>
+  <text x="450" y="204" text-anchor="middle" font-family="Noto Serif CJK SC, serif"
+        font-size="86" font-weight="900" fill="#2d2a26">西方神话与圣史</text>
+  <text x="450" y="262" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="28" font-weight="400" fill="#7c7060">从创世神话到宗教改革</text>
+
+  <!-- frame -->
+  <rect x="78" y="316" width="744" height="492" rx="30" fill="#fbf5e9"
+        stroke="#d9c9ab" stroke-width="3"/>
+  <text x="112" y="358" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="22" font-weight="700" letter-spacing="2" fill="#a07b3f">三十三件大事 · 四个时代</text>
+
+  <!-- central timeline -->
+  <rect x="446" y="392" width="8" height="380" rx="4" fill="#c99a45"/>
+  <circle cx="450" cy="420" r="13" fill="#fbf5e9" stroke="#c99a45" stroke-width="6"/>
+  <circle cx="450" cy="514" r="13" fill="#fbf5e9" stroke="#c99a45" stroke-width="6"/>
+  <circle cx="450" cy="608" r="13" fill="#fbf5e9" stroke="#c99a45" stroke-width="6"/>
+  <circle cx="450" cy="702" r="13" fill="#fbf5e9" stroke="#c99a45" stroke-width="6"/>
+
+  <!-- era rows -->
+  <rect x="122" y="392" width="288" height="76" rx="12" fill="url(#gold)"/>
+  <text x="140" y="422" font-family="Noto Serif CJK SC, serif" font-size="24" font-weight="900" fill="#fffaf0">神话时代</text>
+  <text x="140" y="450" font-family="Noto Sans CJK SC, sans-serif" font-size="15" fill="#fff2d8">巴比伦 · 埃及 · 希腊 · 北欧</text>
+
+  <rect x="490" y="486" width="288" height="76" rx="12" fill="#9b3f2e"/>
+  <text x="508" y="516" font-family="Noto Serif CJK SC, serif" font-size="24" font-weight="900" fill="#fff4ec">旧约时代</text>
+  <text x="508" y="544" font-family="Noto Sans CJK SC, sans-serif" font-size="15" fill="#f2d7cb">亚当夏娃 · 出埃及 · 大卫</text>
+
+  <rect x="122" y="580" width="288" height="76" rx="12" fill="#3f5f8a"/>
+  <text x="140" y="610" font-family="Noto Serif CJK SC, serif" font-size="24" font-weight="900" fill="#f0f5fc">新约与早期教会</text>
+  <text x="140" y="638" font-family="Noto Sans CJK SC, sans-serif" font-size="15" fill="#dbe5f1">耶稣 · 保罗 · 尼西亚</text>
+
+  <rect x="490" y="674" width="288" height="76" rx="12" fill="#4f7259"/>
+  <text x="508" y="704" font-family="Noto Serif CJK SC, serif" font-size="24" font-weight="900" fill="#f1f7f2">中世纪与改革</text>
+  <text x="508" y="732" font-family="Noto Sans CJK SC, sans-serif" font-size="15" fill="#dceadf">十字军 · 路德 · 梵二</text>
+
+  <!-- chips -->
+  <rect x="126" y="852" width="200" height="54" rx="27" fill="#ffffff"
+        stroke="#e1d3b9" stroke-width="1.5"/>
+  <text x="226" y="888" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="23" font-weight="700" fill="#a07b3f">33 件大事</text>
+
+  <rect x="346" y="852" width="208" height="54" rx="27" fill="#ffffff"
+        stroke="#e1d3b9" stroke-width="1.5"/>
+  <text x="450" y="888" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="23" font-weight="700" fill="#3f5f8a">神话 / 圣经 / 宗教史</text>
+
+  <rect x="574" y="852" width="200" height="54" rx="27" fill="#ffffff"
+        stroke="#e1d3b9" stroke-width="1.5"/>
+  <text x="674" y="888" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="23" font-weight="700" fill="#4f7259">逐则展开</text>
+
+  <text x="450" y="982" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="27" font-weight="400" fill="#574f45">神话、圣经与历史分栏标注</text>
+  <text x="450" y="1034" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="23" font-weight="400" fill="#8a8070">年代、史料与阅读边界一并说明</text>
+  <text x="450" y="1142" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="20" font-weight="400" letter-spacing="2" fill="#a07b3f">西方神话与圣史</text>
+</svg>

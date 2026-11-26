@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#fdf9f0"/>
+      <stop offset="0.55" stop-color="#f8f0e2"/>
+      <stop offset="1" stop-color="#efe3d0"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6d79b"/>
+      <stop offset="1" stop-color="#e3b160"/>
+    </linearGradient>
+    <linearGradient id="night" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#26365c"/>
+      <stop offset="1" stop-color="#0d1730"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1200" fill="url(#bg)"/>
+  <circle cx="790" cy="150" r="200" fill="#f0dfc2" opacity="0.55"/>
+  <circle cx="110" cy="1050" r="220" fill="#dfe8db" opacity="0.5"/>
+
+  <text x="450" y="104" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="600" letter-spacing="8" fill="#a08055">PHOTO STUDIO</text>
+  <text x="450" y="200" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="76" font-weight="800" letter-spacing="2" fill="#3f352b">头像壁纸工坊</text>
+  <text x="450" y="258" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="30" fill="#8a7a68">一张照片，换个头像和壁纸</text>
+
+  <g>
+    <rect x="150" y="330" width="280" height="470" rx="26" fill="#ffffff" stroke="#e6d7c0" stroke-width="2"/>
+    <circle cx="290" cy="520" r="104" fill="#ffffff" stroke="url(#ring)" stroke-width="12"/>
+    <circle cx="290" cy="520" r="90" fill="#e9ddc9"/>
+    <circle cx="290" cy="496" r="32" fill="#c9a87c"/>
+    <path d="M224 574c0-36 30-62 66-62s66 26 66 62" fill="#c9a87c"/>
+    <g fill="#7fae84">
+      <ellipse cx="192" cy="452" rx="18" ry="7" transform="rotate(-30 192 452)"/>
+      <ellipse cx="388" cy="452" rx="18" ry="7" transform="rotate(30 388 452)"/>
+      <ellipse cx="206" cy="588" rx="16" ry="6" transform="rotate(25 206 588)"/>
+      <ellipse cx="374" cy="588" rx="16" ry="6" transform="rotate(-25 374 588)"/>
+    </g>
+    <text x="290" y="700" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#8a6a2f">奶油花环</text>
+    <text x="290" y="736" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="18" fill="#b6a68f">头像框</text>
+  </g>
+
+  <g>
+    <rect x="470" y="330" width="280" height="470" rx="26" fill="url(#night)" stroke="#3a4a6e" stroke-width="2"/>
+    <circle cx="650" cy="430" r="10" fill="#ffffff" opacity="0.8"/>
+    <circle cx="560" cy="392" r="4" fill="#ffffff" opacity="0.6"/>
+    <circle cx="720" cy="470" r="4.5" fill="#ffffff" opacity="0.7"/>
+    <circle cx="600" cy="470" r="3" fill="#ffffff" opacity="0.5"/>
+    <circle cx="690" cy="386" r="3" fill="#ffffff" opacity="0.55"/>
+    <circle cx="700" cy="560" r="46" fill="#fff3d2"/>
+    <circle cx="684" cy="548" r="9" fill="#e6d8b4" opacity="0.6"/>
+    <circle cx="716" cy="576" r="6" fill="#e6d8b4" opacity="0.5"/>
+    <text x="610" y="700" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#ffffff">夜航星</text>
+    <text x="610" y="736" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="18" fill="#8fa1c4">壁纸</text>
+  </g>
+
+  <g font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="700">
+    <rect x="150" y="860" width="190" height="56" rx="28" fill="#f9ecd4" stroke="#d8bd91"/>
+    <text x="245" y="896" text-anchor="middle" fill="#8a5a1c">4 个头像框</text>
+    <rect x="355" y="860" width="190" height="56" rx="28" fill="#f9ecd4" stroke="#d8bd91"/>
+    <text x="450" y="896" text-anchor="middle" fill="#8a5a1c">4 个壁纸</text>
+    <rect x="560" y="860" width="190" height="56" rx="28" fill="#f9ecd4" stroke="#d8bd91"/>
+    <text x="655" y="896" text-anchor="middle" fill="#8a5a1c">保存 · 分享</text>
+  </g>
+
+  <text x="450" y="1010" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="26" fill="#6f5d49">选照片 · 拖动缩放 · 即时预览</text>
+  <text x="450" y="1060" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="22" fill="#b08a5a">照片只在本机处理，不上传</text>
+  <text x="450" y="1100" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif" font-size="18" fill="#b6a68f">头像壁纸工坊 · 原型</text>
+</svg>

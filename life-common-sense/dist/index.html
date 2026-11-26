@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#f7efe3" />
+  <title>生活常识小考</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: #f7efe3;
+      color: #2f2b26;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                   "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    [hidden] { display: none !important; }
+  </style>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="26" height="26">
+            <rect x="5" y="4" width="22" height="24" rx="4" fill="#c0663a"></rect>
+            <rect x="9" y="9" width="14" height="2.6" rx="1.3" fill="#fbeade"></rect>
+            <rect x="9" y="14" width="10" height="2.6" rx="1.3" fill="#fbeade"></rect>
+            <path d="M11 23l3 3 7-8" fill="none" stroke="#fbeade" stroke-width="2.4"
+                  stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </span>
+        <div>
+          <p class="eyebrow">LIFE COMMON SENSE</p>
+          <h1>生活常识小考</h1>
+        </div>
+      </div>
+      <p class="tagline">每天十题，少踩坑</p>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <section id="home-screen" aria-label="首页">
+      <div class="intro">
+        <p class="intro-kicker">职场 · 社交 · 医院 · 交通 · 生活 · 法律 · 厨房</p>
+        <p class="intro-text">210 道生活常识题，选一个分类开始；答完立即看解析，错题自动收进错题本。</p>
+      </div>
+
+      <div class="stats-strip">
+        <div class="stat-cell"><strong id="stat-answers">0</strong><span>累计答题</span></div>
+        <div class="stat-cell"><strong id="stat-accuracy">0%</strong><span>正确率</span></div>
+        <div class="stat-cell"><strong id="stat-sets">0</strong><span>练习组数</span></div>
+        <div class="stat-cell"><strong id="stat-wrong">0</strong><span>错题</span></div>
+      </div>
+
+      <div class="section-head">
+        <h2>选择分类</h2>
+        <span>每组 10 题</span>
+      </div>
+      <div id="category-list" class="category-chips" role="group" aria-label="选择分类"></div>
+      <p id="selected-category-info" class="selected-category-info"></p>
+
+      <button id="start-practice" class="btn btn-primary btn-block" type="button">开始练习（10 题）</button>
+
+      <div class="secondary-actions">
+        <button id="start-challenge" class="secondary-btn" type="button">
+          <span class="secondary-title">综合挑战</span>
+          <span class="secondary-sub">20 题 · 答对 16 题通过</span>
+        </button>
+        <button id="open-wrong" class="secondary-btn" type="button">
+          <span class="secondary-title">错题本</span>
+          <span class="secondary-sub"><span id="wrong-count-home">0</span> 题待复习</span>
+        </button>
+      </div>
+
+      <p id="storage-note" class="storage-note" hidden>当前环境不支持保存进度，本次练习数据仅在页面内有效。</p>
+      <p id="disclaimer" class="disclaimer"></p>
+    </section>
+
+    <section id="quiz-screen" aria-label="答题" hidden>
+      <div class="quiz-top">
+        <button id="quiz-back" class="back-link" type="button">‹ 返回首页</button>
+        <span id="quiz-progress-text" class="quiz-progress-text">第 1 / 10 题</span>
+      </div>
+      <div class="progress-track"><div id="quiz-progress-bar" class="progress-bar"></div></div>
+
+      <div class="quiz-tags">
+        <span id="quiz-category" class="quiz-tag">综合</span>
+        <span id="quiz-mode" class="quiz-mode">分类练习</span>
+      </div>
+
+      <div class="question-card">
+        <p id="question-prompt" class="question-prompt"></p>
+        <div id="options" class="options"></div>
+        <div id="feedback" class="feedback" hidden>
+          <p id="feedback-title" class="feedback-title"></p>
+          <p id="feedback-explain" class="feedback-explain"></p>
+        </div>
+      </div>
+
+      <button id="next-btn" class="btn btn-primary btn-block" type="button" hidden>下一题</button>
+    </section>
+
+    <section id="result-screen" aria-label="答题结果" hidden>
+      <div class="result-card">
+        <p id="result-kicker" class="result-kicker">练习完成</p>
+        <p class="result-score"><strong id="result-score">0</strong><span id="result-total"> / 10</span></p>
+        <p id="result-title" class="result-title"></p>
+        <p id="result-summary" class="result-summary"></p>
+        <div class="result-actions">
+          <button id="again-btn" class="btn btn-primary" type="button">再练一组</button>
+          <button id="retry-wrong" class="btn btn-ghost" type="button">重练错题</button>
+          <button id="result-home" class="btn btn-ghost" type="button">回到首页</button>
+        </div>
+      </div>
+
+      <section id="result-wrong-wrap" class="wrong-wrap">
+        <div class="section-head">
+          <h2>本组错题</h2>
+          <span>已自动加入错题本</span>
+        </div>
+        <div id="result-wrong-list"></div>
+      </section>
+    </section>
+
+    <section id="wrong-screen" aria-label="错题本" hidden>
+      <button id="wrong-back" class="back-link" type="button">‹ 返回首页</button>
+      <div class="section-head is-wrong">
+        <h2>错题本</h2>
+        <span id="wrong-title-count">0 题</span>
+      </div>
+      <p class="wrong-hint">答对后会自动移出错题本；也可以手动移除已经掌握的题。</p>
+      <button id="wrong-start" class="btn btn-primary btn-block" type="button" hidden>开始重练错题</button>
+      <div id="wrong-list" class="wrong-list"></div>
+      <p id="wrong-empty" class="empty-state">错题本还是空的，先去练一组吧。</p>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>生活常识小考 · 题库为通识整理，不替代专业意见</p>
+  </footer>
+
+  <script src="./data.js"></script>
+  <script src="./engine.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

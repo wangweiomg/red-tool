@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8f1e3"/>
+      <stop offset="1" stop-color="#e9dbc2"/>
+    </linearGradient>
+    <linearGradient id="cn" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b34b35"/>
+      <stop offset="1" stop-color="#943828"/>
+    </linearGradient>
+    <linearGradient id="west" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4c6d99"/>
+      <stop offset="1" stop-color="#355176"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#dbe5f1" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#dbe5f1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="warm" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ecd9b8" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#ecd9b8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="900" height="1200" fill="url(#bg)"/>
+  <circle cx="800" cy="150" r="250" fill="url(#glow)"/>
+  <circle cx="80" cy="1110" r="270" fill="url(#warm)"/>
+
+  <text x="450" y="98" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="23" font-weight="500" letter-spacing="8" fill="#a07b3f">TWO LINES OF HISTORY</text>
+  <text x="450" y="204" text-anchor="middle" font-family="Noto Serif CJK SC, serif"
+        font-size="92" font-weight="900" fill="#2f2a24">双线编年史</text>
+  <text x="450" y="262" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="28" font-weight="400" fill="#7a6f60">同一时间轴上，中国与西方</text>
+
+  <!-- frame -->
+  <rect x="78" y="316" width="744" height="474" rx="30" fill="#fbf5e9"
+        stroke="#d9c9ab" stroke-width="3"/>
+  <text x="112" y="358" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="22" font-weight="700" letter-spacing="2" fill="#a07b3f">从神话创世到秦汉与《新约》</text>
+
+  <!-- central timeline -->
+  <rect x="446" y="386" width="8" height="340" rx="4" fill="#c99a45"/>
+  <circle cx="450" cy="414" r="13" fill="#fbf5e9" stroke="#c99a45" stroke-width="6"/>
+  <circle cx="450" cy="500" r="13" fill="#fbf5e9" stroke="#c99a45" stroke-width="6"/>
+  <circle cx="450" cy="586" r="13" fill="#fbf5e9" stroke="#c99a45" stroke-width="6"/>
+  <circle cx="450" cy="672" r="13" fill="#fbf5e9" stroke="#c99a45" stroke-width="6"/>
+
+  <!-- china column -->
+  <rect x="122" y="390" width="270" height="330" rx="18" fill="url(#cn)"/>
+  <rect x="122" y="390" width="24" height="330" rx="12" fill="#7f2e21"/>
+  <text x="270" y="436" text-anchor="middle" font-family="Noto Serif CJK SC, serif"
+        font-size="34" font-weight="900" fill="#f8e8df">中 国</text>
+  <text x="270" y="478" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="19" fill="#f2d7cb">神话与三皇五帝</text>
+  <text x="270" y="544" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="19" fill="#f2d7cb">夏 · 商 · 西周</text>
+  <text x="270" y="610" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="19" fill="#f2d7cb">春秋战国 · 百家争鸣</text>
+  <text x="270" y="676" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="19" fill="#f2d7cb">秦 · 汉</text>
+
+  <!-- west column -->
+  <rect x="508" y="390" width="270" height="330" rx="18" fill="url(#west)"/>
+  <rect x="754" y="390" width="24" height="330" rx="12" fill="#2b4263"/>
+  <text x="630" y="436" text-anchor="middle" font-family="Noto Serif CJK SC, serif"
+        font-size="34" font-weight="900" fill="#e4edf8">西 方</text>
+  <text x="630" y="478" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="19" fill="#dbe5f1">创世 · 亚当夏娃</text>
+  <text x="630" y="544" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="19" fill="#dbe5f1">出埃及 · 摩西</text>
+  <text x="630" y="610" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="19" fill="#dbe5f1">希腊 · 罗马</text>
+  <text x="630" y="676" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="19" fill="#dbe5f1">耶稣 · 新约</text>
+
+  <!-- chips -->
+  <rect x="126" y="832" width="200" height="54" rx="27" fill="#ffffff"
+        stroke="#e1d3b9" stroke-width="1.5"/>
+  <text x="226" y="868" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="23" font-weight="700" fill="#a8442f">编年体对照</text>
+
+  <rect x="346" y="832" width="208" height="54" rx="27" fill="#ffffff"
+        stroke="#e1d3b9" stroke-width="1.5"/>
+  <text x="450" y="868" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="23" font-weight="700" fill="#3f5f8a">纪传体故事</text>
+
+  <rect x="574" y="832" width="200" height="54" rx="27" fill="#ffffff"
+        stroke="#e1d3b9" stroke-width="1.5"/>
+  <text x="674" y="868" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="23" font-weight="700" fill="#8a6428">21 个节点</text>
+
+  <text x="450" y="962" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="27" font-weight="400" fill="#574c3f">神话、传说与信史分栏标注</text>
+  <text x="450" y="1014" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="23" font-weight="400" fill="#8a8070">30 则故事 · 4 个时代 · 左右对照</text>
+  <text x="450" y="1142" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="20" font-weight="400" letter-spacing="2" fill="#a07b3f">双线编年史</text>
+</svg>

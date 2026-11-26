@@ -69,12 +69,67 @@ red-tool/
     ├── tests/
     ├── home-decor.zip
     └── README.md
-└── renovation-guide/
+├── renovation-guide/
     ├── dist/
     ├── publish/
     ├── tests/
     ├── renovation-guide.zip
     ├── CONTENT-OUTLINE.md
+    └── README.md
+├── photo-studio/
+    ├── dist/
+    ├── publish/
+    ├── tests/
+    ├── photo-studio.zip
+    └── README.md
+├── game-classroom-snack/
+    ├── dist/
+    ├── publish/
+    ├── tests/
+    ├── game-classroom-snack.zip
+    └── README.md
+├── game-classroom-3d/
+    ├── dist/
+    │   └── vendor/three.min.js
+    ├── publish/
+    ├── tests/
+    ├── game-classroom-3d.zip
+    └── README.md
+├── game-snake-break/
+    ├── dist/
+    ├── publish/
+    ├── tests/
+    ├── game-snake-break.zip
+    └── README.md
+├── game-junior-quiz/
+    ├── dist/
+    ├── publish/
+    ├── tests/
+    ├── game-junior-quiz.zip
+    └── README.md
+├── game-high-quiz/
+│   ├── dist/
+│   ├── publish/
+│   ├── tests/
+│   ├── game-high-quiz.zip
+│   └── README.md
+├── history-chronicle/
+│   ├── dist/
+│   ├── publish/
+│   ├── tests/
+│   ├── history-chronicle.zip
+│   └── README.md
+├── west-myth-history/
+│   ├── dist/
+│   ├── publish/
+│   ├── tests/
+│   ├── west-myth-history.zip
+│   └── README.md
+└── life-common-sense/
+    ├── dist/
+    ├── publish/
+    ├── tests/
+    ├── life-common-sense.zip
     └── README.md
 ```
 
@@ -103,6 +158,9 @@ node game-2048/tests/engine.test.js
 node game-huarongdao/tests/engine.test.js
 node game-idiom/tests/engine.test.js
 node game-primary-quiz/tests/engine.test.js
+node history-chronicle/tests/engine.test.js
+node west-myth-history/tests/engine.test.js
+node life-common-sense/tests/engine.test.js
 
 # 语法
 node --check game-2048/dist/engine.js
@@ -197,14 +255,16 @@ node "$HOME/.claude/skills/redapp-cli/scripts/ensure-cli.mjs"
 ### 成语解谜
 
 - 目录：`game-idiom/`
-- 版本：`1.0.0`（待发布）
+- 已发布版本：`1.0.0`（`status=2 已发布`，查询于 2026-11-20）
+- 版本：`1.1.0`（已送审，审核中，截至 2026-11-20）
 - 本地内容：120 个成语、24 天周期内不重复、结果卡保存/分享、`postNote` 发布笔记
 - appId：`6afed7748c03b90015f9d33a`
-- 版本：`1.0.0`
-- 状态：已送审，审核中（截至 2026-11-19）
+- 声音：音效默认开（选字、撤回、答对、答错、通关），背景音乐默认关（贝多芬《月光》第一乐章三连音改编，Web Audio 合成）；开关保存在 `idiom.v1.state` 的 `sound` 字段
 - 类目：`learning_education`
 - 权限：`photos`、`apiCloudStore`
-- 当前 ZIP SHA-256：`e208e906b0e525cd8c061e7cb46bd5dea161c96a683628afa5f48ec555296e89`
+- 1.1.0 已上传代码包 fileId：`red_app/oXfn4Zen1gm8RXgQztmqWjGNTXF1kaQqAQBKMcvHh7yQJB4.zip`
+- 本地 ZIP SHA-256（1.1.0）：`bac258f0c8c78eb7017a8374e32d7704c3c414e83637e96a3f5eb45b09d75a5f`（21,336 B）
+- 1.1.0 操作记录：`~/.local/state/redapp-cli/game-idiom/2026-11-20-audio-preview/session.json`
 - 操作记录：`~/.local/state/redapp-cli/game-idiom/2026-11-19-upload-preview-v2/session.json`
 - 已送审代码包 fileId：`red_app/uIqfbEGEgQuzMqmP_lQHsDXQ3cuj4iTf318c2kSK-R9QlcQ.zip`
 - 更新时必须使用同一 appId + 新版本号，并重新预览、送审
@@ -214,9 +274,13 @@ node "$HOME/.claude/skills/redapp-cli/scripts/ensure-cli.mjs"
 ### 小学回忆杀
 
 - 目录：`game-primary-quiz/`
-- 已送审版本：`1.0.0`，审核中（截至 2026-11-19）
-- 本地最新：`1.0.0 + Web Audio 音效/背景音乐`，尚未发布；发布时必须使用新版本号（建议 `1.0.1`）
-- 1.0.1 已于 2026-11-19 送审：先在平台网页端撤回审核中的 1.0.0，再提交 1.0.1 成功（`status=1` 审核中）
+- 已发布版本：`1.0.1`（`list` 显示已发布）
+- 本地最新：`1.1.0`（舒缓背景纯音乐），已送审，审核中（截至 2026-11-21）
+- 1.1.0 预览 appId：`6b00fb8453ca3e00150c0905`；预览二维码：`~/.local/state/redapp-cli/game-primary-quiz/2026-11-21-bgm-preview/preview-qr-20261121-1.png`（用户已回复“预览通过，送审”）
+- 1.1.0 已送审代码包 fileId：`red_app/A7Ri7NB9rZEHrd4NhmTeBrPV44TDFEwXWyThR9kASdil2vo.zip`
+- 1.1.0 图标 fileId：`red_skill_tool_image/lnR2mI2Cx8v2Z8zT_yEA5CCTX0TlCI9GRkFbUeb7Vl8mLI0.png`；封面 fileId：`red_skill_tool_image/9gB2q3fjufWPSMp7z7s38AskAMxnT28ee93bRIjl8ybQNBk.png`
+- 1.1.0 操作记录：`~/.local/state/redapp-cli/game-primary-quiz/2026-11-21-bgm-preview/session.json`
+- 1.1.0 改动：背景音乐替换为 F 大调五声音阶音乐盒旋律 + F–Dm–B♭–C 慢速和弦，32 步约 13.4 秒循环，全部 Web Audio 合成；默认开启（已有用户保存的开关状态保持不变）
 - 1.0.1 已送审代码包 fileId `red_app/93I7BhxihdZUWVhSkg-s3Fy1iprzlisM-J63fEFQxiAvxbc.zip`（md5 `9dd9a796b1abe2e97b50010386f46afa`），ZIP SHA-256 `cf476f283def3b63d4b40a1b815303ee9f294728b4186e45aaf2ea920e730cab`
 - 提交记录：`~/.local/state/redapp-cli/game-primary-quiz/2026-11-19-upload-preview-v6/session.json`
 - 注意：`status` 接口在提交后仍返回 `1.0.0`（缓存滞后），以 `list` 的版本字段为准；`history` 对该 appId 报 `小工具不存在`
@@ -229,7 +293,8 @@ node "$HOME/.claude/skills/redapp-cli/scripts/ensure-cli.mjs"
 - 个人中心：首页横幅 + 右上角图标入口；累计答题、练习答题、正确率、练习组数、考试通过/次数、错题本；错题答对后自动移除
 - 题库当前 168 题（120 标准 + 48 奥赛），正式送审前建议人工抽查答案、解析和年级标注
 - 已送审 ZIP SHA-256：`f2961097b46aa5964dcff744b57e6c8e116b87f09ffa63843618172db619bce4`
-- 本地音效版 ZIP SHA-256：`cf476f283def3b63d4b40a1b815303ee9f294728b4186e45aaf2ea920e730cab`
+- 本地 1.1.0 ZIP SHA-256：`6a753462625b6295b31c7e82b305bfbdb5c329124549a78f4078a118837f2781`（34,977 B，md5 `03eeb735819e67df4b84b69515af5fcc`）
+- 1.0.1 已发布 ZIP SHA-256：`cf476f283def3b63d4b40a1b815303ee9f294728b4186e45aaf2ea920e730cab`
 - 操作记录：`~/.local/state/redapp-cli/game-primary-quiz/2026-11-19-upload-preview-v5/session.json`
 - CLI 当前 1.0.6
 - 分享卡 / `share` / `postNote` 与成语解谜一致，必须做能力检测和失败降级
@@ -310,7 +375,7 @@ node "$HOME/.claude/skills/redapp-cli/scripts/ensure-cli.mjs"
 
 - 目录：`renovation-guide/`
 - appId：`6affd24c261c1b0015ec0da1`
-- 版本：`0.1.0`
+- 版本：`1.0.0`（正式版）
 - 状态：已送审，审核中（截至 2026-11-20）
 - 类目：`learning_education`
 - 权限：`photos`（保存自测成绩卡）
@@ -327,6 +392,220 @@ node "$HOME/.claude/skills/redapp-cli/scripts/ensure-cli.mjs"
 - 本地 ZIP SHA-256：`b7efe15df8cd8a7bc48f569f82ef36f04a045242b9bb65be6f4e68f1f9955738`（26,646 B）
 - 单元测试：`node renovation-guide/tests/engine.test.js`
 - 待办：平台模拟器、Android 真机、iOS 真机验证
+
+### 头像壁纸工坊（原型）
+
+- 目录：`photo-studio/`
+- appId：`6b002e1453ca3e00150c05f1`
+- 版本：`0.1.1`
+- 状态：已送审，审核中（截至 2026-11-20）
+- 类目：`image_creation`
+- 权限：`photos`（保存图片到相册）
+- 功能：4 个头像框 + 4 个壁纸主题；选本地照片、拖动/缩放、保存相册/分享/发布笔记
+- 渲染：Canvas 程序化绘制，无外部素材；头像 800×800，壁纸 1080×1920
+- 隐私：照片只在本机 Canvas 处理，不上传
+- 声音：音效默认开（切换模板/模式、载入照片、重置、保存/分享成功），背景音乐默认关（贝多芬《致爱丽丝》改编，Web Audio 合成，公有领域）；开关存 `photostudio.v1.sound`
+- 已知限制：无双指缩放/旋转；老 WebView 可能不处理 EXIF 方向；无草稿保存
+- 0.1.1 已上传代码包 fileId：`red_app/k8_MtMcVbH6UOqLmYvhInd5pAHfESDMK49GorTcGTnTggz4.zip`
+- 0.1.0 已上传代码包 fileId：`red_app/wVweKjl_EBmYlGLkPcZ9NVjRCFT2eBB0Nah8d0oy1GKSwfM.zip`
+- 图标 fileId：`red_skill_tool_image/ChOz3yqiOdKRFhvchqytkoxmi3kPpJRi4Su98L25uRHNreQ.png`
+- 封面 fileId：`red_skill_tool_image/cFBvwmIczmY_PplC3ygSYGSOaya19Syso7l7gRQz9yJpRW4.png`
+- 操作记录：`~/.local/state/redapp-cli/photo-studio/2026-11-20-prototype-preview/session.json`
+- 本地 ZIP SHA-256（0.1.1）：`8386e1125ae6be3db5637dcabc8090a60817fd1e3798c01927e73c97a0c88251`（13,706 B）
+- 单元测试：`node photo-studio/tests/engine.test.js`
+- 待办：图标/封面、真机验证、模板扩充
+
+### 课堂偷吃大作战（2.5D 原型）
+
+- 目录：`game-classroom-snack/`
+- appId：`6b005cd9261c1b0015ec11f4`
+- 版本：`1.0.0`（正式版）
+- 状态：已送审，审核中（截至 2026-11-20）
+- 类目：`casual_game`
+- 权限：`photos`（保存成绩卡）
+- 玩法：老师背对黑板写字时按住偷吃，转身前要咽下去；被抓扣命，吃满 10 个获胜
+- 规则：写字时间随零食数缩短、盯人时间变长；转身完成或面向期间吃东西都会被立刻抓
+- 实现：`engine.js` 纯逻辑状态机；`app.js` Canvas 2D 教室、老师转身、HUD、音效、成绩卡
+- 音效：粉笔、转身提示、被抓、吃到、胜负，Web Audio 合成；无背景音乐
+- 存储：`classroomsnack.v1.best`，保存最佳零食数与局数
+- 已知限制：固定视角、一个教室、无难度选择、无道具、老师转身为缩放翻转
+- 已上传代码包 fileId：`red_app/i2mMCEqKZAY5120HOWkYjCl-_OQPlebVMliVCZ2b9hOlALc.zip`
+- 图标 fileId：`red_skill_tool_image/w60vjd71DSDkwJXQXAimhOm5rKrWuG1s8AMJmkGWG1V3vXQ.png`
+- 封面 fileId：`red_skill_tool_image/9wi-l89Bay3ZlkM0i-4CFCB42rxQz95DK9JJ9_fnFtpPca4.png`
+- 操作记录：`~/.local/state/redapp-cli/game-classroom-snack/2026-11-20-prototype-preview/session.json`
+- 本地 ZIP SHA-256：`6abc6e1834c6f472ebb24fc17266df8475ef3bec9d8859f8fa70bd08951c1154`（12,973 B）
+- 单元测试：`node game-classroom-snack/tests/engine.test.js`
+- 待办：图标/封面、真机验证、难度与道具
+
+### 课堂偷吃大作战 3D（生产版）
+
+- 目录：`game-classroom-3d/`
+- 版本：`1.1.0`（已送审，审核中，截至 2026-11-21）；`1.0.0` 已由用户在网页端撤回（`list` 显示未发布）
+- 1.1.0 预览 appId：`6b00f88c261c1b0015ec138e`；预览二维码：`~/.local/state/redapp-cli/game-classroom-3d/2026-11-20-webgl-preview/preview-qr-20261121-1210.png`（用户已回复“预览通过，送审”）
+- 1.1.0 已送审代码包 fileId：`red_app/LiWSKqI_5bEIWagxaMn_YEqsCB__lfoUXLFvJ6QoM5eZvZk.zip`
+- 1.0.0 appId：`6b006dd08eb436001501c79f`（`status=1 审核中`）
+- 类目：`casual_game`；权限：`photos`（保存成绩卡）
+- 1.0.0 已送审代码包 fileId：`red_app/9fwf8mD5w-u5NG2oDAoLXdStrRD4R8TpD1bR9jyMeFVltFA.zip`
+- 1.0.0 图标 fileId：`red_skill_tool_image/dEpNC8H03w1x9HXpEEC7TAUqu818DCE8Zc_8Ni5g9cy_qZE.png`
+- 1.0.0 封面 fileId：`red_skill_tool_image/NaprAv5U5iHKmo7TZg_M0XspvnftDxlRRjrQhAY5VVGIAD8.png`
+- 送审前预览 appId：`6b006d4b8eb436001501c79e`；预览二维码：`~/.local/state/redapp-cli/game-classroom-3d/2026-11-20-webgl-preview/preview-qr-20261121-prod2.png`（用户已回复“预览通过，送审”）
+- 定位：固定机位 3D 教室偷吃游戏（生产版），名称「课堂偷吃大作战 3D」
+- 技术：Three.js r128（WebGL1，MIT，包内 `vendor/three.min.js`）；规则复用 `game-classroom-snack/dist/engine.js`
+- 场景：低模教室（黑板 CanvasTexture、课桌、侧边讲台、挂钟、海报、玩家课桌）、部件式老师（头发/五官/眼镜与镜腿/领口/纽扣/腰带/四肢/鞋、转身插值、两段式写字手臂）、偷吃手部
+- 性能：800×600、DPR 上限 1.5、无阴影；WebGL 不可用时禁用开始并在遮罩内说明
+- 0.1.1 优化：老师补全头发、五官、眼镜、领口、四肢和鞋子；吃东西改为前臂/手掌/四指/拇指握饼干
+- 0.1.2 优化：吃东西改为完整动作链——手从右下抬向嘴边、饼干随进度倾斜，72% 后替换为带缺口饼干；咀嚼时手停在嘴边、手指开合、碎屑从嘴边掉落。第一人称嘴部因遮挡画面未启用
+- 0.1.3 优化：老师改为两段式手臂（肩、袖、袖口、前臂、手掌、四指、拇指），写字时肩部左右扫动、肘部起落、腕部轻摆，粉笔仅写字时显示；衬衫分色、补 V 领与镜腿；吃东西时手从画面下缘抬起，咀嚼时保留咬过的饼干
+- 声音：音效与背景音乐默认开；音效含粉笔、转身、被抓、吃到、胜负，背景音乐为原创五声音阶摇篮曲（C–Am–F–G 慢速分解和弦，Web Audio 合成）；开关保存在 `classroomsnack3d.v1.best` 的 `sound` 字段
+- 1.0.0 优化：去掉 FPS 诊断与验证文案，改为正式名称与说明；新增被抓/胜负震动反馈（vibrateShort 能力检测）、后墙海报、粉笔槽、课桌书本；背景音乐默认开启
+- 1.1.0 改动：六节课表（语文 6 / 数学 10 / 英语 8 / 物理 8 / 化学 10 / 期末 12），每关窗口、盯人、预告、进食速度和老师形象都不同；停笔预告 0.3–0.9s；英语/化学/期末有 `faking` 假动作（转 0.5–0.8 圈再转回去，0.9s，安全）；物理/化学/期末有 `pauseFake` 假停笔（停笔后再写起来，`resume` 事件）；老师形象六套（语文长发赤陶 / 数学短发蓝 / 英语发髻绿开衫 / 物理短发石板灰 / 化学长发紫 / 期末深色西装），板书按课程区分；星级按剩余生命比例（三命 3/2/1，两命 3/2，一命通关 3 星），课表按星级解锁，关卡与星级写入结算卡和发布文案；`classroomsnack3d.v1.best` 增加 `levels` 字段
+- 送审记录：2026-11-21 12:25 首次提交被拒（`API_REJECTED 已存在审核中的版本`）；用户网页端撤回 1.0.0 后，12:40 重新提交成功（`status=1`）
+- 1.1.0 封面 fileId（六节课 · 拿满十八颗星）：`red_skill_tool_image/ebJ5GalUTSssiee_82HQ0WY01ntJ0JWsKtShv7vhifG-oFM.png`
+- 注意：`status` 接口缓存仍返回 1.0.0，版本以 `list` 的 1.1.0 为准
+- 包体（1.0.0）：168,454 B（Three.js 压缩后约 150KB）
+- 图标：`publish/icon-512.png`；封面：`publish/cover-900x1200.png`（均由游戏内 3D 场景渲染，不进 ZIP）
+- 已知限制：占位低模、无真机数据、成绩卡沿用 2.5D 风格
+- 0.1.3 已上传代码包 fileId：`red_app/KNkcSrnowbFsj1gEk7CsAeYsPhZb9o3lYreuzIGwqxsJWN0.zip`
+- 本地 ZIP SHA-256（1.1.0）：`b56c9046d3b98eb21885dfd958fa7d69ff85eec245d82986d0959b34afb30ac3`（172,979 B，md5 `d6ab1b399deba878605537a0322eb81b`）
+- 本地 ZIP SHA-256（1.0.0）：`d56f0beea5cebc57c4b518050835a7dd56c3716c19ba84723e201c04c161dbdf`（168,454 B，md5 `20f27fa27b887ba9066e615120e7b64f`）
+- 本地 ZIP SHA-256（0.1.3）：`63e7a10856eeb79de69effa274ddeef3fb0ec0ea597a60fb5d87003f17c574f3`（168,182 B，md5 `f13986c9734bc2e77813aa47f28c1897`）
+- 本地 ZIP SHA-256（0.1.2）：`3f2514dc3e1822a801f51f0aeaf412e9309278c62d394787468f00758c12f095`
+- 0.1.2 已上传代码包 fileId：`red_app/oK9tjrh-XU_hcIq_xYj5F-dafmkgMp7qCx_jn3zTgG-DlWE.zip`
+- 0.1.1 已上传代码包 fileId：`red_app/P6-wA110XZ4dcPh8MB4ATqPjQWaCPl4-0FnwKBmUc0mq-PY.zip`
+- 0.1.0 已上传代码包 fileId：`red_app/IbvZCoQFq5UUpKGCOVAsHInFVhnN7k-Wle7qq9EnKtujpgM.zip`
+- 操作记录：`~/.local/state/redapp-cli/game-classroom-3d/2026-11-20-webgl-preview/session.json`
+
+### 课间十分钟 · 贪吃蛇
+
+- 目录：`game-snake-break/`
+- 版本：`1.0.0`（正式版）
+- 状态：加入背景音乐后已重新打包，待重新上传预览
+- 上一个预览 appId `6b0100858eb436001501c90a` 对应无背景音乐版本，已作废
+- 形态：20×26 网格、60 秒课间、课桌场景；滑动 / 四向键 / 方向键 WASD 转向，转向队列最多缓存两次
+- 零食：辣条 +1 分、饼干 +2 分、水果糖 +1 分并补 2 秒；速度 165ms/格起，吃到零食后逐渐加快到 95ms/格
+- 结束：撞墙 / 撞自己立即结束；60 秒下课铃结束
+- 开局：1.2 秒准备期，期间不移动、不扣时间（`startDelay`，结束时发 `go` 事件）
+- 存储：`snakebreak.v1.best`，保存最高分、局数与音效开关
+- 结算：900×1200 成绩卡（课桌面板 + 零食蛇 + 分数 + 新纪录角标），保存 / 分享 / 发布笔记均做能力检测与失败降级
+- 音效：吃到、被抓、下课铃、开始，Web Audio 合成
+- 背景音乐：G 大调五声音阶音乐盒旋律 + G–Em–C–D 慢速和弦，32 步约 12.2 秒循环，Web Audio 合成，默认开启；切后台暂停，开关保存在 `snakebreak.v1.best` 的 `sound.bgm`
+- 素材：`publish/icon-512.png`（512×512 圆角透明图标）、`publish/cover-900x1200.png`
+- 包体：14,405 B；本地 ZIP SHA-256 `06160ee8e2b4e355155e28be1d329ace66fe3dd37368caa694e5c7f52be18b60`（md5 `c02bd7e44699e2dc974a16deca2394d8`）
+- 单元测试：`node game-snake-break/tests/engine.test.js`
+- 已知限制：滑动阈值与速度曲线待真机手感反馈；送审需补类目与 `photos` 权限
+
+### 初中回忆杀
+
+- 目录：`game-junior-quiz/`
+- 版本：`1.0.0`（正式版）
+- 状态：已送审，审核中（截至 2026-11-21）
+- appId：`6b0152943894b3001504b088`（`status=1`）
+- 类目：`learning_education`；权限：`photos`（保存成绩卡）
+- 预览 appId：`6b01511b8eb436001501cade`；预览二维码：`~/.local/state/redapp-cli/game-junior-quiz/2026-11-21-prototype-preview/preview-qr-20261121-3.png`（用户已回复“预览通过，送审”）
+- 已送审代码包 fileId：`red_app/RVERF2BHXvzXN51uRyFlTS2RW6-ZFXli6NWs_D__jq_jziE.zip`
+- 图标 fileId：`red_skill_tool_image/8jwieFIi28HuW2ZBRDcEH5VvPbPNQpH2jNzva9zL37cHmH0.png`
+- 封面 fileId：`red_skill_tool_image/9zgopCs2Ic5JOiGkUrO8KX8MYFDLk9Yk-Xd1SzTV90zl6hA.png`
+- 操作记录：`~/.local/state/redapp-cli/game-junior-quiz/2026-11-21-prototype-preview/session.json`
+- 形态：初中三年三册（七年级 / 八年级 / 九年级），练习 + 考试；考试通过解锁下一册，九年级通过即毕业
+- 题库：110 题（七年级 35、八年级 40、九年级 35），覆盖语文 / 数学 / 英语 / 物理 / 化学 / 生物 / 历史 / 地理 / 道德与法治；每科 5 题、每题 4 选项 + 解析
+- 练习：综合 10 题、单科 5 题；考试：10 题，答对 8 题通过
+- 功能：个人中心（累计答题、正确率、练习组数、考试通过/次数）、错题本（答对自动移除）、900×1200 成绩卡、保存/分享/发布笔记、音效与背景音乐
+- 存储：`juniorquiz.v1.state`（`level` / `graduated` / `profile` / `settings`）
+- 声音：Web Audio 音效 + D 大调音乐盒背景音乐（D–Bm–G–A，约 12.8 秒循环），默认开启
+- 素材：`publish/icon-512.png`（512×512 圆角透明）、`publish/cover-900x1200.png`
+- 包体：24,967 B；本地 ZIP SHA-256 `552ac9213a8c3873c6eab09ac5c69e6d406232b9bd9a45c8fefbe8077f944a59`（md5 `8a7395154e111101a2041348df759c7c`）
+- 单元测试：`node game-junior-quiz/tests/engine.test.js`
+- 已知限制：题库人工整理，送审前需逐题抽查；年级按主题分组，个别题目可能跨册
+
+### 高中回忆杀
+
+- 目录：`game-high-quiz/`
+- 版本：`0.2.0`（已送审，审核中）；`0.1.0` 已发布
+- 状态：`0.1.0` 已发布；`0.2.0` 扩大题量、提高难度，已送审审核中（截至 2026-11-23）
+- appId：`6b01be3a3894b3001504b45f`（`list` 显示 0.2.0 审核中；`status` 接口缓存仍返回 0.1.0 已发布，版本以 `list` 为准）
+- 形态：高中三年三册（高一 / 高二 / 高三），练习 + 考试；高一、高二考试 12 题答对 10 题通过，**高三考试即高考，15 题答对 12 题通关**
+- 题库：162 题（每册 54 题），九科（语文 / 数学 / 英语 / 物理 / 化学 / 生物 / 历史 / 地理 / 政治），每科 6 题（4 基础 + 2 进阶）、4 选项 + 解析；进阶题标记 `difficulty: 2`
+- 练习：综合 12 题、单科 6 题；进阶题约占 40%，考试优先抽进阶题
+- 功能：个人中心（统计、错题本）、900×1200 成绩卡（高考通过显示“高考通过”角标）、保存/分享/发布笔记、音效与背景音乐
+- 存储：`highquiz.v1.state`（`level` / `graduated` / `profile` / `settings`）
+- 声音：Web Audio 音效 + A 大调音乐盒背景音乐（A–F#m–D–E，约 12.8 秒循环），默认开启
+- 包体（0.2.0）：30,334 B；本地 ZIP SHA-256 `2405dfafbc9952571ea6d829a965f5215b5ae63da52cbd840dde199fdfdc4437`（md5 `b4f9b86defc7b3859400fb72b2da1fd8`）
+- 包体（0.1.0）：24,174 B；本地 ZIP SHA-256 `7ade40c59b47b2347d729557f4b663e7a7bce8ed058f449a81e101fd676acbbd`（md5 `49acecd930e4d99bf260143f9a4073be`）
+- 0.1.0 已送审代码包 fileId：`red_app/MxzsQamc7Jbh9vmXNitDwxeQ73uadjIOt5nRhvUi1kKNIs8.zip`
+- 0.2.0 已送审代码包 fileId：`red_app/GxP_WItoss3hIAKtmcCoJbtyGLugDETvgW3vL_LH3-pletg.zip`
+- 图标 fileId：`red_skill_tool_image/7qUaa_VbRj_j2fmOcqeJvIRJBg0SJWOIzT_-xxqtP1uZ4YI.png`
+- 封面 fileId：`red_skill_tool_image/2_iosardLYEVJOdbSOvGXVf0n-HtryQK2XSwE7fowvx2LFA.png`
+- 0.2.0 预览 appId：`6b03e4ef53ca3e00150c1b73`；预览二维码：`~/.local/state/redapp-cli/game-high-quiz/2026-11-23-upload-preview/preview-qr-20261123-1.png`
+- 操作记录（0.2.0）：`~/.local/state/redapp-cli/game-high-quiz/2026-11-23-upload-preview/session.json`
+- 操作记录（0.1.0 送审）：`~/.local/state/redapp-cli/game-high-quiz/2026-11-21-upload-preview-v2/session.json`；首次上传预览记录（已作废）：`~/.local/state/redapp-cli/game-high-quiz/2026-11-21-upload-preview/session.json`
+- 素材：`publish/icon-512.png`（512×512，PNG，约 28 KB）、`publish/cover-900x1200.png`（900×1200，PNG，3:4，约 197 KB）；SVG 源文件同目录，`publish/` 不进 ZIP
+- 单元测试：`node game-high-quiz/tests/engine.test.js`
+- 已知限制：题库人工整理（新增 54 道进阶题），送审前需逐题抽查；0.2.0 已送审、未真机验证
+
+### 双线编年史
+
+- 目录：`history-chronicle/`
+- 版本：`0.1.0`
+- 状态：已上传并生成预览，未送审（2026-11-23）
+- 定位：中国 / 西方双栏编年时间轴 + 纪传体故事
+- 内容：4 个时代、21 个时间节点、30 则纪传故事（中国 16、西方 14）
+- 范围：神话创世—夏商西周—东周秦汉；创世/亚当夏娃—出埃及/摩西—希腊罗马—耶稣/新约
+- 交互：时代筛选、地区筛选、关键词搜索、关闭神话传说、故事详情与时间轴互跳
+- 实现：纯静态 H5；`data.js` + `engine.js` + `app.js` + `style.css`；经典外置脚本，不调用平台能力
+- 素材：`publish/icon-512.png`（512×512，PNG，约 30 KB）、`publish/cover-900x1200.png`（900×1200，PNG，3:4，约 240 KB）；SVG 源文件同目录
+- 包体：30,313 B；本地 ZIP SHA-256 `72de1db5326f57ac62edb01d079e317ce90e73c7590ed84406702f2e746274c3`（md5 `067e45e0b89825549f69fa37d429b1d9`）
+- 已上传代码包 fileId：`red_app/bUVSmb6b0y73xkC9sGmZbVhr6h6HyAvS93Na1P8MXiU8LY0.zip`
+- 图标 fileId：`red_skill_tool_image/La4Ov4Un1qQp4ReG5tq2xbQ3quJ6LyYUN_Sx4DlX67lZpIs.png`
+- 封面 fileId：`red_skill_tool_image/o4e3neQoiltuxP_NNjQff0RdBuOo6IkmWULlvkX313K42j0.png`
+- 预览 appId：`6b0430ad53ca3e00150c1db3`；预览二维码：`~/.local/state/redapp-cli/history-chronicle/2026-11-23-upload-preview/preview-qr-20261123-1.png`
+- 操作记录：`~/.local/state/redapp-cli/history-chronicle/2026-11-23-upload-preview/session.json`
+- 单元测试：`node history-chronicle/tests/engine.test.js`
+- 已知限制：年代为世纪级对齐；内容为通识整理，送审前需逐条复核；未送审、未真机验证
+
+### 西方神话与圣史
+
+- 目录：`west-myth-history/`
+- 版本：`0.1.0`
+- 状态：已上传并生成预览，未送审（2026-11-23）
+- 定位：西方神话、圣经叙事与宗教史大事长卷
+- 内容：4 个时代、33 件大事（神话时代 8、旧约 9、新约与早期教会 8、中世纪与改革 8）；按类型神话 7、圣经 12、宗教史 14
+- 交互：时代筛选、文本类型筛选、关键词搜索、逐则详情、上一件/下一件、说明页
+- 实现：纯静态 H5；`data.js` + `engine.js` + `app.js` + `style.css`；经典外置脚本，不调用平台能力
+- 素材：`publish/icon-512.png`（512×512，PNG，约 30 KB）、`publish/cover-900x1200.png`（900×1200，PNG，3:4，约 242 KB）；SVG 源文件同目录
+- 包体：27,103 B；本地 ZIP SHA-256 `fd078c75ebd6bca6e3816917a8acf36108f0c5b8d888fc2d137341b1a0458841`（md5 `a4db3301f3e484a85a5665253475db4d`）
+- 已上传代码包 fileId：`red_app/SvR7RDQoV1NLD6n4FQj8Ige58Kp5g-9LohIMg0am9n0sOOY.zip`
+- 图标 fileId：`red_skill_tool_image/_rzbxP5RdYjJ8F63lHoXZq41-qaLt51l_TB1MUV6nl-TWEg.png`
+- 封面 fileId：`red_skill_tool_image/RVZkXsK4P21RHhiVSh9634k71pQOtELXhnB2URs4qHoG9Ds.png`
+- 预览 appId：`6b04e47a8eb436001501e0ba`；预览二维码：`~/.local/state/redapp-cli/west-myth-history/2026-11-24-upload-preview/preview-qr-20261124-1.png`
+- 操作记录：`~/.local/state/redapp-cli/west-myth-history/2026-11-24-upload-preview/session.json`；首次上传预览记录（已作废）：`~/.local/state/redapp-cli/west-myth-history/2026-11-23-upload-preview/session.json`
+- 单元测试：`node west-myth-history/tests/engine.test.js`
+- 已知限制：年代多为约数；神话、圣经与历史材料已分栏标注，送审前仍需逐条复核；未送审、未真机验证
+
+### 生活常识小考
+
+- 目录：`life-common-sense/`
+- 版本：`0.1.0`
+- 状态：七类 210 题已送审，审核中（截至 2026-11-26）
+- appId：`6b07e65bfae1a50015241526`（`status=1 审核中`）
+- 定位：职场 / 社交 / 医院 / 交通 / 生活 / 法律 / 厨房七类常识答题
+- 题库：210 题（每类 30 题），每题 4 选项 + 解析
+- 模式：首页用标签选择分类后开始练习（每组 10 题）、综合挑战（20 题，七类尽量均衡，答对 16 题通过）、错题重练
+- 功能：累计答题、正确率、练习组数、错题本；答对自动移出错题本，可手动移除
+- 存储：`lifequiz.v1.state`（`profile` / `wrongBook`）；仅用 `window.xhs.miniTool` Storage，缺失时降级为页面内数据并提示
+- 实现：纯静态 H5；`data.js` + `engine.js` + `app.js` + `style.css`；经典外置脚本
+- 素材：`publish/icon-512.png`（512×512，PNG，约 27 KB）、`publish/cover-900x1200.png`（900×1200，PNG，3:4，约 275 KB）；SVG 源文件同目录
+- 包体（七类 210 题）：35,239 B；本地 ZIP SHA-256 `72ac326b15df0339b07da1c537b7135a6d5980160504bbd25c5e9613307a73bf`（md5 `0be7220dc451b68a353bceb35d96940d`）
+- 主题：米黄底、陶土橙主色；分类用一排可选标签，不再使用大选择卡；答题对错用橄榄绿 / 砖红区分
+- 已送审代码包 fileId：`red_app/Bg-zNvJ0RxNVHKnrAWzV7DlJFzDmCjdScgmMnt5XomX8WEs.zip`
+- 上一版（五类 100 题，已作废）代码包 fileId：`red_app/YlVzadBtWV9W4zbE0y91Y5NCjUnpdo6YreNC1z7E-gSF1Xo.zip`
+- 图标 fileId：`red_skill_tool_image/qUKvWSCqr8zhz-3GWliJpemlfG_gPQ8YrOL2svJzeQh3Qc4.png`
+- 封面 fileId：`red_skill_tool_image/FDhbzZib2Dj0EAbbHGIKbpwzxzbRjjetYLl3WCScDvndt6E.png`
+- 预览 appId：`6b07da0153ca3e00150c34f1`；预览二维码：`~/.local/state/redapp-cli/life-common-sense/2026-11-26-7cat-preview/preview-qr-20261126-7cat-1.png`
+- 操作记录（七类 210 题）：`~/.local/state/redapp-cli/life-common-sense/2026-11-26-7cat-preview/session.json`
+- 上一版预览 appId（已作废）：`6b07d14c3894b3001504da66`；操作记录：`~/.local/state/redapp-cli/life-common-sense/2026-11-26-warm-preview/session.json`
+- 上一版（青色主题，已作废）代码包 fileId：`red_app/LTE1topwij0rlwKLTFuasL462qWfxbip7WlKIXDi0UBm0Aw.zip`；预览 appId：`6b07cf4c261c1b0015ec3ed9`；操作记录：`~/.local/state/redapp-cli/life-common-sense/2026-11-26-upload-preview/session.json`
+- 单元测试：`node life-common-sense/tests/engine.test.js`
+- 已知限制：题库人工整理，医疗/法规内容送审前需逐题复核；未真机验证
 
 ## 操作记录
 

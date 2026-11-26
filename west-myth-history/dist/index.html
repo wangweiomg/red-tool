@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#f2eadc" />
+  <title>西方神话与圣史</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: #f2eadc;
+      color: #2d2a26;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                   "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    [hidden] { display: none !important; }
+  </style>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="26" height="26">
+            <path d="M6 6h7v20H6z" fill="#9b3f2e"></path>
+            <path d="M19 6h7v20h-7z" fill="#3f5f8a"></path>
+            <circle cx="16" cy="9" r="2.6" fill="#c99a45"></circle>
+            <path d="M16 12v13" stroke="#c99a45" stroke-width="1.8" stroke-linecap="round"></path>
+            <circle cx="16" cy="17" r="2" fill="#f2eadc" stroke="#c99a45" stroke-width="1.4"></circle>
+            <circle cx="16" cy="23" r="2" fill="#f2eadc" stroke="#c99a45" stroke-width="1.4"></circle>
+          </svg>
+        </span>
+        <div>
+          <p class="eyebrow">MYTH &amp; SACRED HISTORY</p>
+          <h1>西方神话与圣史</h1>
+        </div>
+      </div>
+      <p class="tagline">从创世神话到宗教改革</p>
+    </div>
+    <nav class="view-tabs" role="tablist" aria-label="阅读方式">
+      <button class="view-tab is-active" type="button" role="tab" aria-selected="true" data-view="scroll">大事长卷</button>
+      <button class="view-tab" type="button" role="tab" aria-selected="false" data-view="about">说明</button>
+    </nav>
+  </header>
+
+  <main class="app-main">
+    <section id="scroll-view" aria-label="大事长卷">
+      <div class="intro-card">
+        <p class="intro-kicker">三十三件大事</p>
+        <p class="intro-text">从巴比伦的创世史诗、埃及的太阳神、希腊众神与北欧诸神黄昏，到亚当夏娃、出埃及、大卫与所罗门；从耶稣、保罗与尼西亚公会议，直到十字军、路德与梵二会议。</p>
+      </div>
+
+      <div class="toolbar">
+        <div class="chip-row" id="era-chips" role="group" aria-label="按时代筛选"></div>
+        <div class="chip-row" id="kind-chips" role="group" aria-label="按文本类型筛选"></div>
+        <label class="search-box">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="event-search" type="search" autocomplete="off" placeholder="搜索神祇、人物、事件或年代" />
+        </label>
+      </div>
+
+      <p id="event-count" class="event-count">共 0 件大事</p>
+      <div id="event-list" class="event-list"></div>
+      <p id="event-empty" class="empty-state" hidden>没有匹配的大事。试试更换筛选，或清空搜索关键词。</p>
+    </section>
+
+    <section id="detail-view" class="detail-view" aria-label="大事详情" hidden>
+      <button id="detail-back" class="back-link" type="button">‹ 返回长卷</button>
+      <div class="detail-meta">
+        <span id="detail-era" class="detail-era"></span>
+        <span id="detail-kind" class="detail-kind">神话</span>
+        <span id="detail-tradition" class="detail-tradition"></span>
+        <span id="detail-date" class="detail-date"></span>
+      </div>
+      <h2 id="detail-title" class="detail-title"></h2>
+      <p id="detail-subtitle" class="detail-subtitle"></p>
+      <p id="detail-summary" class="detail-summary"></p>
+      <div id="detail-body" class="detail-body"></div>
+
+      <section class="detail-section">
+        <h3>关键节点</h3>
+        <ul id="detail-points" class="detail-points"></ul>
+      </section>
+
+      <section class="detail-section">
+        <h3>史料与文本</h3>
+        <p id="detail-sources" class="detail-sources"></p>
+      </section>
+
+      <section id="detail-caution-wrap" class="detail-section is-caution">
+        <h3>阅读边界</h3>
+        <p id="detail-caution" class="detail-caution"></p>
+      </section>
+
+      <div class="detail-pager">
+        <p id="detail-position" class="detail-position"></p>
+        <div class="pager-buttons">
+          <button id="detail-prev" class="pager-btn" type="button" hidden></button>
+          <button id="detail-next" class="pager-btn is-next" type="button" hidden></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="about-view" aria-label="阅读说明" hidden>
+      <div class="intro-card">
+        <p class="intro-kicker">怎么读这份长卷</p>
+        <p class="intro-text" id="about-counts">正在整理卷帙……</p>
+      </div>
+
+      <div class="about-block">
+        <h2>三种文本，三种读法</h2>
+        <p>本工具把材料分成三类：<strong>神话</strong>是古代文明的创世与神系叙事；<strong>圣经</strong>是《旧约》《新约》的宗教文本叙述；<strong>宗教史</strong>是有年代、人物与制度可考的历史事件。三类材料性质不同，不能互相替代。</p>
+      </div>
+
+      <div class="about-block">
+        <h2>神话不是“假历史”</h2>
+        <p>神话用叙事解释世界、王权、死亡与族群起源。它不一定对应某个可考事件，却是理解古代文明思维方式的重要材料。本工具会标注神话的文献来源与成书年代，提醒读者不要把神话直接当作编年史。</p>
+      </div>
+
+      <div class="about-block">
+        <h2>宗教叙事与历史研究</h2>
+        <p>《旧约》《新约》中的超自然内容属于信仰传统，历史研究无法像验证一场战役那样验证它们。历史部分我们会给出大致年代、外部史料与学界争议，例如出埃及的年代与规模、大卫与所罗门王国的考古证据、尼西亚会议的神学争论。</p>
+      </div>
+
+      <div class="about-block">
+        <h2>年代与分期</h2>
+        <p>古代年代多为约数，不同版本可能相差数十年至数百年。神话部分按传统或文献年代排序；北欧神话的口传远早于13世纪成书，因此放在神话时代末段并单独注明。宗教史部分以世纪级对齐为主。</p>
+      </div>
+
+      <p class="about-note">本工具纯离线运行，不含外部链接与广告；内容为通识性整理，不作为学术引用依据。</p>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>西方神话与圣史 · 神话、圣经与宗教史</p>
+  </footer>
+
+  <script src="./data.js"></script>
+  <script src="./engine.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

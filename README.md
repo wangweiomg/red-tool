@@ -9,12 +9,21 @@
 | `time-health-index/` | 时间健康指数 | 1.0.0 | 已送审，审核中 | 24 小时时间分配、健康分与改善建议 |
 | `game-2048/` | 2048 | 1.1.0 | 1.0.0 已发布；1.1.0 已送审，审核中 | 4×4 滑动合并小游戏 + 音效 |
 | `game-huarongdao/` | 华容道 | 1.0.0 已发布；本地 1.1.0 | 1.0.0 已发布，1.1.0 音效版已上传预览 | 经典横刀立马滑块解谜 |
-| `game-idiom/` | 成语解谜 | 1.0.0 | 已送审，审核中 | 每日成语拼字 + 分享结果卡 |
-| `game-primary-quiz/` | 小学回忆杀 | 1.0.1 | 已送审 1.0.1，审核中 | 小学练习/升级考试 + 个人中心 + 奥赛 + 音效 |
+| `game-idiom/` | 成语解谜 | 1.1.0 | 1.0.0 已发布；1.1.0 已送审，审核中 | 每日成语拼字 + 分享结果卡 + 音效 |
+| `game-primary-quiz/` | 小学回忆杀 | 1.0.1 已发布；1.1.0 已送审 | 1.1.0 审核中 | 小学练习/升级考试 + 个人中心 + 奥赛 + 音效/背景纯音乐 |
 | `game-christmas-tree/` | 圣诞装饰树 | 1.0.0 | 已送审，审核中 | 主题装饰 + 评分 + 圣诞明信片 |
 | `english-shadowing/` | 英语跟读实验室 | 1.0.0 | 已送审，审核中 | 场景对话 + 背单词 + 录音回放 |
 | `home-decor/` | 装修实验室（2.5D 原型） | 0.1.5 | 已上传并生成预览 | 选户型 + 硬装/软装 + 建材市场 + 等距明信片 |
 | `renovation-guide/` | 装修流程手册 | 0.1.0 | 已送审，审核中 | 流程 + 材料百科 + 空间 + 预算 + 自测 |
+| `photo-studio/` | 头像壁纸工坊 | 0.1.1 | 已送审，审核中 | 头像框/壁纸模板 + 照片合成 + 音效 |
+| `game-classroom-snack/` | 课堂偷吃大作战 | 0.1.0 | 已送审，审核中 | 2.5D 课堂偷吃 + 老师转身判定 |
+| `game-classroom-3d/` | 课堂偷吃大作战 3D | 1.1.0 | 已送审，审核中 | WebGL 低模教室 + 六关课表 + 音效/背景音乐 |
+| `game-snake-break/` | 课间十分钟 · 贪吃蛇 | 1.0.0 | 已送审，审核中 | 课桌贪吃蛇 + 60 秒课间 + 零食/音乐/成绩卡 |
+| `game-junior-quiz/` | 初中回忆杀 | 1.0.0 | 已送审，审核中 | 初中三册题库 + 练习/考试 + 错题本 + 成绩卡 |
+| `game-high-quiz/` | 高中回忆杀 | 0.2.0 | 已送审，审核中 | 高中三册 + 162 题库 + 练习/考试 + 高考 + 成绩卡 |
+| `history-chronicle/` | 双线编年史 | 0.1.0 | 已上传并生成预览 | 中国/西方双栏时间轴 + 30 则纪传故事 |
+| `west-myth-history/` | 西方神话与圣史 | 0.1.0 | 已重新上传并生成新预览 | 西方神话/圣经/宗教史 33 件大事 |
+| `life-common-sense/` | 生活常识小考 | 0.1.0 | 已送审，审核中 | 七类 210 题 + 练习/挑战/错题本 |
 
 - 时间健康指数 appId：`6afe917a3894b300155e85e7`
 - 平台环境：`prod`；三方来源：`thirdAgent`
@@ -75,13 +84,68 @@ red-tool/
     ├── publish/
     ├── tests/
     └── home-decor.zip
-└── renovation-guide/
+├── renovation-guide/
     ├── README.md
     ├── CONTENT-OUTLINE.md
     ├── dist/                      # 流程、材料、空间、预算、自测
     ├── publish/
     ├── tests/
     └── renovation-guide.zip
+├── photo-studio/
+    ├── README.md
+    ├── dist/                      # 模板 + Canvas 合成
+    ├── publish/
+    ├── tests/
+    └── photo-studio.zip
+├── game-classroom-snack/
+    ├── README.md
+    ├── dist/                      # 状态机 + 2.5D 教室场景
+    ├── publish/
+    ├── tests/
+    └── game-classroom-snack.zip
+├── game-classroom-3d/
+    ├── README.md
+    ├── dist/                      # Three.js + 3D 教室与老师
+    │   └── vendor/three.min.js
+    ├── publish/
+    ├── tests/
+    └── game-classroom-3d.zip
+├── game-snake-break/
+    ├── README.md
+    ├── dist/                      # 网格状态机 + Canvas 课桌
+    ├── publish/
+    ├── tests/
+    └── game-snake-break.zip
+├── game-junior-quiz/
+    ├── README.md
+    ├── dist/                      # 三册题库 + 练习/考试 + 错题本
+    ├── publish/
+    ├── tests/
+    └── game-junior-quiz.zip
+├── game-high-quiz/
+│   ├── README.md
+│   ├── dist/                      # 高中三册 + 高考
+│   ├── publish/
+│   ├── tests/
+│   └── game-high-quiz.zip
+├── history-chronicle/
+│   ├── README.md
+│   ├── dist/                      # 双栏编年时间轴 + 纪传故事
+│   ├── publish/
+│   ├── tests/
+│   └── history-chronicle.zip
+├── west-myth-history/
+│   ├── README.md
+│   ├── dist/                      # 西方神话、圣经与宗教史大事长卷
+│   ├── publish/
+│   ├── tests/
+│   └── west-myth-history.zip
+└── life-common-sense/
+    ├── README.md
+    ├── dist/                      # 七类生活常识题库 + 练习/挑战/错题本
+    ├── publish/
+    ├── tests/
+    └── life-common-sense.zip
 ```
 
 ### 目录约定
@@ -129,6 +193,15 @@ node game-primary-quiz/tests/engine.test.js
 node game-christmas-tree/tests/engine.test.js
 node home-decor/tests/engine.test.js
 node renovation-guide/tests/engine.test.js
+node photo-studio/tests/engine.test.js
+node game-classroom-snack/tests/engine.test.js
+node --check game-classroom-3d/dist/app.js
+node game-snake-break/tests/engine.test.js
+node game-junior-quiz/tests/engine.test.js
+node game-high-quiz/tests/engine.test.js
+node history-chronicle/tests/engine.test.js
+node west-myth-history/tests/engine.test.js
+node life-common-sense/tests/engine.test.js
 
 # 生成 ZIP（根目录直接是 index.html）
 python3 scripts/package.py game-2048/dist game-2048/game-2048.zip

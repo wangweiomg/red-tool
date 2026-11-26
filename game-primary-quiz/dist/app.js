@@ -132,7 +132,7 @@
   }
 
   function defaultSettings() {
-    return { sfx: true, bgm: false };
+    return { sfx: true, bgm: true };
   }
 
   function normalizeSettings(raw) {
@@ -156,14 +156,21 @@
     unlocked: false
   };
 
-  var BGM_STEP = 0.24;
+  /* 舒缓背景纯音乐：F 大调五声音阶的音乐盒旋律，F–Dm–B♭–C 慢速和弦铺底。
+   * 32 步、每步 0.42 秒，约 13.4 秒一循环；全部 Web Audio 合成，不引入音频文件。 */
+  var BGM_STEP = 0.42;
   var BGM_MELODY = [
-    523.25, 659.25, 783.99, 659.25, 440, 523.25, 659.25, 523.25,
-    349.23, 440, 523.25, 440, 392, 493.88, 587.33, 783.99,
-    523.25, 659.25, 783.99, 1046.5, 440, 523.25, 659.25, 880,
-    349.23, 440, 523.25, 698.46, 392, 493.88, 587.33, 783.99
+    440, 0, 523.25, 587.33, 0, 523.25, 0, 440,
+    440, 0, 392, 349.23, 0, 349.23, 0, 0,
+    587.33, 0, 698.46, 587.33, 0, 523.25, 0, 440,
+    523.25, 0, 440, 392, 0, 349.23, 0, 0
   ];
-  var BGM_BASS = [130.81, 110, 87.31, 98, 130.81, 110, 87.31, 98];
+  var BGM_CHORDS = [
+    [174.61, 220, 261.63],
+    [146.83, 174.61, 220],
+    [116.54, 146.83, 174.61],
+    [130.81, 164.81, 196]
+  ];
 
   function ensureAudio() {
     if (audioState.ctx) {
@@ -286,13 +293,19 @@
     if (audioState.nextTime < ctx.currentTime - 1) {
       audioState.nextTime = ctx.currentTime + 0.05;
     }
-    var lookahead = ctx.currentTime + 0.35;
+    var lookahead = ctx.currentTime + 0.5;
     while (audioState.nextTime < lookahead) {
-      var index = audioState.step % BGM_MELODY.length;
-      playTone(BGM_MELODY[index], audioState.nextTime, 0.22, 'triangle', 0.05, audioState.musicGain);
-      if (audioState.step % 4 === 0) {
-        var bassIndex = Math.floor(audioState.step / 4) % BGM_BASS.length;
-        playTone(BGM_BASS[bassIndex], audioState.nextTime, 0.42, 'sine', 0.04, audioState.musicGain);
+      var index = audioState.step % 32;
+      var note = BGM_MELODY[index];
+      if (note) {
+        playTone(note, audioState.nextTime, 0.95, 'sine', 0.045, audioState.musicGain);
+      }
+      if (index % 8 === 0) {
+        var chord = BGM_CHORDS[(index / 8) % 4];
+        for (var c = 0; c < chord.length; c += 1) {
+          playTone(chord[c], audioState.nextTime + c * 0.04, 2.3, 'sine',
+            c === 0 ? 0.026 : 0.016, audioState.musicGain);
+        }
       }
       audioState.nextTime += BGM_STEP;
       audioState.step += 1;

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#efe3cf" />
+  <title>课堂偷吃大作战</title>
+  <style>
+    html, body { margin: 0; padding: 0; background: #efe3cf; color: #3f352b; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                   "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    h1, h2, p { margin: 0; }
+    [hidden] { display: none !important; }
+    .app { min-height: 100vh; padding: 0 16px 22px; }
+  </style>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22">
+            <rect x="3" y="4" width="18" height="12" rx="2" fill="#2f4a3a"></rect>
+            <rect x="5" y="6" width="10" height="2" rx="1" fill="#cfe6d6"></rect>
+            <rect x="5" y="10" width="14" height="2" rx="1" fill="#cfe6d6"></rect>
+            <rect x="7" y="18" width="2" height="3" fill="#8a6a4b"></rect>
+            <rect x="15" y="18" width="2" height="3" fill="#8a6a4b"></rect>
+          </svg>
+        </span>
+        <div>
+          <p class="eyebrow">CLASSROOM SNACK</p>
+          <h1>课堂偷吃大作战</h1>
+        </div>
+      </div>
+      <span class="tag-chip">2.5D 原型</span>
+    </header>
+
+    <p class="subtitle">老师写字时赶紧吃，转身前咽下去。</p>
+
+    <div class="stage">
+      <canvas id="scene" width="800" height="600" aria-label="课堂场景"></canvas>
+      <div class="hud">
+        <span class="hud-item" id="hud-snacks">零食 0 / 10</span>
+        <span class="hud-item" id="hud-lives">♥♥♥</span>
+        <span class="hud-item hud-phase" id="hud-phase">老师写字中</span>
+      </div>
+
+      <div class="overlay" id="start-overlay">
+        <p class="overlay-kicker">课堂挑战</p>
+        <h2>老师转身前，咽下去</h2>
+        <p class="overlay-desc">按住「吃」偷吃零食。老师转身时，嘴里还有东西就会被抓。吃满 10 个就赢。</p>
+        <p class="overlay-best" id="best-label"></p>
+        <button class="btn btn-primary" type="button" id="start-btn">开始上课</button>
+      </div>
+
+      <div class="overlay" id="result-overlay" hidden>
+        <p class="overlay-kicker" id="result-kicker">下课了</p>
+        <p class="result-score"><strong id="result-snacks">0</strong><span>个零食</span></p>
+        <p class="result-title" id="result-title"></p>
+        <p class="overlay-best" id="result-best"></p>
+        <div class="result-actions">
+          <button class="btn btn-primary" type="button" id="again-btn">再来一局</button>
+          <button class="btn btn-ghost" type="button" id="save-card">保存成绩卡</button>
+          <button class="btn btn-ghost" type="button" id="share-card">分享图片</button>
+          <button class="btn btn-ghost" type="button" id="post-note">发布笔记</button>
+        </div>
+        <p class="share-status" id="share-status" role="status"></p>
+      </div>
+    </div>
+
+    <div class="eat-area">
+      <button class="eat-btn" type="button" id="eat-btn" disabled>按住吃</button>
+      <div class="eat-progress"><span id="eat-fill"></span></div>
+      <p class="status" id="status" role="status">点「开始上课」进入课堂。</p>
+    </div>
+
+    <details class="rules">
+      <summary>怎么玩</summary>
+      <ul>
+        <li>老师背对黑板写字时，按住「吃」积累进度。</li>
+        <li>进度满一个算吃掉一个零食，吃完还有约 0.9 秒咀嚼时间。</li>
+        <li>老师转身完成时，如果正在吃、在咀嚼，或刚吃了一半，就会被抓。</li>
+        <li>被抓扣一条命，三条命用完就下课；吃满 10 个获胜。</li>
+        <li>吃得越多，老师写字时间越短、盯人的时间越长。</li>
+      </ul>
+    </details>
+  </main>
+  <script defer src="./engine.js"></script>
+  <script defer src="./app.js"></script>
+</body>
+</html>

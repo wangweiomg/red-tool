@@ -604,3 +604,39 @@ button {
     animation: none !important;
   }
 }
+
+
+/* ---------- 声音 ---------- */
+
+.sound-bar {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.sound-label {
+  margin-right: 8px;
+  font-size: 12px;
+  color: #9a8a72;
+}
+
+.sound-toggle {
+  min-height: 32px;
+  margin-right: 8px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid #ddcdb2;
+  background: #fffaf0;
+  color: #6f5d49;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.sound-toggle.is-on {
+  border-color: #b98b4b;
+  background: #b98b4b;
+  color: #ffffff;
+}
+
+.sound-toggle[disabled] { opacity: 0.45; }

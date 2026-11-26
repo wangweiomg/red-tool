@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#f3ead9" />
+  <title>双线编年史</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: #f3ead9;
+      color: #2f2a24;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                   "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    [hidden] { display: none !important; }
+  </style>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="26" height="26">
+            <path d="M6 5h8v22H6z" fill="#a8442f"></path>
+            <path d="M18 5h8v22h-8z" fill="#3f5f8a"></path>
+            <path d="M14 8h4v16h-4z" fill="#c9a35c"></path>
+            <path d="M4 27h24" stroke="#2f2a24" stroke-width="1.6" stroke-linecap="round"></path>
+          </svg>
+        </span>
+        <div>
+          <p class="eyebrow">TWO LINES OF HISTORY</p>
+          <h1>双线编年史</h1>
+        </div>
+      </div>
+      <p class="tagline">同一时间轴上，中国与西方</p>
+    </div>
+    <nav class="view-tabs" role="tablist" aria-label="阅读方式">
+      <button class="view-tab is-active" type="button" role="tab" aria-selected="true" data-view="timeline">编年体</button>
+      <button class="view-tab" type="button" role="tab" aria-selected="false" data-view="stories">纪传体</button>
+      <button class="view-tab" type="button" role="tab" aria-selected="false" data-view="about">说明</button>
+    </nav>
+  </header>
+
+  <main class="app-main">
+    <section id="timeline-view" aria-label="编年体时间轴">
+      <div class="intro-card">
+        <p class="intro-kicker">从神话到帝国</p>
+        <p class="intro-text">从三皇五帝与夏商西周，到东周秦汉；从《旧约》的创世、出埃及，到希腊罗马与《新约》。左右对照，看见同一时期不同文明的选择。</p>
+      </div>
+
+      <div class="toolbar">
+        <div class="chip-row" id="era-chips" role="group" aria-label="按时代筛选"></div>
+        <div class="toolbar-row">
+          <label class="search-box">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input id="timeline-search" type="search" autocomplete="off" placeholder="搜索人物、事件或年代" />
+          </label>
+          <label class="legend-toggle">
+            <input id="include-legend" type="checkbox" checked />
+            <span>包含神话传说</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="timeline-meta">
+        <span class="timeline-key"><i class="key-dot is-cn"></i>中国</span>
+        <span class="timeline-key"><i class="key-dot is-west"></i>西方</span>
+        <span id="timeline-count" class="timeline-count">共 0 个时间节点</span>
+      </div>
+
+      <div id="timeline-list" class="timeline-list"></div>
+      <p id="timeline-empty" class="empty-state" hidden>没有匹配的时间节点。试试清空搜索，或打开“包含神话传说”。</p>
+    </section>
+
+    <section id="stories-view" aria-label="纪传体故事" hidden>
+      <div class="intro-card is-story">
+        <p class="intro-kicker">纪传体 · 人物与故事</p>
+        <p class="intro-text">编年体记“何时发生”，纪传体讲“为什么值得记住”。这里把时间轴上的关键节点展开成可阅读的故事，并标明神话、传说、信史与圣经叙事的边界。</p>
+      </div>
+
+      <div class="toolbar">
+        <div class="chip-row" id="region-chips" role="group" aria-label="按地区筛选"></div>
+        <div class="toolbar-row">
+          <label class="search-box">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input id="story-search" type="search" autocomplete="off" placeholder="搜索故事、人物或关键词" />
+          </label>
+        </div>
+      </div>
+
+      <p id="stories-count" class="stories-count">共 0 则</p>
+      <div id="stories-list" class="stories-list"></div>
+      <p id="stories-empty" class="empty-state" hidden>没有匹配的故事。试试更换地区或关键词。</p>
+    </section>
+
+    <section id="story-detail" class="story-detail" aria-label="故事详情" hidden>
+      <button id="detail-back" class="back-link" type="button">‹ 返回故事列表</button>
+      <div class="detail-meta">
+        <span id="detail-region" class="story-region">中国</span>
+        <span id="detail-kind" class="story-kind">信史</span>
+        <span id="detail-period" class="detail-period"></span>
+      </div>
+      <h2 id="detail-title" class="detail-title"></h2>
+      <p id="detail-subtitle" class="detail-subtitle"></p>
+      <p id="detail-summary" class="detail-summary"></p>
+      <div id="detail-body" class="detail-body"></div>
+      <section class="detail-section">
+        <h3>关键节点</h3>
+        <ul id="detail-points" class="detail-points"></ul>
+      </section>
+      <section class="detail-section">
+        <h3>史料与边界</h3>
+        <p id="detail-sources" class="detail-sources"></p>
+      </section>
+      <section class="detail-section">
+        <h3>回到时间轴</h3>
+        <div id="detail-entries" class="related-entries"></div>
+      </section>
+    </section>
+
+    <section id="about-view" aria-label="阅读说明" hidden>
+      <div class="intro-card">
+        <p class="intro-kicker">怎么读这本小史</p>
+        <p class="intro-text" id="about-counts">正在整理卷帙……</p>
+      </div>
+
+      <div class="about-block">
+        <h2>编年体与纪传体</h2>
+        <p>“编年体”按时间顺序排列事件，适合看同一时期不同文明在做什么；“纪传体”以人物和故事为中心，适合追问一件事的来龙去脉。本工具把两种读法放在同一份数据上：时间轴负责对照，故事页负责展开。</p>
+      </div>
+
+      <div class="about-block">
+        <h2>年代与史料边界</h2>
+        <p>中国上古部分严格区分神话、传说、传统记载与考古信史。盘古、女娲、三皇五帝属于神话传说；夏朝见于传统文献，二里头遗址提供了早期国家的重要线索，但仍缺少自证性文字。西方早期年代多来自传统纪年或学术推定，不同版本可能相差数十年至数百年。</p>
+        <p>《旧约》《新约》故事按其宗教文本叙述呈现，同时标注历史背景与学界争议，不把宗教叙事直接等同于现代史学结论。</p>
+      </div>
+
+      <div class="about-block">
+        <h2>时间轴怎么对齐</h2>
+        <p>时间轴以“世纪级”对齐为主，不追求逐年同步。神话与创世放在最前，作为无确切年代的叙事层；夏商西周、东周秦汉按大致年代排列。左右两侧的事件可能相隔数十年，阅读时请留意年份标签与“约”字。</p>
+      </div>
+
+      <div class="about-block">
+        <h2>使用建议</h2>
+        <p>先沿时间轴通读一遍，建立整体印象；再挑选感兴趣的人物或事件进入纪传体。遇到“神话/传说”标签，请把它当作古人的世界想象；遇到“信史”标签，也仍要记得历史叙述本身带有立场。</p>
+      </div>
+
+      <p class="about-note">本工具纯离线运行，不含外部链接与广告；内容为通识性整理，不作为学术引用依据。</p>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>双线编年史 · 神话、传说与信史之间</p>
+  </footer>
+
+  <script src="./data.js"></script>
+  <script src="./engine.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
