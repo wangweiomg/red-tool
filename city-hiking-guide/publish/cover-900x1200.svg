@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#faf6ec"/>
+      <stop offset="1" stop-color="#e9dfc9"/>
+    </linearGradient>
+    <radialGradient id="warm" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f2dfc4" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#f2dfc4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="900" height="1200" fill="url(#bg)"/>
+  <circle cx="800" cy="150" r="250" fill="url(#warm)"/>
+
+  <text x="450" y="98" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="23" font-weight="500" letter-spacing="7" fill="#3f6b4f">BEIJING HIKING GUIDE</text>
+  <text x="450" y="204" text-anchor="middle" font-family="Noto Serif CJK SC, serif"
+        font-size="88" font-weight="900" fill="#26302a">北京徒步指南</text>
+  <text x="450" y="262" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="27" font-weight="400" fill="#7c7c6d">10 条山野与水景路线 · 按难度排序</text>
+
+  <!-- frame -->
+  <rect x="78" y="316" width="744" height="492" rx="30" fill="#fffdf8"
+        stroke="#d9cbb2" stroke-width="3"/>
+  <text x="112" y="352" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="19" font-weight="700" letter-spacing="1.5" fill="#3f6b4f">名称 · 难度 · 里程耗时 · 核心亮点</text>
+
+  <!-- rows: y = 370 + n*39 -->
+  <g font-family="Noto Sans CJK SC, sans-serif">
+    <!-- 1 -->
+    <rect x="112" y="370" width="636" height="32" rx="6" fill="#f4efe4"/>
+    <rect x="112" y="370" width="4" height="32" rx="2" fill="#4f7a5a"/>
+    <text x="130" y="391" font-size="15" font-weight="800" fill="#26302a">百望山森林公园</text>
+    <text x="300" y="391" font-size="10.5" fill="#8a8b7c">3—5 km · 1.5—2.5 h</text>
+    <text x="490" y="391" font-size="10.5" fill="#566256">离城近，缓坡看天际线</text>
+    <text x="730" y="391" text-anchor="end" font-size="10.5" font-weight="700" fill="#4f7a5a">★☆☆☆☆ 轻松</text>
+
+    <!-- 2 -->
+    <rect x="112" y="409" width="636" height="32" rx="6" fill="#f4efe4"/>
+    <rect x="112" y="409" width="4" height="32" rx="2" fill="#7a8a4a"/>
+    <text x="130" y="430" font-size="15" font-weight="800" fill="#26302a">玉渡山</text>
+    <text x="300" y="430" font-size="10.5" fill="#8a8b7c">4—6 km · 2—4 h</text>
+    <text x="490" y="430" font-size="10.5" fill="#566256">草甸溪流，亲子轻松</text>
+    <text x="730" y="430" text-anchor="end" font-size="10.5" font-weight="700" fill="#7a8a4a">★★☆☆☆ 入门</text>
+
+    <!-- 3 -->
+    <rect x="112" y="448" width="636" height="32" rx="6" fill="#f4efe4"/>
+    <rect x="112" y="448" width="4" height="32" rx="2" fill="#7a8a4a"/>
+    <text x="130" y="469" font-size="15" font-weight="800" fill="#26302a">神堂峪木栈道</text>
+    <text x="300" y="469" font-size="10.5" fill="#8a8b7c">7—8 km · 3—4 h</text>
+    <text x="490" y="469" font-size="10.5" fill="#566256">沿溪木栈道，亲子亲水</text>
+    <text x="730" y="469" text-anchor="end" font-size="10.5" font-weight="700" fill="#7a8a4a">★★☆☆☆ 入门</text>
+
+    <!-- 4 -->
+    <rect x="112" y="487" width="636" height="32" rx="6" fill="#f4efe4"/>
+    <rect x="112" y="487" width="4" height="32" rx="2" fill="#7a8a4a"/>
+    <text x="130" y="508" font-size="15" font-weight="800" fill="#26302a">青龙峡</text>
+    <text x="300" y="508" font-size="10.5" fill="#8a8b7c">5—8 km · 3—5 h</text>
+    <text x="490" y="508" font-size="10.5" fill="#566256">水库峡谷，亲子戏水</text>
+    <text x="730" y="508" text-anchor="end" font-size="10.5" font-weight="700" fill="#7a8a4a">★★☆☆☆ 入门</text>
+
+    <!-- 5 -->
+    <rect x="112" y="526" width="636" height="32" rx="6" fill="#f4efe4"/>
+    <rect x="112" y="526" width="4" height="32" rx="2" fill="#7a8a4a"/>
+    <text x="130" y="547" font-size="15" font-weight="800" fill="#26302a">黄花城水长城</text>
+    <text x="300" y="547" font-size="10.5" fill="#8a8b7c">5—9 km · 3—5 h</text>
+    <text x="490" y="547" font-size="10.5" fill="#566256">长城入水，山水同框</text>
+    <text x="730" y="547" text-anchor="end" font-size="10.5" font-weight="700" fill="#7a8a4a">★★☆☆☆ 入门</text>
+
+    <!-- 6 -->
+    <rect x="112" y="565" width="636" height="32" rx="6" fill="#f4efe4"/>
+    <rect x="112" y="565" width="4" height="32" rx="2" fill="#b58a3f"/>
+    <text x="130" y="586" font-size="15" font-weight="800" fill="#26302a">凤凰岭</text>
+    <text x="300" y="586" font-size="10.5" fill="#8a8b7c">8—12 km · 4—6 h</text>
+    <text x="490" y="586" font-size="10.5" fill="#566256">奇石山脊，路线成熟</text>
+    <text x="730" y="586" text-anchor="end" font-size="10.5" font-weight="700" fill="#b58a3f">★★★☆☆ 进阶</text>
+
+    <!-- 7 -->
+    <rect x="112" y="604" width="636" height="32" rx="6" fill="#f4efe4"/>
+    <rect x="112" y="604" width="4" height="32" rx="2" fill="#b58a3f"/>
+    <text x="130" y="625" font-size="15" font-weight="800" fill="#26302a">百花山</text>
+    <text x="300" y="625" font-size="10.5" fill="#8a8b7c">10—15 km · 5—7 h</text>
+    <text x="490" y="625" font-size="10.5" fill="#566256">高山草甸，夏季花海</text>
+    <text x="730" y="625" text-anchor="end" font-size="10.5" font-weight="700" fill="#b58a3f">★★★☆☆ 进阶</text>
+
+    <!-- 8 -->
+    <rect x="112" y="643" width="636" height="32" rx="6" fill="#f4efe4"/>
+    <rect x="112" y="643" width="4" height="32" rx="2" fill="#b58a3f"/>
+    <text x="130" y="664" font-size="15" font-weight="800" fill="#26302a">香八拉（香山—八大处）</text>
+    <text x="300" y="664" font-size="10.5" fill="#8a8b7c">12—15 km · 4—6 h</text>
+    <text x="490" y="664" font-size="10.5" fill="#566256">经典拉练线</text>
+    <text x="730" y="664" text-anchor="end" font-size="10.5" font-weight="700" fill="#b58a3f">★★★☆☆ 进阶</text>
+
+    <!-- 9 -->
+    <rect x="112" y="682" width="636" height="32" rx="6" fill="#f4efe4"/>
+    <rect x="112" y="682" width="4" height="32" rx="2" fill="#c06a3a"/>
+    <text x="130" y="703" font-size="15" font-weight="800" fill="#26302a">云蒙山</text>
+    <text x="300" y="703" font-size="10.5" fill="#8a8b7c">10—20 km · 5—8 h</text>
+    <text x="490" y="703" font-size="10.5" fill="#566256">峡谷溪水，乱石路段</text>
+    <text x="730" y="703" text-anchor="end" font-size="10.5" font-weight="700" fill="#c06a3a">★★★★☆ 挑战</text>
+
+    <!-- 10 -->
+    <rect x="112" y="721" width="636" height="32" rx="6" fill="#f4efe4"/>
+    <rect x="112" y="721" width="4" height="32" rx="2" fill="#c06a3a"/>
+    <text x="130" y="742" font-size="15" font-weight="800" fill="#26302a">东灵山</text>
+    <text x="300" y="742" font-size="10.5" fill="#8a8b7c">9—16 km · 5—7 h</text>
+    <text x="490" y="742" font-size="10.5" fill="#566256">北京最高峰，高山草甸</text>
+    <text x="730" y="742" text-anchor="end" font-size="10.5" font-weight="700" fill="#c06a3a">★★★★☆ 挑战</text>
+  </g>
+
+  <text x="112" y="790" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="13" fill="#8a8b7c">亲子路线 5 条 · 支持按难度和亲子筛选</text>
+
+  <!-- chips -->
+  <rect x="126" y="852" width="200" height="54" rx="27" fill="#ffffff"
+        stroke="#e1d3b9" stroke-width="1.5"/>
+  <text x="226" y="888" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="22" font-weight="700" fill="#3f6b4f">难度 + 亲子</text>
+
+  <rect x="346" y="852" width="208" height="54" rx="27" fill="#ffffff"
+        stroke="#e1d3b9" stroke-width="1.5"/>
+  <text x="450" y="888" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="22" font-weight="700" fill="#c47b4a">点击看详情</text>
+
+  <rect x="574" y="852" width="200" height="54" rx="27" fill="#ffffff"
+        stroke="#e1d3b9" stroke-width="1.5"/>
+  <text x="674" y="888" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="22" font-weight="700" fill="#8f6a2d">分享路线卡</text>
+
+  <text x="450" y="982" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="26" font-weight="400" fill="#566256">周末按体力挑一条，出发前确认开放与天气</text>
+  <text x="450" y="1034" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="22" font-weight="400" fill="#8a8b7c">北京 · 首期 10 条代表路线</text>
+  <text x="450" y="1142" text-anchor="middle" font-family="Noto Sans CJK SC, sans-serif"
+        font-size="20" font-weight="400" letter-spacing="2" fill="#3f6b4f">北京徒步指南</text>
+</svg>

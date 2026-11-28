@@ -24,6 +24,7 @@
 | `history-chronicle/` | 双线编年史 | 0.1.0 | 已上传并生成预览 | 中国/西方双栏时间轴 + 30 则纪传故事 |
 | `west-myth-history/` | 西方神话与圣史 | 0.1.0 | 已重新上传并生成新预览 | 西方神话/圣经/宗教史 33 件大事 |
 | `life-common-sense/` | 生活常识小考 | 0.1.0 | 已送审，审核中 | 七类 210 题 + 练习/挑战/错题本 |
+| `city-hiking-guide/` | 北京徒步指南 | 0.1.0 | 已送审，审核中 | 北京 10 条路线 + 难度/亲子筛选 + 分享图 |
 
 - 时间健康指数 appId：`6afe917a3894b300155e85e7`
 - 平台环境：`prod`；三方来源：`thirdAgent`
@@ -140,12 +141,18 @@ red-tool/
 │   ├── publish/
 │   ├── tests/
 │   └── west-myth-history.zip
-└── life-common-sense/
+├── life-common-sense/
+│   ├── README.md
+│   ├── dist/                      # 七类生活常识题库 + 练习/挑战/错题本
+│   ├── publish/
+│   ├── tests/
+│   └── life-common-sense.zip
+└── city-hiking-guide/
     ├── README.md
-    ├── dist/                      # 七类生活常识题库 + 练习/挑战/错题本
+    ├── dist/                      # 北京 10 条徒步路线 + 难度/亲子筛选 + 分享图
     ├── publish/
     ├── tests/
-    └── life-common-sense.zip
+    └── city-hiking-guide.zip
 ```
 
 ### 目录约定
@@ -202,6 +209,7 @@ node game-high-quiz/tests/engine.test.js
 node history-chronicle/tests/engine.test.js
 node west-myth-history/tests/engine.test.js
 node life-common-sense/tests/engine.test.js
+node city-hiking-guide/tests/engine.test.js
 
 # 生成 ZIP（根目录直接是 index.html）
 python3 scripts/package.py game-2048/dist game-2048/game-2048.zip

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fbf7ee"/>
+      <stop offset="1" stop-color="#e9dfc9"/>
+    </linearGradient>
+    <linearGradient id="mountain" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4f7a5a"/>
+      <stop offset="1" stop-color="#2d513b"/>
+    </linearGradient>
+    <clipPath id="round">
+      <rect x="0" y="0" width="512" height="512" rx="112"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#round)">
+    <rect x="0" y="0" width="512" height="512" fill="url(#bg)"/>
+    <circle cx="448" cy="74" r="118" fill="#f2dfc4" opacity="0.8"/>
+    <circle cx="58" cy="466" r="126" fill="#dce8dc" opacity="0.7"/>
+
+    <!-- sun -->
+    <circle cx="360" cy="132" r="34" fill="#c47b4a"/>
+
+    <!-- back mountain -->
+    <path d="M46 380 L168 190 L246 300 L304 214 L466 380 Z" fill="url(#mountain)"/>
+    <!-- snow cap -->
+    <path d="M168 190 L200 236 L178 230 L160 246 L146 226 Z" fill="#f4efe4"/>
+    <path d="M304 214 L330 248 L312 242 L298 254 L286 236 Z" fill="#f4efe4" opacity="0.85"/>
+
+    <!-- trail -->
+    <path d="M74 412 C140 380 170 420 224 386 C280 350 322 404 392 366"
+          fill="none" stroke="#e8d7b8" stroke-width="10" stroke-linecap="round"
+          stroke-dasharray="2 22"/>
+
+    <!-- city skyline -->
+    <path d="M78 412 V384 H102 V370 H126 V400 H152 V358 H176 V400 H204 V378 H232 V412 Z"
+          fill="#26302a" opacity="0.85"/>
+    <path d="M280 412 V390 H304 V374 H328 V402 H354 V366 H378 V402 H408 V412 Z"
+          fill="#26302a" opacity="0.85"/>
+    <rect x="64" y="412" width="384" height="8" rx="4" fill="#26302a" opacity="0.9"/>
+  </g>
+</svg>

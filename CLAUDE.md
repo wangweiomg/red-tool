@@ -125,11 +125,17 @@ red-tool/
 │   ├── tests/
 │   ├── west-myth-history.zip
 │   └── README.md
-└── life-common-sense/
+├── life-common-sense/
+│   ├── dist/
+│   ├── publish/
+│   ├── tests/
+│   ├── life-common-sense.zip
+│   └── README.md
+└── city-hiking-guide/
     ├── dist/
     ├── publish/
     ├── tests/
-    ├── life-common-sense.zip
+    ├── city-hiking-guide.zip
     └── README.md
 ```
 
@@ -161,6 +167,7 @@ node game-primary-quiz/tests/engine.test.js
 node history-chronicle/tests/engine.test.js
 node west-myth-history/tests/engine.test.js
 node life-common-sense/tests/engine.test.js
+node city-hiking-guide/tests/engine.test.js
 
 # 语法
 node --check game-2048/dist/engine.js
@@ -606,6 +613,29 @@ node "$HOME/.claude/skills/redapp-cli/scripts/ensure-cli.mjs"
 - 上一版（青色主题，已作废）代码包 fileId：`red_app/LTE1topwij0rlwKLTFuasL462qWfxbip7WlKIXDi0UBm0Aw.zip`；预览 appId：`6b07cf4c261c1b0015ec3ed9`；操作记录：`~/.local/state/redapp-cli/life-common-sense/2026-11-26-upload-preview/session.json`
 - 单元测试：`node life-common-sense/tests/engine.test.js`
 - 已知限制：题库人工整理，医疗/法规内容送审前需逐题复核；未真机验证
+
+### 城市徒步指南（北京单城版）
+
+- 目录：`city-hiking-guide/`
+- 版本：`0.1.0`
+- 状态：北京 10 条路线 + 亲子筛选 + 分享卡已送审，审核中（截至 2026-11-28）
+- appId：`6b0a4016261c1b0015ec5013`（`status=1 审核中`）
+- 定位：城市周边徒步路线推荐，首期只做北京
+- 城市：1 个（北京）；10 条代表路线
+- 内容：每条含名称、难度、里程、爬升、用时、一句核心亮点、亲子标记；详情含起点、亮点和提示
+- 交互：紧凑列表（一屏多条）、难度/亲子筛选（全部 / 亲子 / 轻松 / 进阶 / 挑战）、点击路线进入详情页、返回保留列表位置
+- 分享：详情页生成 900×1200 路线卡，支持保存相册 / 分享图片 / 发布笔记；使用 `saveImageToPhotosAlbum`、`share`、`postNote`，均做能力检测
+- 实现：纯静态 H5；`data.js` + `engine.js` + `app.js` + `style.css`；经典外置脚本
+- 素材：`publish/icon-512.png`（512×512，PNG，约 32 KB）、`publish/cover-900x1200.png`（900×1200，PNG，3:4，约 212 KB）；SVG 源文件同目录
+- 包体（北京 10 条 + 分享卡）：12,626 B；本地 ZIP SHA-256 `13240b80e18a757491d7894a94587da6c169cc5b70b7f9adf65ba6e28dce9af2`（md5 `5867d988fca8ffb6ef7966bd8011e17a`）
+- 已送审代码包 fileId：`red_app/Ra0n3flYvBPjTGvh1pegvjzhlWooV_FVkyvDW5WQ_qCN_q0.zip`
+- 图标 fileId：`red_skill_tool_image/w6iyqWTwV_mXooTiYxedVce-Ht7LLQ0jgegvaY1P1Q3Ye9M.png`
+- 封面 fileId：`red_skill_tool_image/ccZ8ruduGj6_AsMyvlReIumSHMNWQmwrkjTtKsJ8brKUb8Q.png`
+- 预览 appId：`6b0a3fb6261c1b0015ec500e`；预览二维码：`~/.local/state/redapp-cli/city-hiking-guide/2026-11-28-share-preview/preview-qr-20261128-share-1.png`
+- 操作记录（10 条 + 分享卡）：`~/.local/state/redapp-cli/city-hiking-guide/2026-11-28-share-preview/session.json`
+- 上一版（北京 5 条，已作废）代码包 fileId：`red_app/v0m-cpCN_OLO91LYbrjeTyf-nNVzmRvfASOdQCem2fdA2ZQ.zip`；预览 appId：`6b0a37defae1a500152425b9`；操作记录：`~/.local/state/redapp-cli/city-hiking-guide/2026-11-28-beijing-preview/session.json`
+- 单元测试：`node city-hiking-guide/tests/engine.test.js`
+- 已知限制：路线数据为常见走法约数，未接入地图/轨迹/天气；分享入口依赖平台版本；未真机验证
 
 ## 操作记录
 
